@@ -1,3 +1,10 @@
+@mixin form-label {
+  cursor: pointer;
+  display: block;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
 @mixin prefix-postfix-base {
   display: block;
   text-align: center;
@@ -11,7 +18,24 @@ input[type="text"] {
   width: 100%;
 }
 
+label {
+  @include form-label;
+}
+
 .prefix,
 .postfix {
   @include prefix-postfix-base;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 0;
+  vertical-align: baseline;
+}
+
+select {
+  width: 100%;
 }

@@ -3,12 +3,17 @@ $(function () {
 
   var
     calcResult,
-    calcInputVal;
+    calcId,
+    calcVal;
 
-  $('[type="text"]').keyup(function () {
+  calcResult = new calcUpdate();
+  calcResult.setValue('default', '0');
+  
+  $('[data-calc]').keyup(function () {
     calcResult = new calcUpdate();
-    calcInputVal = $(this).val();
-    calcResult.setValue(calcInputVal);
+    calcId = $(this).data('calc');
+    calcVal = $(this).val();
+    calcResult.setValue(calcId, calcVal);
   });
 
 });

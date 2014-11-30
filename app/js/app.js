@@ -4,86 +4,84 @@
   function calcUpdate() {
   }
 
-  calcUpdate.prototype.setValue = function (questionVal) {
+  calcUpdate.prototype.setValue = function (calcId, calcVal) {
     
-    console.log('calc init');
-    /*var
-      pie = new Pie(),
-      // Load the data
-      breakdownCostsArr = [['997', '24830', '104347', '87317'],
-                           ['2427', '33237', '128613', '122677'],
-                           ['2687', '33367', '105950', '107900'],
-                           ['3207', '23053', '72020', '81943'],
-                           ['4723', '10010', '52433', '49053']],
-      // Question results
-      questionsArr                      = questionVal,
-      questionAge                       = questionsArr[0],
-      questionChild                     = questionsArr[1],
-      questionIncome                    = questionsArr[2],
-      // Breakdown costs
-      breakdownHealth                   = parseFloat(breakdownCostsArr[questionAge][0]) / 100,
-      breakdownTransport                = parseFloat(breakdownCostsArr[questionAge][1]) / 100,
-      breakdownHousehold                = parseFloat(breakdownCostsArr[questionAge][2]) / 100,
-      breakdownOther                    = parseFloat(breakdownCostsArr[questionAge][3]) / 100,
-      breakdownChildcareMonthly         = questionChild * 619,
-      breakdownChildcareAnnually        = breakdownChildcareMonthly * 12,
-      // Monthly/annually cost
-      totalCostMonthly                  = (breakdownHousehold + breakdownTransport + breakdownHealth + breakdownOther + breakdownChildcareMonthly),
-      totalCostAnnually                 = (totalCostMonthly * 12),
-      // Breakdown costs sums
-      breakdownCostHousehold            = breakdownHousehold,
-      breakdownCostTransport            = breakdownTransport,
-      breakdownCostHealth               = breakdownHealth,
-      breakdownCostOther                = breakdownOther,
-      breakdownCostChildcare            = breakdownChildcareMonthly,
-      // Percentages
-      totalCostMonthlyPercentage        = ((breakdownCostHousehold + breakdownTransport + breakdownHealth + breakdownOther + breakdownCostChildcare) / 100),
-      breakdownCostHouseholdPercentage  = breakdownCostHousehold / totalCostMonthlyPercentage,
-      breakdownCostTransportPercentage  = breakdownTransport / totalCostMonthlyPercentage,
-      breakdownCostHealthPercentage     = breakdownHealth / totalCostMonthlyPercentage,
-      breakdownCostOtherPercentage      = breakdownOther / totalCostMonthlyPercentage,
-      breakdownCostChildcarePercentage  = breakdownCostChildcare / totalCostMonthlyPercentage,
-      // For testing
-      breakdownCostTotal                = breakdownHousehold + breakdownTransport + breakdownHealth + breakdownOther + breakdownCostChildcare,
-      breakdownCostTotalPercentage      = breakdownCostHouseholdPercentage + breakdownCostTransportPercentage + breakdownCostHealthPercentage + breakdownCostOtherPercentage + breakdownCostChildcarePercentage;
-    console.log(totalCostMonthly, totalCostMonthly, breakdownCostTotal, totalCostMonthlyPercentage, breakdownCostTotalPercentage);
-
-    // Fill the pie
-    pie.setValue('[data-pie="household"]', parseInt(breakdownCostHouseholdPercentage, 10));
-    pie.setValue('[data-pie="transport"]', parseInt(breakdownCostTransportPercentage, 10));
-    pie.setValue('[data-pie="healthcare"]', parseInt(breakdownCostHealthPercentage, 10));
-    pie.setValue('[data-pie="extras"]', parseInt(breakdownCostOtherPercentage, 10));
-    pie.setValue('[data-pie="childcare"]', parseInt(breakdownCostChildcarePercentage, 10));
-
-    // Breakdown costs visibillity
-    if (breakdownCostChildcarePercentage > 0) {
-      $('[data-pie="childcare"]').closest('.block').removeClass('hide');
-    } else {
-      $('[data-pie="childcare"]').closest('.block').addClass('hide');
+    var
+      calcId              = calcId,
+      calcVal             = calcVal,
+      sumVal,
+      age                 = parseInt($('[data-calc="age"]').val()),
+      weight              = parseInt($('[data-calc="weight"]').val()),
+      height              = parseInt($('[data-calc="height"]').val()),
+      BF                  = parseInt($('[data-calc="bf"]').val()),
+      workCarbs           = $('[data-calc-work="carbs"]').val(),
+      workProt            = $('[data-calc-work="prot"]').val(),
+      workFat             = $('[data-calc-work="fat"]').val(),
+      workWeek1           = $('[data-calc-work="week1"]').val(),
+      workWeek2           = $('[data-calc-work="week2"]').val(),
+      workWeek3           = $('[data-calc-work="week3"]').val(),
+      workWeek4           = $('[data-calc-work="week4"]').val(),
+      // BMR
+      BMR1                = parseInt($('[data-calc-bmr="1"]').val()),
+      BMR2                = parseInt($('[data-calc-bmr="2"]').val()),
+      BMR3                = parseInt($('[data-calc-bmr="3"]').val()),
+      BMR4                = parseInt($('[data-calc-bmr="4"]').val()),
+      // Sums
+      sumLBM              = (weight * (1 - BF / 100)),
+      sumRecCals          = Math.floor((12 * sumLBM)),
+      sumRecProt          = (1.25 * sumLBM),
+      sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals),
+      //sumRecProtPercentP  = Math.round(((sumRecProt * 4) / sumRecCals) / Math.pow(10, -2) * 10) / 10,
+      sumRecFat           = 25,
+      sumNeedCarbs        = (weight * workCarbs),
+      sumNeedProt         = (weight * workProt),
+      sumNeedFat          = (weight * workFat),
+      sumNeedWeek1        = (weight * workWeek1),
+      sumNeedWeek2        = (weight * workWeek2),
+      sumNeedWeek3        = (weight * workWeek3),
+      sumNeedWeek4        = (weight * workWeek4),
+      // Macros
+      macroBF             = parseFloat(BF) / 100,
+      macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age)),
+      macroProt           = (macroCals * sumRecProtPercent / 4),
+      macroFat            = (macroCals * (macroBF / 9)),
+      macroCarb           = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
+      //macroCarb           = (1 - (sumRecProtPercent - macroBF));
+    
+    console.log('calc: ' + calcId, calcVal, macroCals, macroCals, BMR2 * weight, BMR3 * height, BMR4 * age);
+    
+    function inputVal(id, sumVal) {
+      //sumVal = Math.round(sumVal/100);
+      $(id).val(sumVal);
     }
-
-    // Reset heights
-    equalheight('.equal-height');
-
-    // Presentation of cost
-    function sumPresentation(id, sumVal) {
-      $(id).html(sumVal).formatCurrency({region: 'en-GB'});
-      var price = $(id).text();
-      price = price.replace(" ", "</small>");
-      price = price.replace(".", "<small>.");
-      $(id).html(price);
+    
+    function updateVal(id, sumVal) {
+      //sumVal = Math.round(sumVal/100);
+      $(id).html(sumVal);
     }
-
-    // Monthly/annually cost result
-    sumPresentation('[data-cost="result-monthly"]', totalCostMonthly);
-    sumPresentation('[data-cost="result-annually"]', totalCostAnnually);
-
-    // Breakdown costs result
-    sumPresentation('[data-cost="healthcare"]', breakdownHealth);
-    sumPresentation('[data-cost="transport"]', breakdownCostTransport);
-    sumPresentation('[data-cost="household"]', breakdownCostHousehold);
-    sumPresentation('[data-cost="extras"]', breakdownCostOther);
-    sumPresentation('[data-cost="childcare"]', breakdownCostChildcare);*/
+    
+    // Stats
+    inputVal('[data-calc="lbm"]', sumLBM);
+    inputVal('[data-calc="recCals"]', sumRecCals);
+    inputVal('[data-calc="recProt"]', sumRecProt);
+    inputVal('[data-calc="recProtPercent"]', Math.round(sumRecProtPercent / Math.pow(10, -2) * 10) / 10);
+    //inputVal('[data-calc="recProtPercent"]', sumRecProtPercent);
+    inputVal('[data-calc="recFat"]', sumRecFat);
+    
+    // Needs
+    inputVal('[data-calc-need="carbs"]', sumNeedCarbs);
+    inputVal('[data-calc-need="prot"]', sumNeedProt);
+    inputVal('[data-calc-need="fat"]', sumNeedFat);
+    inputVal('[data-calc-need="week1"]', sumNeedWeek1);
+    inputVal('[data-calc-need="week2"]', sumNeedWeek2);
+    inputVal('[data-calc-need="week3"]', sumNeedWeek3);
+    inputVal('[data-calc-need="week4"]', sumNeedWeek4);
+    
+    // Macros
+    updateVal('[data-calc-level="bmr"] [data-calc-macro="cals"]', macroCals);
+    updateVal('[data-calc-level="bmr"] [data-calc-macro="prot"]', Math.floor(macroProt));
+    updateVal('[data-calc-level="bmr"] [data-calc-macro="fat"]', Math.floor(macroFat));
+    updateVal('[data-calc-level="bmr"] [data-calc-macro="carb"]', Math.floor(macroCarb));
 
   };
 
@@ -213,12 +211,17 @@ $(function () {
 
   var
     calcResult,
-    calcInputVal;
+    calcId,
+    calcVal;
 
-  $('[type="text"]').keyup(function () {
+  calcResult = new calcUpdate();
+  calcResult.setValue('default', '0');
+  
+  $('[data-calc]').keyup(function () {
     calcResult = new calcUpdate();
-    calcInputVal = $(this).val();
-    calcResult.setValue(calcInputVal);
+    calcId = $(this).data('calc');
+    calcVal = $(this).val();
+    calcResult.setValue(calcId, calcVal);
   });
 
 });
