@@ -1,0 +1,35 @@
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin transition-property($args...) {
+  -webkit-transition-property: $args;
+  -moz-transition-property: $args;
+  -ms-transition-property: $args;
+  -o-transition-property: $args;
+  transition-property: $args;
+}
+@mixin transition-duration($arg) {
+  -webkit-transition-duration: $arg;
+  -moz-transition-duration: $arg;
+  -ms-transition-duration: $arg;
+  -o-transition-duration: $arg;
+  transition-duration: $arg;
+}
+@mixin transition-timing-function($arg) {
+  -webkit-transition-timing-function: $arg;
+  -moz-transition-timing-function: $arg;
+  -ms-transition-timing-function: $arg;
+  -o-transition-timing-function: $arg;
+  transition-timing-function: $arg;
+}
+@mixin transition-delay($arg) {
+  -webkit-transition-delay: $arg;
+  -moz-transition-delay: $arg;
+  -ms-transition-delay: $arg;
+  -o-transition-delay: $arg;
+  transition-delay: $arg;
+}

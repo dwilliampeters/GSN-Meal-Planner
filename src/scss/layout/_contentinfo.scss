@@ -1,0 +1,16 @@
+.contentinfo {
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  > div {
+    @include centered-content;
+  }
+}
+
+.contentinfo--legal {
+  max-width: 600px;
+  font-size: 14px;
+  p {
+    margin-bottom: .5em;
+  }
+}

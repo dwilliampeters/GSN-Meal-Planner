@@ -1,0 +1,17 @@
+@mixin prefix-postfix-base {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+input[type="text"] {
+  width: 100%;
+}
+
+.prefix,
+.postfix {
+  @include prefix-postfix-base;
+}

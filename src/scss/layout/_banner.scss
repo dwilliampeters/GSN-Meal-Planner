@@ -1,0 +1,21 @@
+.banner {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  > div {
+    @include centered-content;
+  }
+}
+
+.banner--title {
+  float: left;
+  padding-top: 5px;
+  a {
+    overflow: hidden;
+    display: block;
+    h1 {
+      /*position: absolute;
+      top: -9999px;
+      left: -9999px;*/
+    }
+  }
+}

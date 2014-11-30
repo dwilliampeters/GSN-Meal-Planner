@@ -1,0 +1,6 @@
+.data-toggle {
+  display: none;
+  &.active {
+    display: block;
+  }
+}

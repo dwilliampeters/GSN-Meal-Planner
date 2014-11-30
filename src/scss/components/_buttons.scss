@@ -1,0 +1,69 @@
+$button-padding: 15px !default;
+$button-font-size: 18px !default;
+$button-font-color: white;
+$button-bg: $color3 !default;
+$button-border: none !default;
+
+$button-secondary-bg: $color2 !default;
+$button-secondary-font-color: $color1;
+
+.button {
+  position: relative;
+  padding: $button-padding;
+  border: $button-border;
+  background: $button-bg;
+  font-size: $button-font-size;
+  color: $button-font-color;
+  outline: none;
+  &.secondary {
+    background: $button-secondary-bg;
+    color: $button-secondary-font-color;
+    &.pointer-down {
+      &:after {
+        border-top-color: $button-secondary-bg;
+      }
+    }
+  }
+  &.small-button {
+    padding-top: $button-padding - 7px;
+    padding-bottom: $button-padding - 7px;
+    padding-left: $button-padding;
+    padding-right: $button-padding;
+    &.arrow-right {
+      &:after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 10px solid white;
+        margin-left: 20px;
+        margin-top: 5px;
+      }
+    }
+  }
+  &.pointer-down {
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 15px solid $button-bg;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      margin-left: -10px;
+    }
+  }
+  &.arrow-right {
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 15px solid white;
+      float: right;
+      margin-left: 70px;
+      margin-top: 5px;
+    }
+  }
+}
