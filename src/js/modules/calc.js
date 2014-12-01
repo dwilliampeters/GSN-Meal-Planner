@@ -9,7 +9,7 @@ $(function () {
   calcResult = new calcUpdate();
   calcResult.setValue('default', '0');
   
-  $('[data-calc]').keyup(function () {
+  $('[data-calc]').bind('change keyup', function(event){
     calcResult = new calcUpdate();
     calcId = $(this).data('calc');
     calcVal = $(this).val();
