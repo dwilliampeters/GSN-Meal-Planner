@@ -125,6 +125,12 @@
                     </div>-->
                     
                     <div class="row">
+                      <div class="medium-9 columns">
+                        <h3>Step 1: Calculate your TDDE</h3>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
                       <div class="small-8 medium-12 large-6 columns">
                         <div class="row">
                           <div class="small-12 columns">
@@ -190,72 +196,74 @@
                     
                     <div class="row">
                       <div class="small-12 medium-6 columns">
-                        <div class="row">
-                          <div class="small-8 columns">
-                            <label>LBM</label>
-                          </div>
-                          <div class="small-4 columns">
-                            <div class="row collapse">
-                              <div class="small-9 columns">
-                                <input type="text" value="" readonly data-calc="lbm">
-                              </div>
-                              <div class="small-3 columns">
-                                <span class="postfix">lbs</span>
+                        <div style="display: none;">
+                          <div class="row">
+                            <div class="small-8 columns">
+                              <label>LBM</label>
+                            </div>
+                            <div class="small-4 columns">
+                              <div class="row collapse">
+                                <div class="small-9 columns">
+                                  <input type="text" value="" readonly data-calc="lbm">
+                                </div>
+                                <div class="small-3 columns">
+                                  <span class="postfix">lbs</span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="small-8 columns">
-                            <label>Recommended Cals</label>
-                          </div>
-                          <div class="small-4 columns">
-                            <div class="row collapse">
-                              <div class="small-9 columns">
-                                <input type="text" value="" readonly data-calc="recCals">
-                              </div>
-                              <div class="small-3 columns">
-                                <span class="postfix">cals</span>
+                          <div class="row">
+                            <div class="small-8 columns">
+                              <label>Recommended Cals</label>
+                            </div>
+                            <div class="small-4 columns">
+                              <div class="row collapse">
+                                <div class="small-9 columns">
+                                  <input type="text" value="" readonly data-calc="recCals">
+                                </div>
+                                <div class="small-3 columns">
+                                  <span class="postfix">cals</span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="small-8 columns">
-                            <label>Recommended Protein</label>
-                          </div>
-                          <div class="small-4 columns">
-                            <div class="row collapse">
-                              <div class="small-9 columns">
-                                <input type="text" value="" readonly data-calc="recProt">
+                          <div class="row">
+                            <div class="small-8 columns">
+                              <label>Recommended Protein</label>
+                            </div>
+                            <div class="small-4 columns">
+                              <div class="row collapse">
+                                <div class="small-9 columns">
+                                  <input type="text" value="" readonly data-calc="recProt">
+                                </div>
+                                <div class="small-3 columns">
+                                  <span class="postfix">g</span>
+                                </div>
                               </div>
-                              <div class="small-3 columns">
-                                <span class="postfix">g</span>
+                            </div>
+                            <div class="small-4 columns">
+                              <div class="row collapse">
+                                <div class="small-9 columns">
+                                  <input type="text" value="" readonly data-calc="recProtPercent">
+                                </div>
+                                <div class="small-3 columns">
+                                  <span class="postfix">%</span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                          <div class="small-4 columns">
-                            <div class="row collapse">
-                              <div class="small-9 columns">
-                                <input type="text" value="" readonly data-calc="recProtPercent">
-                              </div>
-                              <div class="small-3 columns">
-                                <span class="postfix">%</span>
-                              </div>
+                          <div class="row">
+                            <div class="small-8 columns">
+                              <label>Recommended Fat</label>
                             </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="small-8 columns">
-                            <label>Recommended Fat</label>
-                          </div>
-                          <div class="small-4 columns">
-                            <div class="row collapse">
-                              <div class="small-9 columns">
-                                <input type="text" value="" readonly data-calc="recFat">
-                              </div>
-                              <div class="small-3 columns">
-                                <span class="postfix">%</span>
+                            <div class="small-4 columns">
+                              <div class="row collapse">
+                                <div class="small-9 columns">
+                                  <input type="text" value="" readonly data-calc="recFat">
+                                </div>
+                                <div class="small-3 columns">
+                                  <span class="postfix">%</span>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -300,7 +308,14 @@
                           <div class="medium-2 columns">Carb</div>
                         </div>
                         <div class="row" data-calc-level="bmr">
-                          <div class="medium-3 columns"><strong>BMR</strong></div>
+                          <div class="medium-3 columns"><strong>Your BMR</strong></div>
+                          <div class="medium-3 columns"><span data-calc-macro="cals">0</span> cals</div>
+                          <div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
+                          <div class="medium-2 columns"><span data-calc-macro="fat">0</span> g</div>
+                          <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>
+                        </div>
+                        <div class="row" data-calc-level="custom">
+                          <div class="medium-3 columns"><strong>Your TDDE</strong></div>
                           <div class="medium-3 columns"><span data-calc-macro="cals">0</span> cals</div>
                           <div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
                           <div class="medium-2 columns"><span data-calc-macro="fat">0</span> g</div>
@@ -310,6 +325,73 @@
                     </div>
                     
                     <hr>
+                    
+                    <div class="row">
+                      <div class="medium-9 columns">
+                        <h3>Step 2: Choose your goals</h3>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="medium-3 columns">
+                        <h4>Fat loss</h4>
+                        <div class="goal-cals">
+                          <strong>0</strong> Calories/day
+                        </div>
+                        <div class="row">
+                          <div class="small-12 columns">
+                            <input type="radio" id="fatLoss-suggested" name="goal" value="15" data-calc="fat">
+                            <label for="fatLoss-suggested">Suggested 15%</label>
+                          </div>
+                          <div class="small-12 columns">
+                            <input type="radio" id="fatLoss-aggressive" name="goal" value="20" data-calc="fat">
+                            <label for="fatLoss-aggressive">Aggressive 20%</label>
+                          </div>
+                          <div class="small-12 columns">
+                            <input type="radio" id="fatLoss-reckless" name="goal" value="25" data-calc="fat">
+                            <label for="fatLoss-reckless">Reckless 25%</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="medium-3 columns">
+                        <h4>Maintain</h4>
+                        <div class="goal-cals">
+                          <strong>0</strong> Calories/day
+                        </div>
+                        <div class="row">
+                          <div class="small-12 columns">
+                            <input type="radio" id="maintain-tdde" name="goal" value="15" data-calc="maintain">
+                            <label for="maintain-tdde">Same as TDDE</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="medium-3 columns">
+                        <h4>Bulking</h4>
+                        <div class="goal-cals">
+                          <strong>0</strong> Calories/day
+                        </div>
+                        <div class="row">
+                          <div class="small-12 columns">
+                            <input type="radio" id="bulk-cautious" name="goal" value="15" data-calc="bulking">
+                            <label for="bulk-cautious">Cautious 5%</label>
+                          </div>
+                          <div class="small-12 columns">
+                            <input type="radio" id="bulk-textBook" name="goal" value="20" data-calc="bulking">
+                            <label for="bulk-textBook">Text Book 10%</label>
+                          </div>
+                          <div class="small-12 columns">
+                            <input type="radio" id="bulk-aggressive" name="goal" value="25" data-calc="bulking">
+                            <label for="bulk-aggressive">Aggressive 15%</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="medium-3 columns">
+                        <h4>Custom</h4>
+                        <div class="goal-cals">
+                          <strong>0</strong> Calories/day
+                        </div>
+                      </div>
+                    </div>
                     
                     <!--<div class="row">
                       <div class="large-3 columns">
@@ -355,6 +437,22 @@
                       </div>
                     </div>-->
                     
+                    <hr>
+                    
+                    <div class="row">
+                      <div class="medium-9 columns">
+                        <h3>Step 3: Select your nutrition plan</h3>
+                      </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="row">
+                      <div class="medium-9 columns">
+                        <h3>Step 4: View your results</h3>
+                      </div>
+                    </div>
+                    
                     <div class="row">
                       <div class="medium-8 columns">
                         <div class="row">
@@ -372,7 +470,7 @@
                           <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>
                         </div>
                       </div>
-                      <div class="medium-4 columns" style="display: none;">
+                      <!--<div class="medium-4 columns">
                         <div class="row">
                           <div class="small-4 columns">
                             <label>Carbs</label>
@@ -556,12 +654,10 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div>-->
                     </div>
                     
-                    <hr>
-                    
-                    <div class="row" data-calc-bmr="male">
+                    <div class="row" data-calc-bmr="male" style="display: none;">
                       <div class="small-12 columns">
                         <strong>Men:</strong> BMR = 66 + ( 6.23 x weight in pounds ) + ( 12.7 x height in inches ) - ( 6.8 x age in year )
                       </div>
@@ -579,7 +675,7 @@
                       </div>
                     </div>
                     
-                    <div class="row" data-calc-bmr="female">
+                    <div class="row" data-calc-bmr="female" style="display: none;">
                       <div class="small-12 columns">
                         <strong>Women:</strong> BMR = 655 + ( 4.35 x weight in pounds ) + ( 4.7 x height in inches ) - ( 4.7 x age in years )
                       </div>
