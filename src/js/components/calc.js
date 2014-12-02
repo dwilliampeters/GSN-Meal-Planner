@@ -16,27 +16,28 @@
       weight              = parseInt($('[data-calc="weight"]').val()),
       height              = parseInt($('[data-calc="height"]').val()),
       BF                  = parseInt($('[data-calc="bf"]').val()),
+      formula             = parseInt($('[data-calc="formula"]').val()),
       activity            = parseFloat($('select[data-calc="activity"] option:selected').val()),
       activityDesc        = $('select[data-calc="activity"] option:selected').text(),
-      //workCarbs           = $('[data-calc-work="carbs"]').val(),
-      //workProt            = $('[data-calc-work="prot"]').val(),
-      //workFat             = $('[data-calc-work="fat"]').val(),
-      //workWeek1           = $('[data-calc-work="week1"]').val(),
-      //workWeek2           = $('[data-calc-work="week2"]').val(),
-      //workWeek3           = $('[data-calc-work="week3"]').val(),
-      //workWeek4           = $('[data-calc-work="week4"]').val(),
+      /*workCarbs           = $('[data-calc-work="carbs"]').val(),
+      workProt            = $('[data-calc-work="prot"]').val(),
+      workFat             = $('[data-calc-work="fat"]').val(),
+      workWeek1           = $('[data-calc-work="week1"]').val(),
+      workWeek2           = $('[data-calc-work="week2"]').val(),
+      workWeek3           = $('[data-calc-work="week3"]').val(),
+      workWeek4           = $('[data-calc-work="week4"]').val(),*/
       // BMR
       BMR1                = parseInt($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="1"]').val()),
       BMR2                = parseInt($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="2"]').val()),
       BMR3                = parseInt($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="3"]').val()),
       BMR4                = parseInt($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="4"]').val()),
       // Sums
-      sumLBM              = (weight * (1 - BF / 100)),
-      sumRecCals          = Math.floor((12 * sumLBM)),
-      sumRecProt          = (1.25 * sumLBM),
-      sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals),
+      sumLBM,
+      sumRecCals,
+      sumRecProt,
+      sumRecProtPercent,
       //sumRecProtPercentP  = Math.round(((sumRecProt * 4) / sumRecCals) / Math.pow(10, -2) * 10) / 10,
-      sumRecFat           = 25,
+      sumRecFat,
       /*sumNeedCarbs        = (weight * workCarbs),
       sumNeedProt         = (weight * workProt),
       sumNeedFat          = (weight * workFat),
@@ -45,18 +46,55 @@
       sumNeedWeek3        = (weight * workWeek3),
       sumNeedWeek4        = (weight * workWeek4),*/
       // Macros
-      macroBF             = parseFloat(BF) / 100,
-      macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age)),
-      macroProt           = (macroCals * sumRecProtPercent / 4),
-      macroFat            = (macroCals * (macroBF / 9)),
-      macroCarb           = (macroCals * (1 - sumRecProtPercent - macroBF) / 9),
-      macroCustomCals     = (activity * (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age))),
-      macroCustomProt     = (macroCals * sumRecProtPercent / 4),
-      macroCustomFat      = (macroCals * (macroBF / 9)),
-      macroCustomCarb     = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
+      macroBF,
+      macroCals,
+      macroProt,
+      macroFat,
+      macroCarb,
+      macroCustomCals,
+      macroCustomProt,
+      macroCustomFat,
+      macroCustomCarb;
       //macroCarb           = (1 - (sumRecProtPercent - macroBF));
 
     console.log('calc: ' + calcId, calcVal, macroCals, macroCals, BMR2 * weight, BMR3 * height, BMR4 * age, activity, activityDesc, gender);
+
+    if (formula === 0) {
+      // Athletic people
+      sumLBM              = (weight * (1 - BF / 100));
+      sumRecCals          = Math.floor((12 * sumLBM));
+      sumRecProt          = (1.25 * sumLBM);
+      sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals);
+      sumRecFat           = 25;
+      // Macros
+      macroBF             = parseFloat(BF) / 100;
+      macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age));
+      macroProt           = (macroCals * sumRecProtPercent / 4);
+      macroFat            = (macroCals * (macroBF / 9));
+      macroCarb           = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
+      macroCustomCals     = (activity * (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age)));
+      macroCustomProt     = (macroCals * sumRecProtPercent / 4);
+      macroCustomFat      = (macroCals * (macroBF / 9));
+      macroCustomCarb     = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
+
+    } else {
+      // Lean/fat people
+      sumLBM              = (weight * (1 - BF / 100));
+      sumRecCals          = Math.floor((12 * sumLBM));
+      sumRecProt          = (1.25 * sumLBM);
+      sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals);
+      sumRecFat           = 25;
+      // Macros
+      macroBF             = parseFloat(BF) / 100;
+      macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age));
+      macroProt           = (macroCals * sumRecProtPercent / 4);
+      macroFat            = (macroCals * (macroBF / 9));
+      macroCarb           = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
+      macroCustomCals     = (activity * (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age)));
+      macroCustomProt     = (macroCals * sumRecProtPercent / 4);
+      macroCustomFat      = (macroCals * (macroBF / 9));
+      macroCustomCarb     = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
+    }
 
     function inputVal(id, sumVal) {
       //sumVal = Math.round(sumVal/100);
@@ -73,7 +111,6 @@
     inputVal('[data-calc="recCals"]', sumRecCals);
     inputVal('[data-calc="recProt"]', sumRecProt);
     inputVal('[data-calc="recProtPercent"]', Math.round(sumRecProtPercent / Math.pow(10, -2) * 10) / 10);
-    //inputVal('[data-calc="recProtPercent"]', sumRecProtPercent);
     inputVal('[data-calc="recFat"]', sumRecFat);
 
     /*// Needs
