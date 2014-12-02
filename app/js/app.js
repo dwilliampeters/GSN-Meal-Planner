@@ -5,7 +5,7 @@
   }
 
   calcUpdate.prototype.setValue = function (calcId, calcVal) {
-    
+
     var
       calcId              = calcId,
       calcVal             = calcVal,
@@ -54,19 +54,19 @@
       macroCustomFat      = (macroCals * (macroBF / 9)),
       macroCustomCarb     = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
       //macroCarb           = (1 - (sumRecProtPercent - macroBF));
-    
+
     console.log('calc: ' + calcId, calcVal, macroCals, macroCals, BMR2 * weight, BMR3 * height, BMR4 * age, activity, activityDesc, gender);
-    
+
     function inputVal(id, sumVal) {
       //sumVal = Math.round(sumVal/100);
       $(id).val(sumVal);
     }
-    
+
     function updateVal(id, sumVal) {
       //sumVal = Math.round(sumVal/100);
       $(id).html(sumVal);
     }
-    
+
     // Stats
     inputVal('[data-calc="lbm"]', sumLBM);
     inputVal('[data-calc="recCals"]', sumRecCals);
@@ -74,7 +74,7 @@
     inputVal('[data-calc="recProtPercent"]', Math.round(sumRecProtPercent / Math.pow(10, -2) * 10) / 10);
     //inputVal('[data-calc="recProtPercent"]', sumRecProtPercent);
     inputVal('[data-calc="recFat"]', sumRecFat);
-    
+
     // Needs
     inputVal('[data-calc-need="carbs"]', sumNeedCarbs);
     inputVal('[data-calc-need="prot"]', sumNeedProt);
@@ -83,7 +83,7 @@
     inputVal('[data-calc-need="week2"]', sumNeedWeek2);
     inputVal('[data-calc-need="week3"]', sumNeedWeek3);
     inputVal('[data-calc-need="week4"]', sumNeedWeek4);
-    
+
     // Macros
     updateVal('[data-calc-level="bmr"] [data-calc-macro="cals"]', Math.floor(macroCals));
     updateVal('[data-calc-level="bmr"] [data-calc-macro="prot"]', Math.floor(macroProt));

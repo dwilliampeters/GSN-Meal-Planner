@@ -44,7 +44,7 @@
 
                 <div class="calc">
                   <form class="calc-form">
-                    
+
                     <!--<div class="row">
                       <div class="small-12 columns">
                         <p>(type in your information in the yellow boxes, blue are calculated values)</p>
@@ -57,7 +57,7 @@
                           <div class="small-4 columns">
                             <div class="row collapse">
                               <div class="small-9 columns">
-                                <input type="text" value="176.0"> 
+                                <input type="text" value="176.0">
                               </div>
                               <div class="small-3 columns">
                                 <span class="postfix">cm</span>
@@ -105,13 +105,13 @@
                         </div>
                       </div>
                     </div>-->
-                    
+
                     <div class="row">
                       <div class="medium-9 columns">
                         <h3>Step 1: Calculate your TDDE</h3>
                       </div>
                     </div>
-                    
+
                     <div class="row">
                       <div class="small-8 medium-12 large-6 columns">
                         <div class="row">
@@ -124,7 +124,7 @@
                           </div>
                         </div>
                       </div>
-                      
+
                       <div class="small-8 medium-4 large-2 columns">
                         <div class="row">
                           <div class="small-12 columns">
@@ -140,7 +140,7 @@
                           </div>
                         </div>
                       </div>
-                      
+
                       <div class="small-8 medium-4 large-2 columns">
                         <div class="row">
                           <div class="small-12 columns">
@@ -156,7 +156,7 @@
                           </div>
                         </div>
                       </div>
-                      
+
                       <div class="small-8 medium-4 large-2 columns end">
                         <div class="row">
                           <div class="small-12 columns">
@@ -173,11 +173,22 @@
                         </div>
                       </div>
                     </div>
-                    
+
                     <hr>
-                    
+
                     <div class="row">
                       <div class="small-12 medium-6 columns">
+                        <div class="row">
+                          <div class="small-12 columns">
+                            <input type="radio" id="forumla-athletes" name="forumla" value="0" data-calc="forumla">
+                            <label for="forumla-athletes">Athletes Formula (best for lean people)</label>
+                          </div>
+                          <div class="small-12 columns">
+                            <input type="radio" id="formula-leanMass" name="forumla" value="1" data-calc="forumla">
+                            <label for="formula-leanMass">Lean Mass Formula (best if overweight)</label>
+                          </div>
+                        </div>
+
                         <div style="display: none;">
                           <div class="row">
                             <div class="small-8 columns">
@@ -194,6 +205,7 @@
                               </div>
                             </div>
                           </div>
+
                           <div class="row">
                             <div class="small-8 columns">
                               <label>Recommended Cals</label>
@@ -209,6 +221,7 @@
                               </div>
                             </div>
                           </div>
+
                           <div class="row">
                             <div class="small-8 columns">
                               <label>Recommended Protein</label>
@@ -234,6 +247,7 @@
                               </div>
                             </div>
                           </div>
+
                           <div class="row">
                             <div class="small-8 columns">
                               <label>Recommended Fat</label>
@@ -265,7 +279,7 @@
                             </select>
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="small-8 medium-4 columns">
                             <label>BF%</label>
@@ -273,7 +287,7 @@
                           <div class="small-4 columns end">
                             <div class="row collapse">
                               <div class="small-9 columns">
-                                <input type="text" value="20" data-calc="bf">
+                                <input type="text" value="20" readonly data-calc="bf">
                               </div>
                               <div class="small-3 columns">
                                 <span class="postfix">%</span>
@@ -281,39 +295,39 @@
                             </div>
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="medium-3 columns">&nbsp;</div>
-                          <div class="medium-3 columns">Calories</div>
-                          <div class="medium-2 columns">Protein</div>
+                          <div class="medium-3 columns end">Calories</div>
+                          <!--<div class="medium-2 columns">Protein</div>
                           <div class="medium-2 columns">Fat</div>
-                          <div class="medium-2 columns">Carb</div>
+                          <div class="medium-2 columns">Carb</div>-->
                         </div>
                         <div class="row" data-calc-level="bmr">
                           <div class="medium-3 columns"><strong>Your BMR</strong></div>
-                          <div class="medium-3 columns"><span data-calc-macro="cals">0</span> cals</div>
-                          <div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
+                          <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
+                          <!--<div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
                           <div class="medium-2 columns"><span data-calc-macro="fat">0</span> g</div>
-                          <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>
+                          <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>-->
                         </div>
                         <div class="row" data-calc-level="custom">
                           <div class="medium-3 columns"><strong>Your TDDE</strong></div>
-                          <div class="medium-3 columns"><span data-calc-macro="cals">0</span> cals</div>
-                          <div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
+                          <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
+                          <!--<div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
                           <div class="medium-2 columns"><span data-calc-macro="fat">0</span> g</div>
-                          <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>
+                          <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>-->
                         </div>
                       </div>
                     </div>
-                    
+
                     <hr>
-                    
+
                     <div class="row">
                       <div class="medium-9 columns">
                         <h3>Step 2: Choose your goals</h3>
                       </div>
                     </div>
-                    
+
                     <div class="row">
                       <div class="medium-3 columns">
                         <h4>Fat loss</h4>
@@ -374,7 +388,7 @@
                         </div>
                       </div>
                     </div>
-                    
+
                     <!--<div class="row">
                       <div class="large-3 columns">
                         <label>macronutrient ratios</label>
@@ -418,23 +432,23 @@
                         cals less or more calories for workout goals
                       </div>
                     </div>-->
-                    
+
                     <hr>
-                    
+
                     <div class="row">
                       <div class="medium-9 columns">
                         <h3>Step 3: Select your nutrition plan</h3>
                       </div>
                     </div>
-                    
+
                     <hr>
-                    
+
                     <div class="row">
                       <div class="medium-9 columns">
                         <h3>Step 4: View your results</h3>
                       </div>
                     </div>
-                    
+
                     <div class="row">
                       <div class="medium-8 columns">
                         <div class="row">
@@ -478,7 +492,7 @@
                             </div>
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="small-4 columns">
                             <label>Protein</label>
@@ -504,7 +518,7 @@
                             </div>
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="small-4 columns">
                             <label>Fat</label>
@@ -530,9 +544,9 @@
                             </div>
                           </div>
                         </div>
-                        
+
                         <h3>Cals</h3>
-                        
+
                         <div class="row">
                           <div class="small-4 columns">
                             <label>Week 1</label>
@@ -558,7 +572,7 @@
                             </div>
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="small-4 columns">
                             <label>Week 2</label>
@@ -584,7 +598,7 @@
                             </div>
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="small-4 columns">
                             <label>Week 3</label>
@@ -610,7 +624,7 @@
                             </div>
                           </div>
                         </div>
-                        
+
                         <div class="row">
                           <div class="small-4 columns">
                             <label>Week 4</label>
@@ -638,7 +652,7 @@
                         </div>
                       </div>-->
                     </div>
-                    
+
                     <div class="row" data-calc-bmr="male" style="display: none;">
                       <div class="small-12 columns">
                         <strong>Men:</strong> BMR = 66 + ( 6.23 x weight in pounds ) + ( 12.7 x height in inches ) - ( 6.8 x age in year )
@@ -656,7 +670,7 @@
                         <input type="text" value="6.8" data-calc-bmr="4">
                       </div>
                     </div>
-                    
+
                     <div class="row" data-calc-bmr="female" style="display: none;">
                       <div class="small-12 columns">
                         <strong>Women:</strong> BMR = 655 + ( 4.35 x weight in pounds ) + ( 4.7 x height in inches ) - ( 4.7 x age in years )
