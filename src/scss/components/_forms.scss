@@ -3,19 +3,22 @@
   display: block;
   line-height: 1.5;
   margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 @mixin prefix-postfix-base {
   display: block;
   text-align: center;
   width: 100%;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 5px;
   overflow: hidden;
 }
 
-input[type="text"] {
+input[type="text"],
+select {
   width: 100%;
+  padding: 5px;
 }
 
 label {
@@ -34,8 +37,4 @@ input[type="radio"] + label {
   margin-right: 5px;
   margin-bottom: 0;
   vertical-align: baseline;
-}
-
-select {
-  width: 100%;
 }
