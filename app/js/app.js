@@ -16,7 +16,7 @@
       weight              = parseInt($('[data-calc="weight"]').val()),
       height              = parseInt($('[data-calc="height"]').val()),
       BF                  = parseInt($('[data-calc="bf"]').val()),
-      formula             = parseInt($('[data-calc="formula"]').val()),
+      formula             = parseInt($('[data-calc="formula"]:checked').val()),
       activity            = parseFloat($('select[data-calc="activity"] option:selected').val()),
       activityDesc        = $('select[data-calc="activity"] option:selected').text(),
       /*workCarbs           = $('[data-calc-work="carbs"]').val(),
@@ -57,9 +57,9 @@
       macroCustomCarb;
       //macroCarb           = (1 - (sumRecProtPercent - macroBF));
 
-    console.log('calc: ' + calcId, calcVal, macroCals, macroCals, BMR2 * weight, BMR3 * height, BMR4 * age, activity, activityDesc, gender);
-
+    console.log(formula);
     if (formula === 0) {
+      console.log('formula: 0');
       // Athletic people
       sumLBM              = (weight * (1 - BF / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
@@ -77,7 +77,10 @@
       macroCustomFat      = (macroCals * (macroBF / 9));
       macroCustomCarb     = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
 
-    } else {
+    }
+
+    if (formula === 1) {
+      console.log('formula: 1');
       // Lean/fat people
       sumLBM              = (weight * (1 - BF / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
@@ -86,7 +89,7 @@
       sumRecFat           = 25;
       // Macros
       macroBF             = parseFloat(BF) / 100;
-      macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age));
+      macroCals           = (BMR1 + sumRecCals);
       macroProt           = (macroCals * sumRecProtPercent / 4);
       macroFat            = (macroCals * (macroBF / 9));
       macroCarb           = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
@@ -95,6 +98,8 @@
       macroCustomFat      = (macroCals * (macroBF / 9));
       macroCustomCarb     = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
     }
+
+    console.log('calc: ' + calcId, calcVal, macroCals, BMR2 * weight, BMR3 * height, BMR4 * age, activity, activityDesc, gender);
 
     function inputVal(id, sumVal) {
       //sumVal = Math.round(sumVal/100);
