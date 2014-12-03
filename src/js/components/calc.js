@@ -84,19 +84,15 @@
     }*/
     
     if ($('.system.imperial').hasClass('selected')) {
-      console.log(height);
-      height = Math.floor(height * 2.54);
-      console.log(height);
-      
-      console.log(weight);
+      height = Math.floor(height * 2.54);      
       weight = Math.round(weight * 0.45359237);
-      console.log(weight);
     }
 
     if (formula === 0) {
+      // Athletic
       $('.input-bodyfat').attr('readonly', 'readonly');
       $('.input-bodyfat').val('');
-      // Athletic people
+      
       BF                  = 20;
       sumLBM              = (weight * (1 - BF / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
@@ -113,12 +109,12 @@
       macroCustomProt     = (macroCustomCals * sumRecProtPercent / 4);
       macroCustomFat      = (macroCustomCals * (macroBF / 9));
       macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
-      console.log('TDDE: ' + sumRecCals);
     }
 
     if (formula === 1) {
+      // Normal
       $('.input-bodyfat').removeAttr('readonly');
-      // Lean/fat people
+      
       sumLBM              = (weight * (1 - BF / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
       sumRecProt          = (1.25 * sumLBM);
