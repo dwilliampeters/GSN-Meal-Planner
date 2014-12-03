@@ -163,11 +163,11 @@
       }
     });
 
-    // Set Macros (Prob move to step 3 later)
+    /*// Set Macros (Prob move to step 3 later)
     macroResultCals     = (goalCalsSelected);
     macroResultProt     = (macroResultCals * sumRecProtPercent / 4);
     macroResultFat      = (macroResultCals * (macroBF / 9));
-    macroResultCarb     = (macroResultCals * (1 - sumRecProtPercent - macroBF) / 9);
+    macroResultCarb     = (macroResultCals * (1 - sumRecProtPercent - macroBF) / 9);*/
 
     // Step 3: 
     if (calcId === 'ratios') {
@@ -180,6 +180,12 @@
       $('[data-ratio="carbs"]').val(ratioCarbs);
       $('[data-ratio="protein"]').val(ratioProtein);
     }
+    
+    // Step 4:
+    macroResultCals     = (goalCalsSelected);
+    macroResultProt     = (macroResultCals * (ratioProtein / 4));
+    macroResultFat      = (macroResultCals * (ratioFat / 9));
+    macroResultCarb     = (macroResultCals * (ratioCarbs / 9));
     
     //
 
