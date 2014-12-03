@@ -60,8 +60,6 @@
       //macroCarb           = (1 - (sumRecProtPercent - macroBF));
 
     if (calcId === 'conversion') {
-      console.log('conversion time');
-      console.log(calcSelected.data('calc-conversion'));
       //cm to in
       // Centimeters ÷ 2.54cm/in = inches
       if ($calcSelected.data('calc-conversion') === 'centimeters') {
