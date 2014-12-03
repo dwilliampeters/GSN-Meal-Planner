@@ -183,9 +183,9 @@
     
     // Step 4:
     macroResultCals     = (goalCalsSelected);
-    macroResultProt     = (macroResultCals * (ratioProtein / 4));
-    macroResultFat      = (macroResultCals * (ratioFat / 9));
-    macroResultCarb     = (macroResultCals * (ratioCarbs / 9));
+    macroResultProt     = ((macroResultCals * ratioProtein / 100) / 4);
+    macroResultFat      = ((macroResultCals * ratioFat / 100) / 9);
+    macroResultCarb     = ((macroResultCals * ratioCarbs / 100) / 4);
     
     //
 
