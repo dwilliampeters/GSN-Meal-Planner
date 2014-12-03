@@ -20,6 +20,12 @@ $(function () {
       $(this).addClass('selected');
       $(this).prop('checked', true);
     }
+    if ($(this).data('calc') === 'system') {
+      $('.system').removeClass('selected');
+      $('.system.' + $(this).val()).addClass('selected');
+      $('.system').addClass('hide');
+      $('.system.' + $(this).val()).removeClass('hide');
+    }
     calcResult.setValue(calcId, calcVal, calcSelected);
   });
 

@@ -63,7 +63,7 @@
                 <div class="calc">
                   <form class="calc-form">
 
-                    <div class="row">
+                    <!--<div class="row">
                       <div class="medium-6 columns">
                         <label>(pre calculation for the metric folks)</label>
                       </div>
@@ -72,7 +72,7 @@
                           <div class="small-4 columns">
                             <div class="row collapse">
                               <div class="small-9 columns">
-                                <input type="text" value="176.0" data-calc="conversion" data-calc-conversion="centimeters">
+                                <input type="text" value="" data-calc="conversion" data-calc-conversion="centimeters">
                               </div>
                               <div class="small-3 columns">
                                 <span class="postfix">cm</span>
@@ -97,7 +97,7 @@
                           <div class="small-4 columns">
                             <div class="row collapse">
                               <div class="small-9 columns">
-                                <input type="text" value="86.0" data-calc="conversion" data-calc-conversion="kilograms">
+                                <input type="text" value="" data-calc="conversion" data-calc-conversion="kilograms">
                               </div>
                               <div class="small-3 columns">
                                 <span class="postfix">kg</span>
@@ -119,7 +119,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div>-->
 
                     <div class="row">
                       <div class="medium-9 columns">
@@ -128,7 +128,7 @@
                     </div>
 
                     <div class="row">
-                      <div class="small-8 medium-12 large-6 columns">
+                      <div class="small-12 medium-6 columns">
                         <div class="row">
                           <div class="small-12 columns">
                             <label>Gender</label>
@@ -139,11 +139,25 @@
                           </div>
                         </div>
                       </div>
-
-                      <div class="small-8 medium-4 large-2 columns">
+                      
+                      <div class="small-12 medium-6 columns">
                         <div class="row">
                           <div class="small-12 columns">
-                            <label>Age (year)</label>
+                            <label>Metric system</label>
+                            <input type="radio" id="imperial" name="system" value="imperial" data-calc="system" checked>
+                            <label for="imperial">Imperial</label>
+                            <input type="radio" id="metric" name="system" value="metric" data-calc="system">
+                            <label for="metric">Metric</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      
+                    <div class="row">
+                      <div class="small-12 medium-3 columns">
+                        <div class="row">
+                          <div class="small-6 medium-12 columns">
+                            <label>Age</label>
                             <div class="row collapse">
                               <div class="small-8 columns">
                                 <input type="text" value="29" data-calc="age">
@@ -156,13 +170,13 @@
                         </div>
                       </div>
 
-                      <div class="small-8 medium-4 large-2 columns">
+                      <div class="small-6 medium-3 medium-push-3 columns system imperial selected">
                         <div class="row">
                           <div class="small-12 columns">
-                            <label>Height (in)</label>
+                            <label>Height</label>
                             <div class="row collapse">
                               <div class="small-8 columns">
-                                <input type="text" value="65" data-calc="height">
+                                <input type="text" value="72" data-calc="height">
                               </div>
                               <div class="small-4 columns">
                                 <span class="postfix">in</span>
@@ -172,16 +186,48 @@
                         </div>
                       </div>
 
-                      <div class="small-8 medium-4 large-2 columns end">
+                      <div class="small-6 medium-3 medium-push-3 columns end system imperial selected">
                         <div class="row">
                           <div class="small-12 columns">
-                            <label>Body Weight (lbs)</label>
+                            <label>Body Weight</label>
                             <div class="row collapse">
                               <div class="small-8 columns">
-                                <input type="text" value="187" data-calc="weight">
+                                <input type="text" value="185" data-calc="weight">
                               </div>
                               <div class="small-4 columns">
-                                <span class="postfix">in</span>
+                                <span class="postfix">lbs</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="small-6 medium-3 medium-push-3 columns system metric hide">
+                        <div class="row">
+                          <div class="small-12 columns">
+                            <label>Height</label>
+                            <div class="row collapse">
+                              <div class="small-8 columns">
+                                <input type="text" value="182" data-calc="height">
+                              </div>
+                              <div class="small-4 columns">
+                                <span class="postfix">cm</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="small-6 medium-3 medium-push-3 columns end system metric hide">
+                        <div class="row">
+                          <div class="small-12 columns">
+                            <label>Body Weight</label>
+                            <div class="row collapse">
+                              <div class="small-8 columns">
+                                <input type="text" value="84" data-calc="weight">
+                              </div>
+                              <div class="small-4 columns">
+                                <span class="postfix">kg</span>
                               </div>
                             </div>
                           </div>
@@ -204,7 +250,7 @@
                           </div>
                         </div>
 
-                        <div class="row">
+                        <!--<div class="row">
                           <div class="small-8 columns">
                             <label>LBM</label>
                           </div>
@@ -276,7 +322,7 @@
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div>-->
                       </div>
                       <div class="small-12 medium-6 columns">
                         <div class="row">
@@ -292,7 +338,9 @@
                             </select>
                           </div>
                         </div>
-
+                        
+                        <hr>
+                        
                         <div class="row">
                           <div class="small-8 medium-4 columns">
                             <label>BF%</label>
@@ -308,27 +356,29 @@
                             </div>
                           </div>
                         </div>
+                        
+                        <hr>
 
                         <div class="row">
                           <div class="medium-3 columns">&nbsp;</div>
-                          <div class="medium-3 columns end">Calories</div>
-                          <div class="medium-2 columns">Protein</div>
+                          <div class="medium-3 columns end">&nbsp;</div>
+                          <!--<div class="medium-2 columns">Protein</div>
                           <div class="medium-2 columns">Fat</div>
-                          <div class="medium-2 columns">Carb</div>
+                          <div class="medium-2 columns">Carb</div>-->
                         </div>
                         <div class="row" data-calc-level="bmr">
                           <div class="medium-3 columns"><strong>Your BMR</strong></div>
                           <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
-                          <div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
+                          <!--<div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
                           <div class="medium-2 columns"><span data-calc-macro="fat">0</span> g</div>
-                          <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>
+                          <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>-->
                         </div>
                         <div class="row" data-calc-level="custom">
                           <div class="medium-3 columns"><strong>Your TDDE</strong></div>
                           <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
-                          <div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
+                          <!--<div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
                           <div class="medium-2 columns"><span data-calc-macro="fat">0</span> g</div>
-                          <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>
+                          <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>-->
                         </div>
                       </div>
                     </div>
@@ -483,37 +533,37 @@
 
                     <div class="row" data-calc-bmr="male">
                       <div class="small-12 columns">
-                        <strong>Men:</strong> BMR = 66 + ( 6.23 x weight in pounds ) + ( 12.7 x height in inches ) - ( 6.8 x age in year )
+                        <strong>Men:</strong> BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) - (5.677 x age in year)
                       </div>
                       <div class="small-3 columns">
-                        <input type="text" value="66" data-calc-bmr="1">
+                        <input type="text" value="88.362" data-calc-bmr="1">
                       </div>
                       <div class="small-3 columns">
-                        <input type="text" value="6.23" data-calc-bmr="2">
+                        <input type="text" value="13.397" data-calc-bmr="2">
                       </div>
                       <div class="small-3 columns">
-                        <input type="text" value="12.7" data-calc-bmr="3">
+                        <input type="text" value="4.799" data-calc-bmr="3">
                       </div>
                       <div class="small-3 columns">
-                        <input type="text" value="6.8" data-calc-bmr="4">
+                        <input type="text" value="5.677" data-calc-bmr="4">
                       </div>
                     </div>
 
                     <div class="row" data-calc-bmr="female">
                       <div class="small-12 columns">
-                        <strong>Women:</strong> BMR = 655 + ( 4.35 x weight in pounds ) + ( 4.7 x height in inches ) - ( 4.7 x age in years )
+                        <strong>Women:</strong> BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) - (4.330 x age in years)
                       </div>
                       <div class="small-3 columns">
-                        <input type="text" value="655" data-calc-bmr="1">
+                        <input type="text" value="447.593" data-calc-bmr="1">
                       </div>
                       <div class="small-3 columns">
-                        <input type="text" value="4.35" data-calc-bmr="2">
+                        <input type="text" value="9.247" data-calc-bmr="2">
                       </div>
                       <div class="small-3 columns">
-                        <input type="text" value="4.7" data-calc-bmr="3">
+                        <input type="text" value="3.098" data-calc-bmr="3">
                       </div>
                       <div class="small-3 columns">
-                        <input type="text" value="4.7" data-calc-bmr="4">
+                        <input type="text" value="4.330" data-calc-bmr="4">
                       </div>
                     </div>
 

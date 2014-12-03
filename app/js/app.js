@@ -17,8 +17,8 @@
       // Step 1
       gender              = $('[data-calc="gender"]:checked').val(),
       age                 = parseInt($('[data-calc="age"]').val()),
-      weight              = parseInt($('[data-calc="weight"]').val()),
-      height              = parseInt($('[data-calc="height"]').val()),
+      weight              = parseInt($('.system.selected [data-calc="weight"]').val()),
+      height              = parseInt($('.system.selected [data-calc="height"]').val()),
       BF                  = parseInt($('[data-calc="bf"]').val()),
       formula             = parseInt($('[data-calc="formula"]:checked').val()),
       activity            = parseFloat($('select[data-calc="activity"] option:selected').val()),
@@ -59,18 +59,38 @@
       macroResultCarb     = 0;
       //macroCarb           = (1 - (sumRecProtPercent - macroBF));
 
-    if (calcId === 'conversion') {
-      //cm to in
+    /*if (calcId === 'conversion') {
       // Centimeters ÷ 2.54cm/in = inches
       if ($calcSelected.data('calc-conversion') === 'centimeters') {
         $('[data-calc-conversion="inches"]').val(Math.floor($(calcSelected).val() / 2.5));
       }
 
-      // kg to lbs
       // multiply kg by 2.2
       if ($calcSelected.data('calc-conversion') === 'kilograms') {
         $('[data-calc-conversion="pounds"]').val(Math.floor($(calcSelected).val() * 2.2));
       }
+    }*/
+    
+    /*if ($('.system.metric').hasClass('selected')) {
+      // Centimeters ÷ 2.54cm/in = inches
+      console.log(height);
+      height = Math.floor(height / 2.5);
+      console.log(height);
+      
+      // multiply kg by 2.2
+      console.log(weight);
+      weight = Math.round(weight * 2.2);
+      console.log(weight);
+    }*/
+    
+    if ($('.system.imperial').hasClass('selected')) {
+      console.log(height);
+      height = Math.floor(height * 2.54);
+      console.log(height);
+      
+      console.log(weight);
+      weight = Math.round(weight * 0.45359237);
+      console.log(weight);
     }
 
     if (formula === 0) {
@@ -116,7 +136,7 @@
       macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
     }
 
-    console.log('calc: ' + calcId, calcVal, goalVal, macroCustomCals);
+    console.log('calc: ' + calcId, calcVal, macroCustomCals);
 
     // Goal
     //updateGoal();
@@ -334,6 +354,12 @@ $(function () {
       $('[data-calc-goal="' + $(this).data('calc-goal') + '"]').prop('checked', false);
       $(this).addClass('selected');
       $(this).prop('checked', true);
+    }
+    if ($(this).data('calc') === 'system') {
+      $('.system').removeClass('selected');
+      $('.system.' + $(this).val()).addClass('selected');
+      $('.system').addClass('hide');
+      $('.system.' + $(this).val()).removeClass('hide');
     }
     calcResult.setValue(calcId, calcVal, calcSelected);
   });
