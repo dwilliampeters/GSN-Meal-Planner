@@ -63,7 +63,7 @@
                 <div class="calc">
                   <form class="calc-form">
 
-                    <!--<div class="row">
+                    <div class="row">
                       <div class="small-12 columns">
                         <p>(type in your information in the yellow boxes, blue are calculated values)</p>
                       </div>
@@ -75,7 +75,7 @@
                           <div class="small-4 columns">
                             <div class="row collapse">
                               <div class="small-9 columns">
-                                <input type="text" value="176.0">
+                                <input type="text" value="176.0" data-calc="conversion" data-calc-conversion="centimeters">
                               </div>
                               <div class="small-3 columns">
                                 <span class="postfix">cm</span>
@@ -88,7 +88,7 @@
                           <div class="small-4 columns">
                             <div class="row collapse">
                               <div class="small-9 columns">
-                                <input type="text" value="" readonly>
+                                <input type="text" value="" data-calc-conversion="inches" readonly>
                               </div>
                               <div class="small-3 columns">
                                 <span class="postfix">in</span>
@@ -100,7 +100,7 @@
                           <div class="small-4 columns">
                             <div class="row collapse">
                               <div class="small-9 columns">
-                                <input type="text" value="86.0">
+                                <input type="text" value="86.0" data-calc="conversion" data-calc-conversion="kilograms">
                               </div>
                               <div class="small-3 columns">
                                 <span class="postfix">kg</span>
@@ -113,7 +113,7 @@
                           <div class="small-4 columns">
                             <div class="row collapse">
                               <div class="small-9 columns">
-                                <input type="text" value="" readonly>
+                                <input type="text" value="" readonly data-calc-conversion="pounds">
                               </div>
                               <div class="small-3 columns">
                                 <span class="postfix">lbs</span>
@@ -122,7 +122,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>-->
+                    </div>
 
                     <div class="row">
                       <div class="medium-9 columns">
@@ -551,7 +551,6 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
-    <script src="js/vendor/jquery-ui.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

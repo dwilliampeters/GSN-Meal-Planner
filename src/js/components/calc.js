@@ -4,12 +4,16 @@
   function calcUpdate() {
   }
 
-  calcUpdate.prototype.setValue = function (calcId, calcVal) {
+  calcUpdate.prototype.setValue = function (calcId, calcVal, calcSelected) {
 
     var
       calcId              = calcId,
       calcVal             = calcVal,
+      $calcSelected       = calcSelected,
       sumVal              = 0,
+      // Conversions
+      calcConversion      = 0,
+      $calcConversion     = $('[data-calc-conversion]'),
       // Step 1
       gender              = $('[data-calc="gender"]:checked').val(),
       age                 = parseInt($('[data-calc="age"]').val()),
@@ -55,6 +59,22 @@
       macroResultCarb     = 0;
       //macroCarb           = (1 - (sumRecProtPercent - macroBF));
 
+    if (calcId === 'conversion') {
+      console.log('conversion time');
+      console.log(calcSelected.data('calc-conversion'));
+      //cm to in
+      // Centimeters ÷ 2.54cm/in = inches
+      if ($calcSelected.data('calc-conversion') === 'centimeters') {
+        $('[data-calc-conversion="inches"]').val(Math.floor($(calcSelected).val() / 2.5));
+      }
+
+      // kg to lbs
+      // multiply kg by 2.2
+      if ($calcSelected.data('calc-conversion') === 'kilograms') {
+        $('[data-calc-conversion="pounds"]').val(Math.floor($(calcSelected).val() * 2.2));
+      }
+    }
+
     if (formula === 0) {
       $('.input-bodyfat').attr('readonly', 'readonly');
       $('.input-bodyfat').val('');
@@ -99,7 +119,7 @@
     }
 
     console.log('calc: ' + calcId, calcVal, goalVal, macroCustomCals);
-    
+
     // Goal
     //updateGoal();
     function updateGoal($thisGoal, goal, goalCals, macroCustomCals) {
@@ -116,7 +136,7 @@
         goalCalsSelected = goalCals;
       }
     }
-    
+
     $($goal).each(function(index) {
       if ($(this).hasClass('selected')) {
         goal = $(this).data('calc-goal');
@@ -125,15 +145,15 @@
         updateGoal($thisGoal, goal, goalVal, macroCustomCals);
       }
     });
-    
+
     // Set Macros (Prob move to step 3 later)
     macroResultCals     = (goalCalsSelected);
     macroResultProt     = (macroResultCals * sumRecProtPercent / 4);
     macroResultFat      = (macroResultCals * (macroBF / 9));
     macroResultCarb     = (macroResultCals * (1 - sumRecProtPercent - macroBF) / 9);
-    
+
     //
-    
+
     function inputVal(id, sumVal) {
       //sumVal = Math.round(sumVal/100);
       $(id).val(sumVal);
@@ -168,7 +188,7 @@
     updateVal('[data-calc-level="result"] [data-calc-macro="prot"]', Math.floor(macroResultProt));
     updateVal('[data-calc-level="result"] [data-calc-macro="fat"]', Math.floor(macroResultFat));
     updateVal('[data-calc-level="result"] [data-calc-macro="carb"]', Math.floor(macroResultCarb));
-    
+
     // Goal
     //updateVal($goalCals, Math.floor(goalCals));
 
