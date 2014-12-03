@@ -71,6 +71,8 @@
       }
     }*/
     
+    // Step 1: 
+    
     /*if ($('.system.metric').hasClass('selected')) {
       // Centimeters ÷ 2.54cm/in = inches
       console.log(height);
@@ -132,9 +134,10 @@
       macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
     }
 
-    console.log('calc: ' + calcId, calcVal, macroCustomCals);
+    console.log('calc: ' + calcId, calcVal);
+    console.log($calcSelected);
 
-    // Goal
+    // Step 2: Goal
     //updateGoal();
     function updateGoal($thisGoal, goal, goalCals, macroCustomCals) {
       if (goal === 'fat-loss') {
@@ -166,6 +169,18 @@
     macroResultFat      = (macroResultCals * (macroBF / 9));
     macroResultCarb     = (macroResultCals * (1 - sumRecProtPercent - macroBF) / 9);
 
+    // Step 3: 
+    if (calcId === 'ratios') {
+      var ratioName     =  $calcSelected.find(':selected').data('name');
+      var ratioProtein  =  $calcSelected.find(':selected').data('protein');
+      var ratioCarbs    =  $calcSelected.find(':selected').data('carbs');
+      var ratioFat      =  $calcSelected.find(':selected').data('fat');
+      console.log(ratioName, ratioProtein, ratioCarbs, ratioFat);
+      $('[data-ratio="fat"]').val(ratioFat);
+      $('[data-ratio="carbs"]').val(ratioCarbs);
+      $('[data-ratio="protein"]').val(ratioProtein);
+    }
+    
     //
 
     function inputVal(id, sumVal) {
