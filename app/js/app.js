@@ -119,6 +119,7 @@
       sumRecProt          = (1.25 * sumLBM);
       sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals);
       sumRecFat           = 25;
+      
       // Macros
       macroBF             = parseFloat(BF) / 100;
       macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age));
@@ -134,17 +135,13 @@
     if (formula === 1) {
       // Normal
       $('.input-bodyfat').removeAttr('readonly');
-
+      
       sumLBM              = (weight * (1 - BF / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
       sumRecProt          = (1.25 * sumLBM);
       sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals);
       sumRecFat           = 25;
-      /*sumLBM              = (weight * (1 - BF / 100));
-      sumRecCals          = Math.floor((12 * sumLBM));
-      sumRecProt          = (1.25 * sumLBM);
-      sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals);
-      sumRecFat           = 25;*/
+      
       // Macros
       macroBF             = parseFloat(BF) / 100;
       macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age));
@@ -193,12 +190,6 @@
         updateGoal($thisGoal, goal, goalVal, macroCustomCals);
       }
     });
-
-    /*// Set Macros (Prob move to step 3 later)
-    macroResultCals     = (goalCalsSelected);
-    macroResultProt     = (macroResultCals * sumRecProtPercent / 4);
-    macroResultFat      = (macroResultCals * (macroBF / 9));
-    macroResultCarb     = (macroResultCals * (1 - sumRecProtPercent - macroBF) / 9);*/
 
     // Step 3:
     if (calcId === 'ratios') {
