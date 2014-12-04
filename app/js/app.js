@@ -22,8 +22,11 @@
       BF                  = parseInt($('[data-calc="bf"]').val()),
       formula             = parseInt($('[data-calc="formula"]:checked').val()),
       activityWeek        = parseFloat($('select[data-calc="activity"] option:selected').val()),
-      activityExtra       = parseFloat($('[data-calc="activity-extra"]:checked').val()),
-      activity            = (activityWeek + activityExtra),
+      activityExtra       = [],
+      activityExtraTotal  = 0,
+      //activityExtra       = parseFloat($('[data-calc="activity-extra"]:checked').val()),
+      //activity            = (activityWeek + activityExtra),
+      activity            = 0,
       activityDesc        = $('select[data-calc="activity"] option:selected').text(),
       // Step 2
       goal,
@@ -87,7 +90,22 @@
       console.log(weight);
     }*/
 
-    console.log(activityWeek, activityExtra, activity, BMR1, BMR2, BMR3, BMR4);
+    activityExtra = $('[data-calc="activity-extra"]:checked').map(function(){
+      return $(this).val();
+    }).get();
+
+    /*$.each(activityExtra[],function() {
+      activityExtraTotal += parseInt($(this).val(), 10) || 0;
+    });*/
+
+    $.each(activityExtra, function(intIndex, objValue){
+        console.log(objValue);
+        activityExtraTotal += parseFloat(objValue);
+      }
+    );
+
+    activity = (activityWeek + activityExtraTotal)
+    console.log(activityWeek, activityExtra, activityExtraTotal, activity, BMR1, BMR2, BMR3, BMR4);
 
     if ($('.system.imperial').hasClass('selected')) {
       height = Math.floor(height * 2.54);
