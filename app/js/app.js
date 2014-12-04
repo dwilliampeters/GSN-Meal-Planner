@@ -16,11 +16,11 @@
       $calcConversion     = $('[data-calc-conversion]'),
       // Step 1
       gender              = $('[data-calc="gender"]:checked').val(),
-      age                 = parseInt($('[data-calc="age"]').val()),
-      weight              = parseInt($('.system.selected [data-calc="weight"]').val()),
-      height              = parseInt($('.system.selected [data-calc="height"]').val()),
-      BF                  = parseInt($('[data-calc="bf"]').val()),
-      formula             = parseInt($('[data-calc="formula"]:checked').val()),
+      age                 = parseFloat($('[data-calc="age"]').val()),
+      weight              = parseFloat($('.system.selected [data-calc="weight"]').val()),
+      height              = parseFloat($('.system.selected [data-calc="height"]').val()),
+      BF                  = parseFloat($('[data-calc="bf"]').val()),
+      formula             = parseFloat($('[data-calc="formula"]:checked').val()),
       activityWeek        = parseFloat($('select[data-calc="activity"] option:selected').val()),
       activityExtra       = [],
       activityExtraTotal  = 0,
@@ -90,23 +90,19 @@
       console.log(weight);
     }*/
 
+    // Activity
     activityExtra = $('[data-calc="activity-extra"]:checked').map(function(){
       return $(this).val();
     }).get();
 
-    /*$.each(activityExtra[],function() {
-      activityExtraTotal += parseInt($(this).val(), 10) || 0;
-    });*/
-
     $.each(activityExtra, function(intIndex, objValue){
-        console.log(objValue);
         activityExtraTotal += parseFloat(objValue);
       }
     );
 
     activity = (activityWeek + activityExtraTotal)
-    console.log(activityWeek, activityExtra, activityExtraTotal, activity, BMR1, BMR2, BMR3, BMR4);
-
+    console.log(weight);
+    // Convert height and weight to our usable formula
     if ($('.system.imperial').hasClass('selected')) {
       height = Math.floor(height * 2.54);
       weight = Math.round(weight * 0.45359237);
@@ -144,8 +140,22 @@
       sumRecProt          = (1.25 * sumLBM);
       sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals);
       sumRecFat           = 25;
+      /*sumLBM              = (weight * (1 - BF / 100));
+      sumRecCals          = Math.floor((12 * sumLBM));
+      sumRecProt          = (1.25 * sumLBM);
+      sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals);
+      sumRecFat           = 25;*/
       // Macros
       macroBF             = parseFloat(BF) / 100;
+      macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age));
+      macroProt           = (macroCals * sumRecProtPercent / 4);
+      macroFat            = (macroCals * (macroBF / 9));
+      macroCarb           = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
+      macroCustomCals     = (activity * (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age)));
+      macroCustomProt     = (macroCustomCals * sumRecProtPercent / 4);
+      macroCustomFat      = (macroCustomCals * (macroBF / 9));
+      macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
+      /*macroBF             = parseFloat(BF) / 100;
       macroCals           = (sumRecCals);
       macroProt           = (macroCals * sumRecProtPercent / 4);
       macroFat            = (macroCals * (macroBF / 9));
@@ -153,11 +163,10 @@
       macroCustomCals     = (activity * sumRecCals);
       macroCustomProt     = (macroCustomCals * sumRecProtPercent / 4);
       macroCustomFat      = (macroCustomCals * (macroBF / 9));
-      macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
+      macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);*/
     }
 
-    console.log('calc: ' + calcId, calcVal);
-    console.log($calcSelected);
+    console.log('calc: ' + calcId, calcVal, BF, sumLBM, sumRecCals, sumRecProt, sumRecProtPercent, sumRecFat);
 
     // Step 2: Goal
     //updateGoal();
