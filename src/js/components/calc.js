@@ -21,7 +21,9 @@
       height              = parseInt($('.system.selected [data-calc="height"]').val()),
       BF                  = parseInt($('[data-calc="bf"]').val()),
       formula             = parseInt($('[data-calc="formula"]:checked').val()),
-      activity            = parseFloat($('select[data-calc="activity"] option:selected').val()),
+      activityWeek        = parseFloat($('select[data-calc="activity"] option:selected').val()),
+      activityExtra       = parseFloat($('[data-calc="activity-extra"]:checked').val()),
+      activity            = (activityWeek + activityExtra),
       activityDesc        = $('select[data-calc="activity"] option:selected').text(),
       // Step 2
       goal,
@@ -32,10 +34,10 @@
       $goalCals           = $('[data-calc-goal-calories]'),
       goalCals            = 0,
       // BMR
-      BMR1                = parseInt($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="1"]').val()),
-      BMR2                = parseInt($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="2"]').val()),
-      BMR3                = parseInt($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="3"]').val()),
-      BMR4                = parseInt($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="4"]').val()),
+      BMR1                = parseFloat($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="1"]').val()),
+      BMR2                = parseFloat($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="2"]').val()),
+      BMR3                = parseFloat($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="3"]').val()),
+      BMR4                = parseFloat($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="4"]').val()),
       // Sums
       sumLBM              = 0,
       sumRecCals          = 0,
@@ -70,23 +72,25 @@
         $('[data-calc-conversion="pounds"]').val(Math.floor($(calcSelected).val() * 2.2));
       }
     }*/
-    
-    // Step 1: 
-    
+
+    // Step 1:
+
     /*if ($('.system.metric').hasClass('selected')) {
       // Centimeters ÷ 2.54cm/in = inches
       console.log(height);
       height = Math.floor(height / 2.5);
       console.log(height);
-      
+
       // multiply kg by 2.2
       console.log(weight);
       weight = Math.round(weight * 2.2);
       console.log(weight);
     }*/
-    
+
+    console.log(activityWeek, activityExtra, activity, BMR1, BMR2, BMR3, BMR4);
+
     if ($('.system.imperial').hasClass('selected')) {
-      height = Math.floor(height * 2.54);      
+      height = Math.floor(height * 2.54);
       weight = Math.round(weight * 0.45359237);
     }
 
@@ -94,7 +98,7 @@
       // Athletic
       $('.input-bodyfat').attr('readonly', 'readonly');
       $('.input-bodyfat').val('');
-      
+
       BF                  = 20;
       sumLBM              = (weight * (1 - BF / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
@@ -116,7 +120,7 @@
     if (formula === 1) {
       // Normal
       $('.input-bodyfat').removeAttr('readonly');
-      
+
       sumLBM              = (weight * (1 - BF / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
       sumRecProt          = (1.25 * sumLBM);
@@ -169,7 +173,7 @@
     macroResultFat      = (macroResultCals * (macroBF / 9));
     macroResultCarb     = (macroResultCals * (1 - sumRecProtPercent - macroBF) / 9);*/
 
-    // Step 3: 
+    // Step 3:
     if (calcId === 'ratios') {
       var ratioName     =  $calcSelected.find(':selected').data('name');
       var ratioProtein  =  $calcSelected.find(':selected').data('protein');
@@ -180,13 +184,13 @@
       $('[data-ratio="carbs"]').val(ratioCarbs);
       $('[data-ratio="protein"]').val(ratioProtein);
     }
-    
+
     // Step 4:
     macroResultCals     = (goalCalsSelected);
     macroResultProt     = ((macroResultCals * ratioProtein / 100) / 4);
     macroResultFat      = ((macroResultCals * ratioFat / 100) / 9);
     macroResultCarb     = ((macroResultCals * ratioCarbs / 100) / 4);
-    
+
     //
 
     function inputVal(id, sumVal) {

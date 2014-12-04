@@ -129,7 +129,7 @@
                           </div>
                         </div>
                       </div>
-                      
+
                       <div class="small-12 medium-6 columns">
                         <div class="row">
                           <div class="small-12 columns">
@@ -142,7 +142,7 @@
                         </div>
                       </div>
                     </div>
-                      
+
                     <div class="row">
                       <div class="small-12 medium-3 columns">
                         <div class="row">
@@ -320,17 +320,41 @@
                             <label>Excersise Level</label>
                             <select name="calc-activity" data-calc="activity">
                               <option value="1.0">Basal Metabolic Rate</option>
-                              <option value="1.2" selected="selected">Sedentary</option>
-                              <option value="1.375">Light Activity</option>
-                              <option value="1.4187">Moderate Activity</option>
-                              <option value="1.5063">Very Active</option>
-                              <option value="1.6375">Extremely Active</option>
+                              <option value="1.375" selected="selected">3 times per week</option>
+                              <option value="1.62">4 times per week</option>
+                              <option value="1.465">5 times per week</option>
+                              <option value="1.5">6 times per week</option>
+                              <option value="1.6375">7 times per week</option>
                             </select>
                           </div>
                         </div>
-                        
+
+                        <div class="row">
+                          <div class="small-12 medium-10 columns">
+                            <label></label>
+                            <div class="row">
+                              <div class="small-12 columns">
+                                <input type="radio" id="high-intensity-cardio" name="activity-extra" value="0.09" data-calc="activity-extra" checked>
+                                <label for="high-intensity-cardio">High Intensity Cardio</label>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="small-12 columns">
+                                <input type="radio" id="physical-job" name="activity-extra" value="0.2" data-calc="activity-extra">
+                                <label for="physical-job">Physical Job</label>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="small-12 columns">
+                                <input type="radio" id="twice-daily" name="activity-extra" value="0.09" data-calc="activity-extra">
+                                <label for="twice-daily">Twice daily</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
                         <hr>
-                        
+
                         <div class="row">
                           <div class="small-8 medium-4 columns">
                             <label>BF%</label>
@@ -346,7 +370,7 @@
                             </div>
                           </div>
                         </div>
-                        
+
                         <hr>
 
                         <div class="row">
@@ -493,15 +517,16 @@
                         <h3>Step 3: Select your nutrition plan</h3>
                       </div>
                     </div>
-                    
+
                     <div class="row">
                       <div class="medium-5 large-4 columns">
-                        <select multiple data-calc="ratios" size="6">
+                        <label>Ratio</label>
+                        <select data-calc="ratios">
                           <option data-name="moderate" data-carbs="50" data-protein="25" data-fat="25" selected>Textbook</option>
                           <option data-name="moderate-ii" data-carbs="40" data-protein="40" data-fat="20">Body Builder</option>
                           <option data-name="zone-diet" data-carbs="40" data-protein="30" data-fat="30">Zone Diet</option>
                           <option data-name="low-fat" data-carbs="60" data-protein="25" data-fat="15">Low Fat</option>
-                          <option data-name="low-carb" data-carbs="25" data-protein="40" data-fat="35">Low Carb</option>  
+                          <option data-name="low-carb" data-carbs="25" data-protein="40" data-fat="35">Low Carb</option>
                           <option data-name="very-low-carb" data-carbs="5" data-protein="30" data-fat="65">Ketogenic (Atkins)</option>
                         </select>
                       </div>
@@ -518,7 +543,7 @@
                               </div>
                             </div>
                           </div>
-                          
+
                           <div class="small-4 medium-4 large-3 columns">
                             <label>Fat</label>
                             <div class="row collapse">
@@ -530,7 +555,7 @@
                               </div>
                             </div>
                           </div>
-                          
+
                           <div class="small-4 medium-4 large-3 columns end">
                             <label>Carbs</label>
                             <div class="row collapse">
@@ -572,9 +597,9 @@
                         </div>
                       </div>
                     </div>
-                    
+
                     <hr>
-                    
+
                     <div class="row" data-calc-bmr="male">
                       <div class="small-12 columns">
                         <strong>Men:</strong> BMR = 88.362 + (13.397 x weight in kg) + (4.799 x height in cm) - (5.677 x age in year)
