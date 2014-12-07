@@ -101,10 +101,15 @@
     );
 
     activity = (activityWeek + activityExtraTotal)
-    console.log(weight);
     // Convert height and weight to our usable formula
-    if ($('.system.imperial').hasClass('selected')) {
+    /*if ($('.system.imperial').hasClass('selected')) {
       height = Math.floor(height * 2.54);
+      weight = Math.round(weight * 0.45359237);
+    }*/
+    if ($('#imperial-height').is(':checked')) {
+      height = Math.floor(height * 2.54);
+    }
+    if ($('#imperial-weight').is(':checked')) {
       weight = Math.round(weight * 0.45359237);
     }
 
@@ -394,12 +399,38 @@ $(function () {
       $(this).addClass('selected');
       $(this).prop('checked', true);
     }
-    if ($(this).data('calc') === 'system') {
+    if ($(this).data('calc') === 'system-height') {
+      var heightVal = $('.system-height input').val();
+      if ($('#imperial-height').is(':checked')) {
+        $('.system-height .postfix .imperial').removeClass('hide');
+        $('.system-height .postfix .metric').addClass('hide');
+        $('.system-height input').val(heightVal = Math.floor(heightVal / 2.5));
+      }
+      if ($('#metric-height').is(':checked')) {
+        $('.system-height .postfix .imperial').addClass('hide');
+        $('.system-height .postfix .metric').removeClass('hide');
+        $('.system-height input').val(heightVal = Math.floor(heightVal * 2.54));
+      }
+    }
+    if ($(this).data('calc') === 'system-weight') {
+      var weightVal = $('.system-weight input').val();
+      if ($('#imperial-weight').is(':checked')) {
+        $('.system-weight .postfix .imperial').removeClass('hide');
+        $('.system-weight .postfix .metric').addClass('hide');
+        $('.system-weight input').val(weightVal = Math.round(weightVal * 2.2));
+      }
+      if ($('#metric-weight').is(':checked')) {
+        $('.system-weight .postfix .imperial').addClass('hide');
+        $('.system-weight .postfix .metric').removeClass('hide');
+        $('.system-weight input').val(weightVal = Math.round(weightVal * 0.45359237));
+      }
+    }
+    /*if ($(this).data('calc') === 'system') {
       $('.system').removeClass('selected');
       $('.system.' + $(this).val()).addClass('selected');
       $('.system').addClass('hide');
       $('.system.' + $(this).val()).removeClass('hide');
-    }
+    }*/
     calcResult.setValue(calcId, calcVal, calcSelected);
   });
 
@@ -462,7 +493,7 @@ $(function () {
         }
       });
     }
-    console.log(meal + ' Cals = ' + mealCals);
+    //console.log(meal + ' Cals = ' + mealCals);
     return mealCals;
   }
   
@@ -474,7 +505,7 @@ $(function () {
   var meal6 = mealMaker('Pre-Workout', 337);
   var meal7 = mealMaker('Pre-Workout', 337);
   
-  console.log('Total Calories: ' + (meal1 + meal2 + meal3 + meal4 + meal5 + meal6 + meal7) + ', Macro Calories: ' + macroCals);
+  console.log('Total Meal Calories: ' + (meal1 + meal2 + meal3 + meal4 + meal5 + meal6 + meal7) + ', Target Calories: ' + macroCals);
 
 });
 

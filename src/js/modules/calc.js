@@ -20,12 +20,38 @@ $(function () {
       $(this).addClass('selected');
       $(this).prop('checked', true);
     }
-    if ($(this).data('calc') === 'system') {
+    if ($(this).data('calc') === 'system-height') {
+      var heightVal = $('.system-height input').val();
+      if ($('#imperial-height').is(':checked')) {
+        $('.system-height .postfix .imperial').removeClass('hide');
+        $('.system-height .postfix .metric').addClass('hide');
+        $('.system-height input').val(heightVal = Math.floor(heightVal / 2.5));
+      }
+      if ($('#metric-height').is(':checked')) {
+        $('.system-height .postfix .imperial').addClass('hide');
+        $('.system-height .postfix .metric').removeClass('hide');
+        $('.system-height input').val(heightVal = Math.floor(heightVal * 2.54));
+      }
+    }
+    if ($(this).data('calc') === 'system-weight') {
+      var weightVal = $('.system-weight input').val();
+      if ($('#imperial-weight').is(':checked')) {
+        $('.system-weight .postfix .imperial').removeClass('hide');
+        $('.system-weight .postfix .metric').addClass('hide');
+        $('.system-weight input').val(weightVal = Math.round(weightVal * 2.2));
+      }
+      if ($('#metric-weight').is(':checked')) {
+        $('.system-weight .postfix .imperial').addClass('hide');
+        $('.system-weight .postfix .metric').removeClass('hide');
+        $('.system-weight input').val(weightVal = Math.round(weightVal * 0.45359237));
+      }
+    }
+    /*if ($(this).data('calc') === 'system') {
       $('.system').removeClass('selected');
       $('.system.' + $(this).val()).addClass('selected');
       $('.system').addClass('hide');
       $('.system.' + $(this).val()).removeClass('hide');
-    }
+    }*/
     calcResult.setValue(calcId, calcVal, calcSelected);
   });
 

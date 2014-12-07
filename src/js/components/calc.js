@@ -101,10 +101,15 @@
     );
 
     activity = (activityWeek + activityExtraTotal)
-    console.log(weight);
     // Convert height and weight to our usable formula
-    if ($('.system.imperial').hasClass('selected')) {
+    /*if ($('.system.imperial').hasClass('selected')) {
       height = Math.floor(height * 2.54);
+      weight = Math.round(weight * 0.45359237);
+    }*/
+    if ($('#imperial-height').is(':checked')) {
+      height = Math.floor(height * 2.54);
+    }
+    if ($('#imperial-weight').is(':checked')) {
       weight = Math.round(weight * 0.45359237);
     }
 

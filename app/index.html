@@ -130,7 +130,7 @@
                         </div>
                       </div>
 
-                      <div class="small-12 medium-6 columns">
+                      <!--<div class="small-12 medium-6 columns">
                         <div class="row">
                           <div class="small-12 columns">
                             <label>Metric system</label>
@@ -140,7 +140,7 @@
                             <label for="metric">Metric</label>
                           </div>
                         </div>
-                      </div>
+                      </div>-->
                     </div>
 
                     <div class="row">
@@ -160,7 +160,7 @@
                         </div>
                       </div>
 
-                      <div class="small-6 medium-3 medium-push-3 columns system imperial selected">
+                      <div class="small-6 medium-3 medium-push-3 columns system system-height selected">
                         <div class="row">
                           <div class="small-12 columns">
                             <label>Height</label>
@@ -169,14 +169,27 @@
                                 <input type="text" value="72" data-calc="height">
                               </div>
                               <div class="small-4 columns">
-                                <span class="postfix">in</span>
+                                <span class="postfix">
+                                  <span class="imperial">in</span>
+                                  <span class="metric hide">cm</span>
+                                </span>
+
                               </div>
                             </div>
                           </div>
                         </div>
+                        <div class="row">
+                          <div class="small-12 columns">
+                            <label class="hide">Metric system</label>
+                            <input type="radio" id="imperial-height" name="system-height" value="imperial" data-calc="system-height" checked>
+                            <label for="imperial-height">Imperial</label>
+                            <input type="radio" id="metric-height" name="system-height" value="metric" data-calc="system-height">
+                            <label for="metric-height">Metric</label>
+                          </div>
+                        </div>
                       </div>
 
-                      <div class="small-6 medium-3 medium-push-3 columns end system imperial selected">
+                      <div class="small-6 medium-3 medium-push-3 columns end system system-weight selected">
                         <div class="row">
                           <div class="small-12 columns">
                             <label>Body Weight</label>
@@ -185,14 +198,26 @@
                                 <input type="text" value="185" data-calc="weight">
                               </div>
                               <div class="small-4 columns">
-                                <span class="postfix">lbs</span>
+                                <span class="postfix">
+                                  <span class="imperial">lbs</span>
+                                  <span class="metric hide">kg</span>
+                                </span>
                               </div>
                             </div>
                           </div>
                         </div>
+                        <div class="row">
+                          <div class="small-12 columns">
+                            <label class="hide">Metric system</label>
+                            <input type="radio" id="imperial-weight" name="system-weight" value="imperial" data-calc="system-weight" checked>
+                            <label for="imperial-weight">Imperial</label>
+                            <input type="radio" id="metric-weight" name="system-weight" value="metric" data-calc="system-weight">
+                            <label for="metric-weight">Metric</label>
+                          </div>
+                        </div>
                       </div>
 
-                      <div class="small-6 medium-3 medium-push-3 columns system metric hide">
+                      <!--<div class="small-6 medium-3 medium-push-3 columns system metric hide">
                         <div class="row">
                           <div class="small-12 columns">
                             <label>Height</label>
@@ -222,7 +247,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div>-->
                     </div>
 
                     <hr>

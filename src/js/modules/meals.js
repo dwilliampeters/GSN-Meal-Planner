@@ -55,7 +55,7 @@ $(function () {
         }
       });
     }
-    console.log(meal + ' Cals = ' + mealCals);
+    //console.log(meal + ' Cals = ' + mealCals);
     return mealCals;
   }
   
@@ -67,6 +67,6 @@ $(function () {
   var meal6 = mealMaker('Pre-Workout', 337);
   var meal7 = mealMaker('Pre-Workout', 337);
   
-  console.log('Total Calories: ' + (meal1 + meal2 + meal3 + meal4 + meal5 + meal6 + meal7) + ', Macro Calories: ' + macroCals);
+  console.log('Total Meal Calories: ' + (meal1 + meal2 + meal3 + meal4 + meal5 + meal6 + meal7) + ', Target Calories: ' + macroCals);
 
 });
