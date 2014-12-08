@@ -182,7 +182,7 @@
       }
       $('[data-calc-goal-calories="' + goal + '"]').html(Math.floor(goalCals));
       if ($thisGoal.is(':checked')) {
-        console.log(goal + ' is checked');
+        //console.log(goal + ' is checked');
         goalCalsSelected = goalCals;
       }
     }

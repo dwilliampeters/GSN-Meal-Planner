@@ -6,13 +6,20 @@ $(function () {
   // Foods
   // ID / Meal      / Foods            / Cals  / Carbs / Fat / Protein / Sodium / Sugar
   // 0  / Breakfast / Banana 1 serving / 112   / 29    / 0   / 1       / 1      / 15
-  var foods     = [[0, "Breakfast", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
-                   [1, "Breakfast", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
-                   [2, "Breakfast", "Oats 30g", 74, 16.5, 0, 0, 0, 0],
-                   [0, "Pre-Workout", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
-                   [1, "Pre-Workout", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
-                   [2, "Pre-Workout", "Oats 30g", 74, 16.5, 0, 0, 0, 0]],
-      macroCals = 2360;
+  var foods         = [[0, "Breakfast", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
+                       [1, "Breakfast", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
+                       [2, "Breakfast", "Oats 30g", 74, 16.5, 0, 0, 0, 0],
+                       [0, "Pre-Workout", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
+                       [1, "Pre-Workout", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
+                       [2, "Pre-Workout", "Oats 30g", 74, 16.5, 0, 0, 0, 0]],
+      macroCals     = 2306,
+      macroCarbs    = 230,
+      macroFat      = 51,
+      macroProtein  = 230,
+      numMeals      = 7,
+      mealCalsLimit = (macroCals / numMeals),
+      mealCalsLeft  = (macroCals - (mealCalsLimit * 7));
+  console.log('Cals left: ' + mealCalsLeft);
 
   // Macros
   // Calories / Protein / Fat / Carbs
@@ -31,11 +38,17 @@ $(function () {
   // EACH Foods.Meal = Breakfast GET Cals
   // ADD Cals to near 337
   // PRINT Foods FOR Breakfast
-  var makerMeal,
+  var mealType,
       makerCals;
-  function mealMaker(makerMeal, makerCals) {
-    var meal = makerMeal;
-    var mealCals  = 0;
+  var mealArr;
+  function mealMaker(mealType, makerCals, mealArr) {
+    var meal = mealType;
+    var mealCals  = 0,
+        mealCarbs  = 0,
+        mealFat  = 0,
+        mealProtein  = 0,
+        mealSodium  = 0,
+        mealSugar  = 0;
     var mealTotalCals = makerCals;
     var meali = -1;
     while( ++meali < 5 && mealCals < mealTotalCals ){
@@ -47,6 +60,16 @@ $(function () {
             } else {
               //console.log(i + mealCals + ' + ' + foods[i][3]);
               mealCals += foods[i][3];
+              mealCarbs += foods[i][4];
+              mealFat += foods[i][5];
+              mealProtein += foods[i][6];
+              mealSodium += foods[i][7];
+              mealSugar += foods[i][8];
+              mealArr = [];
+              mealArr.push(mealCals);
+              mealArr.push(mealCarbs);
+              mealArr.push(mealFat);
+              mealArr.push(mealProtein);
               //console.log(i + '+= ' + mealCals);
             }
           } else {
@@ -56,17 +79,52 @@ $(function () {
       });
     }
     //console.log(meal + ' Cals = ' + mealCals);
-    return mealCals;
+    return mealCals, mealArr;
   }
   
-  var meal1 = mealMaker('Breakfast', 337);
-  var meal2 = mealMaker('Pre-Workout', 337);
-  var meal3 = mealMaker('Pre-Workout', 337);
-  var meal4 = mealMaker('Pre-Workout', 337);
-  var meal5 = mealMaker('Pre-Workout', 337);
-  var meal6 = mealMaker('Pre-Workout', 337);
-  var meal7 = mealMaker('Pre-Workout', 337);
+  var meal1 = mealMaker('Breakfast', mealCalsLimit, mealArr);
+  var meal2 = mealMaker('Pre-Workout', mealCalsLimit);
+  var meal3 = mealMaker('Pre-Workout', mealCalsLimit);
+  var meal4 = mealMaker('Pre-Workout', mealCalsLimit);
+  var meal5 = mealMaker('Pre-Workout', mealCalsLimit);
+  var meal6 = mealMaker('Pre-Workout', mealCalsLimit);
+  var meal7 = mealMaker('Pre-Workout', mealCalsLimit);
   
-  console.log('Total Meal Calories: ' + (meal1 + meal2 + meal3 + meal4 + meal5 + meal6 + meal7) + ', Target Calories: ' + macroCals);
+  var meal1Cals = meal1[0];
+  var meal2Cals = meal1[0];
+  var meal3Cals = meal1[0];
+  var meal4Cals = meal1[0];
+  var meal5Cals = meal1[0];
+  var meal6Cals = meal1[0];
+  var meal7Cals = meal1[0];
+  
+  var meal1Carbs = meal1[1];
+  var meal2Carbs = meal2[1];
+  var meal3Carbs = meal3[1];
+  var meal4Carbs = meal4[1];
+  var meal5Carbs = meal5[1];
+  var meal6Carbs = meal6[1];
+  var meal7Carbs = meal7[1];
+  
+  var meal1Fat = meal1[3];
+  var meal2Fat = meal2[3];
+  var meal3Fat = meal3[3];
+  var meal4Fat = meal4[3];
+  var meal5Fat = meal5[3];
+  var meal6Fat = meal6[3];
+  var meal7Fat = meal7[3];
+  
+  var meal1Protein = meal1[2];
+  var meal2Protein = meal2[2];
+  var meal3Protein = meal3[2];
+  var meal4Protein = meal4[2];
+  var meal5Protein = meal5[2];
+  var meal6Protein = meal6[2];
+  var meal7Protein = meal7[2];
+  
+  console.log('Total Meal Calories: ' + (meal1Cals + meal2Cals + meal3Cals + meal4Cals + meal5Cals + meal6Cals + meal7Cals) + ', Target Calories: ' + macroCals);
+  console.log('Total Meal Carbs: ' + (meal1Carbs + meal2Carbs + meal3Carbs + meal4Carbs + meal5Carbs + meal6Carbs + meal7Carbs) + ', Target Carbs: ' + macroCarbs);
+  console.log('Total Meal Fat: ' + (meal1Fat + meal2Fat + meal3Fat + meal4Fat + meal5Fat + meal6Fat + meal7Fat) + ', Target Fat: ' + macroFat);
+  console.log('Total Meal Protein: ' + (meal1Protein + meal2Protein + meal3Protein + meal4Protein + meal5Protein + meal6Protein + meal7Protein) + ', Target Protein: ' + macroProtein);
 
 });
