@@ -9,9 +9,14 @@ $(function () {
   var foods         = [[0, "Breakfast", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
                        [1, "Breakfast", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
                        [2, "Breakfast", "Oats 30g", 74, 16.5, 0, 0, 0, 0],
-                       [0, "Pre-Workout", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
-                       [1, "Pre-Workout", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
-                       [2, "Pre-Workout", "Oats 30g", 74, 16.5, 0, 0, 0, 0]],
+                       [3, "Pre-Workout", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
+                       [4, "Pre-Workout", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
+                       [5, "Pre-Workout", "Oats 30g", 74, 16.5, 0, 0, 0, 0],
+                       [6, "Meal", "Gold Standard Nutrition - Pot Of Gold - Naked 1 Pot", 345, 46, 2, 37, 0, 1],
+                       [6, "Meal", "Pot O Mash 200g", 181, 35, 2, 5, 229, 8],
+                       [6, "Meal", "Gold Standard Nutrition - Steam Cooked Chicken Fillets 120g", 148, 1, 1, 34, 200, 0],
+                       [6, "Bedtime", "Tesco - Everyday Value Cottage Cheese Low Fat 300g", 190, 15, 2, 29, 1000, 11],
+                       [6, "Bedtime", "Alpro - Unsweetend Almond Milk 100ml", 13, 2, 1, 0, 0, 0]],
       macroCals     = 2306,
       macroCarbs    = 230,
       macroFat      = 51,
@@ -85,10 +90,10 @@ $(function () {
   var meal1 = mealMaker('Breakfast', mealCalsLimit, mealArr);
   var meal2 = mealMaker('Pre-Workout', mealCalsLimit);
   var meal3 = mealMaker('Pre-Workout', mealCalsLimit);
-  var meal4 = mealMaker('Pre-Workout', mealCalsLimit);
-  var meal5 = mealMaker('Pre-Workout', mealCalsLimit);
-  var meal6 = mealMaker('Pre-Workout', mealCalsLimit);
-  var meal7 = mealMaker('Pre-Workout', mealCalsLimit);
+  var meal4 = mealMaker('Meal', mealCalsLimit);
+  var meal5 = mealMaker('Meal', mealCalsLimit);
+  var meal6 = mealMaker('Meal', mealCalsLimit);
+  var meal7 = mealMaker('Bedtime', mealCalsLimit);
   
   var meal1Cals = meal1[0];
   var meal2Cals = meal1[0];
