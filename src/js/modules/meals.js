@@ -6,56 +6,44 @@ $(function () {
   // Foods
   // ID / Meal      / Foods            / Cals  / Carbs / Fat / Protein / Sodium / Sugar
   // 0  / Breakfast / Banana 1 serving / 112   / 29    / 0   / 1       / 1      / 15
-  var foods         = [[0, "Breakfast", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
-                       [1, "Breakfast", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
-                       [2, "Breakfast", "Oats 30g", 74, 16.5, 0, 0, 0, 0],
-                       [3, "Pre-Workout", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
-                       [4, "Pre-Workout", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
-                       [5, "Pre-Workout", "Oats 30g", 74, 16.5, 0, 0, 0, 0],
-                       [6, "Meal", "Gold Standard Nutrition - Pot Of Gold - Naked 1 Pot", 345, 46, 2, 37, 0, 1],
-                       [6, "Meal", "Pot O Mash 200g", 181, 35, 2, 5, 229, 8],
-                       [6, "Meal", "Gold Standard Nutrition - Steam Cooked Chicken Fillets 120g", 148, 1, 1, 34, 200, 0],
-                       [6, "Bedtime", "Tesco - Everyday Value Cottage Cheese Low Fat 300g", 190, 15, 2, 29, 1000, 11],
-                       [6, "Bedtime", "Alpro - Unsweetend Almond Milk 100ml", 13, 2, 1, 0, 0, 0]],
-      macroCals     = 2306,
-      macroCarbs    = 230,
-      macroFat      = 51,
-      macroProtein  = 230,
-      numMeals      = 7,
-      mealCalsLimit = (macroCals / numMeals),
-      mealCalsLeft  = (macroCals - (mealCalsLimit * 7));
-  console.log('Cals left: ' + mealCalsLeft);
+      var foods         = [[0, "Breakfast", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
+                           [1, "Breakfast", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
+                           [2, "Breakfast", "Oats 30g", 74, 16.5, 0, 0, 0, 0],
+                           [3, "Pre-Workout", "Banana 1 serving", 112, 29, 0, 1, 1, 15],
+                           [4, "Pre-Workout", "Protein 42g", 103, 3, 1, 20, 192, 2.5],
+                           [5, "Pre-Workout", "Oats 30g", 74, 16.5, 0, 0, 0, 0],
+                           [6, "Meal", "Gold Standard Nutrition - Pot Of Gold - Naked 1 Pot", 345, 46, 2, 37, 0, 1],
+                           [6, "Meal", "Pot O Mash 200g", 181, 35, 2, 5, 229, 8],
+                           [6, "Meal", "Gold Standard Nutrition - Steam Cooked Chicken Fillets 120g", 148, 1, 1, 34, 200, 0],
+                           [6, "Bedtime", "Tesco - Everyday Value Cottage Cheese Low Fat 300g", 190, 15, 2, 29, 1000, 11],
+                           [6, "Bedtime", "Alpro - Unsweetend Almond Milk 100ml", 13, 2, 1, 0, 0, 0]],
+      macroCals         = 2306,
+      macroCarbs        = 230,
+      macroFat          = 51,
+      macroProtein      = 230,
+      numMeals          = 7,
+      mealCalsLimit     = (macroCals / numMeals),
+      mealCarbsLimit    = (macroCarbs / numMeals),
+      mealFatLimit      = (macroFat / numMeals),
+      mealProteinLimit  = (macroProtein / numMeals),
+      mealCalsLeft      = (macroCals - (mealCalsLimit * 7));
 
-  // Macros
-  // Calories / Protein / Fat / Carbs
-  // 2360     / 236     / 52  / 236
-
-  // 7 Meals = (macroCals / 7) = 337
-  // Breakfast    = 337
-  // Meal         = 337
-  // Pre-Workout  = 337
-  // Post-Workout = 337
-  // Meal         = 337
-  // Meal         = 337
-  // Bedtime      = 337
-
-  // Make a meal
-  // EACH Foods.Meal = Breakfast GET Cals
-  // ADD Cals to near 337
-  // PRINT Foods FOR Breakfast
   var mealType,
       makerCals;
   var mealArr;
-  function mealMaker(mealType, makerCals, mealArr) {
-    var meal = mealType;
-    var mealCals  = 0,
+  function mealMaker(mealType, makerCals, makerCarbs, makerFat, makerProtein, mealArr) {
+    var meal = mealType,
+        mealTotalCals = makerCals,
+        mealTotalCarbs = makerCarbs,
+        mealTotalFat = makerFat,
+        mealTotalProtein = makerProtein,
+        mealCals  = 0,
         mealCarbs  = 0,
         mealFat  = 0,
         mealProtein  = 0,
         mealSodium  = 0,
-        mealSugar  = 0;
-    var mealTotalCals = makerCals;
-    var meali = -1;
+        mealSugar  = 0,
+        meali = -1;
     while( ++meali < 5 && mealCals < mealTotalCals ){
       $.each(foods,function(i) {
         if (meal === foods[i][1]) {
@@ -87,13 +75,13 @@ $(function () {
     return mealCals, mealArr;
   }
   
-  var meal1 = mealMaker('Breakfast', mealCalsLimit, mealArr);
-  var meal2 = mealMaker('Pre-Workout', mealCalsLimit);
-  var meal3 = mealMaker('Pre-Workout', mealCalsLimit);
-  var meal4 = mealMaker('Meal', mealCalsLimit);
-  var meal5 = mealMaker('Meal', mealCalsLimit);
-  var meal6 = mealMaker('Meal', mealCalsLimit);
-  var meal7 = mealMaker('Bedtime', mealCalsLimit);
+  var meal1 = mealMaker('Breakfast', mealCalsLimit, mealCarbsLimit, mealFatLimit, mealProteinLimit, mealArr);
+  var meal2 = mealMaker('Pre-Workout', mealCalsLimit, mealCarbsLimit, mealFatLimit, mealProteinLimit, mealArr);
+  var meal3 = mealMaker('Pre-Workout', mealCalsLimit, mealCarbsLimit, mealFatLimit, mealProteinLimit, mealArr);
+  var meal4 = mealMaker('Meal', mealCalsLimit, mealCarbsLimit, mealFatLimit, mealProteinLimit, mealArr);
+  var meal5 = mealMaker('Meal', mealCalsLimit, mealCarbsLimit, mealFatLimit, mealProteinLimit, mealArr);
+  var meal6 = mealMaker('Meal', mealCalsLimit, mealCarbsLimit, mealFatLimit, mealProteinLimit, mealArr);
+  var meal7 = mealMaker('Bedtime', mealCalsLimit, mealCarbsLimit, mealFatLimit, mealProteinLimit, mealArr);
   
   var meal1Cals = meal1[0];
   var meal2Cals = meal1[0];
