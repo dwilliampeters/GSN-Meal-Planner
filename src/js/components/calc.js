@@ -168,7 +168,7 @@
       macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);*/
     }
 
-    console.log('calc: ' + calcId, calcVal, BF, sumLBM, sumRecCals, sumRecProt, sumRecProtPercent, sumRecFat);
+    //console.log('calc: ' + calcId, calcVal, BF, sumLBM, sumRecCals, sumRecProt, sumRecProtPercent, sumRecFat);
 
     // Step 2: Goal
     //updateGoal();
