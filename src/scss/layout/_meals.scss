@@ -1,0 +1,19 @@
+.meals {
+  @include centered-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: #ebebeb;
+}
+
+.meals-list {
+  @include grid-row();
+  
+  .meals-meal {
+    @include grid-column(12);
+  }
+}
+
+.meals-meal {
+}

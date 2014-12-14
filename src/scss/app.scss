@@ -17,8 +17,6 @@
   "config/base";
 
 // Vendor
-@import
-  "vendor/jquery-ui";
 
 // Components
 @import
@@ -40,4 +38,6 @@
   "layout/nav-footer",
   "layout/calc",
   "layout/post",
-  "layout/calculator";
+  "layout/calculator",
+  "layout/meals",
+  "layout/steps";

@@ -24,8 +24,6 @@
       activityWeek        = parseFloat($('select[data-calc="activity"] option:selected').val()),
       activityExtra       = [],
       activityExtraTotal  = 0,
-      //activityExtra       = parseFloat($('[data-calc="activity-extra"]:checked').val()),
-      //activity            = (activityWeek + activityExtra),
       activity            = 0,
       activityDesc        = $('select[data-calc="activity"] option:selected').text(),
       // Step 2
@@ -46,7 +44,6 @@
       sumRecCals          = 0,
       sumRecProt          = 0,
       sumRecProtPercent   = 0,
-      //sumRecProtPercentP  = Math.round(((sumRecProt * 4) / sumRecCals) / Math.pow(10, -2) * 10) / 10,
       sumRecFat           = 0,
       // Macros
       macroBF             = 0,
@@ -62,33 +59,8 @@
       macroResultProt     = 0,
       macroResultFat      = 0,
       macroResultCarb     = 0;
-      //macroCarb           = (1 - (sumRecProtPercent - macroBF));
-
-    /*if (calcId === 'conversion') {
-      // Centimeters ÷ 2.54cm/in = inches
-      if ($calcSelected.data('calc-conversion') === 'centimeters') {
-        $('[data-calc-conversion="inches"]').val(Math.floor($(calcSelected).val() / 2.5));
-      }
-
-      // multiply kg by 2.2
-      if ($calcSelected.data('calc-conversion') === 'kilograms') {
-        $('[data-calc-conversion="pounds"]').val(Math.floor($(calcSelected).val() * 2.2));
-      }
-    }*/
 
     // Step 1:
-
-    /*if ($('.system.metric').hasClass('selected')) {
-      // Centimeters ÷ 2.54cm/in = inches
-      console.log(height);
-      height = Math.floor(height / 2.5);
-      console.log(height);
-
-      // multiply kg by 2.2
-      console.log(weight);
-      weight = Math.round(weight * 2.2);
-      console.log(weight);
-    }*/
 
     // Activity
     activityExtra = $('[data-calc="activity-extra"]:checked').map(function(){
@@ -102,10 +74,6 @@
 
     activity = (activityWeek + activityExtraTotal)
     // Convert height and weight to our usable formula
-    /*if ($('.system.imperial').hasClass('selected')) {
-      height = Math.floor(height * 2.54);
-      weight = Math.round(weight * 0.45359237);
-    }*/
     if ($('#imperial-height').is(':checked')) {
       height = Math.floor(height * 2.54);
     }
@@ -157,21 +125,11 @@
       macroCustomProt     = (macroCustomCals * sumRecProtPercent / 4);
       macroCustomFat      = (macroCustomCals * (macroBF / 9));
       macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
-      /*macroBF             = parseFloat(BF) / 100;
-      macroCals           = (sumRecCals);
-      macroProt           = (macroCals * sumRecProtPercent / 4);
-      macroFat            = (macroCals * (macroBF / 9));
-      macroCarb           = (macroCals * (1 - sumRecProtPercent - macroBF) / 9);
-      macroCustomCals     = (activity * sumRecCals);
-      macroCustomProt     = (macroCustomCals * sumRecProtPercent / 4);
-      macroCustomFat      = (macroCustomCals * (macroBF / 9));
-      macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);*/
     }
 
     //console.log('calc: ' + calcId, calcVal, BF, sumLBM, sumRecCals, sumRecProt, sumRecProtPercent, sumRecFat);
 
     // Step 2: Goal
-    //updateGoal();
     function updateGoal($thisGoal, goal, goalCals, macroCustomCals) {
       if (goal === 'fat-loss') {
         goalCals = (macroCustomCals - (macroCustomCals * goalVal / 100));
@@ -182,7 +140,6 @@
       }
       $('[data-calc-goal-calories="' + goal + '"]').html(Math.floor(goalCals));
       if ($thisGoal.is(':checked')) {
-        //console.log(goal + ' is checked');
         goalCalsSelected = goalCals;
       }
     }
@@ -217,12 +174,10 @@
     //
 
     function inputVal(id, sumVal) {
-      //sumVal = Math.round(sumVal/100);
       $(id).val(sumVal);
     }
 
     function updateVal(id, sumVal) {
-      //sumVal = Math.round(sumVal/100);
       $(id).html(sumVal);
     }
 
@@ -255,7 +210,6 @@
     //updateVal($goalCals, Math.floor(goalCals));
 
     // Meal
-
     var calcMeal = new mealUpdate();
     calcMeal.setValue(macroCals, macroProt, macroFat, macroCarb);
 

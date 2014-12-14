@@ -1,0 +1,20 @@
+.step {
+}
+
+.step-header {
+}
+
+.step-progress {
+  padding: 10px;
+  border: 2px solid grey;
+  display: none;
+  
+  &.active {
+    border-color: blue;
+    display: block;
+  }
+  
+  &.complete {
+    border-color: green;
+  }
+}
