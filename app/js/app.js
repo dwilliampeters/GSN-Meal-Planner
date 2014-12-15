@@ -647,9 +647,39 @@ $(function () {
 
 // Throttled resize
 $(function () {
+  "use strict";
 
   $(window).on("throttledresize", function (e) {
     equalheight('.equal-height');
+  });
+
+});
+
+// Steps
+$(function () {
+  "use strict";
+
+  function stepChange() {
+    
+  }
+  
+  var calculate_step = 0;
+  
+  $('[data-calculate]').on('click', function(e) {
+    e.preventDefault();
+    
+    calculate_step = parseFloat($(this).attr('data-calculate'));
+    
+    console.log(calculate_step);
+    calculate_step = (calculate_step + 1);
+    console.log(calculate_step);
+    
+    $('.step').removeClass('active');
+    $('.step.step-' + calculate_step).addClass('active');
+    
+    $('.steps-step').removeClass('active');
+    $('.steps-step.step-' + calculate_step).addClass('active');
+    
   });
 
 });

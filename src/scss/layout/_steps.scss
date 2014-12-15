@@ -1,20 +1,42 @@
+.steps {
+  @include centered-content;
+  text-align: center;
+  
+  > nav > ul {
+    @include clearfix;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.steps-step {
+  float: left;
+  width: 25%;
+  
+  &.active {
+    
+    a {
+      font-weight: bold;
+    }
+  }
+  
+  a {
+    display: block;
+    padding: 10px;
+  }
+}
+
 .step {
+  display: none;
+  
+  &.active {
+    display: block;
+  }
 }
 
 .step-header {
 }
 
 .step-progress {
-  padding: 10px;
-  border: 2px solid grey;
-  display: none;
-  
-  &.active {
-    border-color: blue;
-    display: block;
-  }
-  
-  &.complete {
-    border-color: green;
-  }
 }
