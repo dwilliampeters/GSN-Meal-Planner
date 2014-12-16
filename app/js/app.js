@@ -658,7 +658,46 @@ $(function () {
 // Steps
 $(function () {
   "use strict";
-
+  
+  /*// Step layout
+  var stepW     = 0,
+      stepFullW = 0;
+  
+  function stepSize() {
+    stepW = ($('.calc-form').width());
+    stepFullW = (stepW * 4);
+    
+    $('.step').width(stepW);
+    $('.step-wrap').width(stepFullW);
+  }
+  
+  stepSize();
+  
+  $('.step-wrap').css('margin-left', -970);*/
+  
+  var docViewTop  = 0,
+      stepsPos    = 0;
+  
+  $('.steps').height($('.steps').height());
+  
+  function stepsBar() {
+    docViewTop  = $(window).scrollTop(),
+    stepsPos    = $('.steps').offset().top;
+    
+    console.log(docViewTop, stepsPos);
+    
+    if (docViewTop > stepsPos) {
+      $('.steps > nav').addClass('fixed');
+    } else {
+      $('.steps > nav').removeClass('fixed');
+    }
+  }
+  
+  $(window).scroll(function(){
+    stepsBar();
+    $('.steps').height($('.steps').height());
+  })
+  
   function stepChange() {
     
   }
@@ -674,11 +713,15 @@ $(function () {
     calculate_step = (calculate_step + 1);
     console.log(calculate_step);
     
-    $('.step').removeClass('active');
-    $('.step.step-' + calculate_step).addClass('active');
-    
     $('.steps-step').removeClass('active');
     $('.steps-step.step-' + calculate_step).addClass('active');
+    
+    /*$('.step').removeClass('active');*/
+    $('.step.step-' + calculate_step).addClass('active');
+    
+    $('html, body').animate({
+      scrollTop: $('.step.step-' + calculate_step).offset().top
+    }, 1000);
     
   });
 

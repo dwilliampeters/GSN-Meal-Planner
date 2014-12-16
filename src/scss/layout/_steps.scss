@@ -1,8 +1,19 @@
 .steps {
-  @include centered-content;
   text-align: center;
   
+  > nav {
+    background: white;
+    width: 100%;
+
+    &.fixed {
+      position: fixed;
+      top: 0;
+      z-index: 3;
+    }
+  }
+  
   > nav > ul {
+    @include centered-content;
     @include clearfix;
     list-style: none;
     margin: 0;
@@ -27,11 +38,35 @@
   }
 }
 
+.step-wrap {
+  transition: all 1s;
+}
+
 .step {
+  position: relative;
+  
+  /*.step-mask {
+    display: block;
+    background: rgba(white, .9);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }*/
+  
   display: none;
   
-  &.active {
+  &.complete {
     display: block;
+  }
+  
+  &.active {
+    
+    display: block;
+    
+    /*.step-mask {
+      display: none;
+    }*/
   }
 }
 

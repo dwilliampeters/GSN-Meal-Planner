@@ -6,24 +6,32 @@
   padding-bottom: 15px;
   background: #ebebeb;
   margin-bottom: 10px;
+  
   .calculator-header {
     text-align: center;
+    
     h2 {
       margin: 0 0 10px;
     }
   }
+  
   .calculator-help {
     @include column(600px);
     text-align: center;
+    
     p {
       line-height: 1.2;
       font-size: 15px;
     }
   }
+  
   .calc {
   }
+  
   .calc-form {
     position: relative;
+    overflow-x: hidden;
+    
     input[type="text"],
     label,
     .prefix,
