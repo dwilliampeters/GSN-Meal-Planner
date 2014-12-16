@@ -1,7 +1,7 @@
 .steps {
   text-align: center;
   
-  > nav {
+  .steps-bar {
     background: white;
     width: 100%;
 
@@ -12,8 +12,13 @@
     }
   }
   
-  > nav > ul {
+  nav {
     @include centered-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  nav > ul {
     @include clearfix;
     list-style: none;
     margin: 0;

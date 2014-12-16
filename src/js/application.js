@@ -63,9 +63,9 @@ $(function () {
     console.log(docViewTop, stepsPos);
     
     if (docViewTop > stepsPos) {
-      $('.steps > nav').addClass('fixed');
+      $('.steps-bar').addClass('fixed');
     } else {
-      $('.steps > nav').removeClass('fixed');
+      $('.steps-bar').removeClass('fixed');
     }
   }
   
