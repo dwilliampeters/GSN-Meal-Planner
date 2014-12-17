@@ -25,7 +25,7 @@
                 <header class="banner has-hero" role="banner">
           <div>
             <div class="banner--title">
-              <a href="#"><h1>Gold Standard Nutrition</h1></a>
+              <a href="#"><h1>Gold Standard Nutrition</h1><img src="img/logo-gsn.png" alt="Gold Standard Nutrition"></a>
             </div>
           </div>
         </header>
@@ -38,7 +38,7 @@
 
               <header class="post-header">
                 <div>
-                  <h1>Macro Calculator</h1>
+                  <h1>Build your meals, bro</h1>
                 </div>
               </header>
 
@@ -71,7 +71,7 @@
               
               <section class="calculator">
                 <div class="calc">
-                  <form class="calc-form">
+                  <form class="calc-form" method="post">
                     
                     <div class="step-wrap">
                       <div class="step step-1 active">
@@ -270,7 +270,7 @@
 
                           <div class="row">
                             <div class="medium-6 columns right">
-                              <button class="right" data-calculate="1">Calculate</button>
+                              <button class="button right" data-calculate="1">Next</button>
                             </div>
                           </div>
 
@@ -348,7 +348,7 @@
 
                           <div class="row">
                             <div class="medium-6 columns right">
-                              <button class="right" data-calculate="2">Calculate</button>
+                              <button class="button right" data-calculate="2">Next</button>
                             </div>
                           </div>
 
@@ -424,7 +424,7 @@
 
                           <div class="row">
                             <div class="medium-6 columns right">
-                              <button class="right" data-calculate="3">Calculate</button>
+                              <button class="button right" data-calculate="3">Next</button>
                             </div>
                           </div>
 
@@ -444,8 +444,32 @@
                         <div class="step-progress">
 
                           <div class="row">
-                            <div class="medium-8 columns">
+                            <div class="medium-4 medium-push-8 columns">
+                              
+                              <h2>Nutritional targets</h2>
                               <div class="row">
+                                <div class="medium-10 columns">
+                                  <strong><span data-calc-macro="level">Basal Metabolic Rate</span></strong>
+                                </div>
+                              </div>
+                              <div class="row" data-calc-level="result">
+                                <div class="small-6 columns">Calories</div>
+                                <div class="small-6 columns"><span data-calc-macro="cals">0</span> cals</div>
+                              </div>
+                              <div class="row" data-calc-level="result">
+                                <div class="small-6 columns">Protein</div>
+                                <div class="small-6 columns"><span data-calc-macro="prot">0</span> g</div>
+                              </div>
+                              <div class="row" data-calc-level="result">
+                                <div class="small-6 columns">Fat</div>
+                                <div class="small-6 columns"><span data-calc-macro="fat">0</span> g</div>
+                              </div>
+                              <div class="row" data-calc-level="result">
+                                <div class="small-6 columns">Carbs</div>
+                                <div class="small-6 columns"><span data-calc-macro="carb">0</span> g</div>
+                              </div>
+                              
+                              <!--<div class="row">
                                 <div class="medium-4 columns">&nbsp;</div>
                                 <div class="medium-2 columns">Calories</div>
                                 <div class="medium-2 columns">Protein</div>
@@ -458,24 +482,22 @@
                                 <div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
                                 <div class="medium-2 columns"><span data-calc-macro="fat">0</span> g</div>
                                 <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>
-                              </div>
+                              </div>-->
+                              
                             </div>
-                          </div>
-                          
-                          <div class="row">
-                            <div class="medium-10 columns">
+                            <div class="medium-8 medium-pull-4 columns">
                           
                               <div class="meals-list">
 
                                 <div class="meals-meal">
                                   <h2>Meal 1</h2>
                                   
-                                  <div class="row">
-                                    <div class="small-6 medium-8 columns">
-                                      <div class="food-name">Bacon Sandwhich</div>
+                                  <div class="food">
+                                    <div class="food-name">
+                                      Bacon Sandwhich
                                     </div>
-                                    <div class="small-6 medium-4 columns">
-                                      <div class="food-serving">2 Servings</div>
+                                    <div class="food-serving">
+                                      2 Servings
                                     </div>
                                   </div>
                                 </div>
@@ -483,30 +505,30 @@
                                 <div class="meals-meal">
                                   <h2>Meal 2</h2>
                                   
-                                  <div class="row">
-                                    <div class="small-6 medium-8 columns">
-                                      <div class="food-name">Medium Egg</div>
+                                  <div class="food">
+                                    <div class="food-name">
+                                      Medium Egg
                                     </div>
-                                    <div class="small-6 medium-4 columns">
-                                      <div class="food-serving">3 Servings</div>
-                                    </div>
-                                  </div>
-                                  
-                                  <div class="row">
-                                    <div class="small-6 medium-8 columns">
-                                      <div class="food-name">Fried Bread</div>
-                                    </div>
-                                    <div class="small-6 medium-4 columns">
-                                      <div class="food-serving">1 Servings</div>
+                                    <div class="food-serving">
+                                      3 Servings
                                     </div>
                                   </div>
                                   
-                                  <div class="row">
-                                    <div class="small-6 medium-8 columns">
-                                      <div class="food-name">Baked Beans</div>
+                                  <div class="food">
+                                    <div class="food-name">
+                                      Fried Bread
                                     </div>
-                                    <div class="small-6 medium-4 columns">
-                                      <div class="food-serving">100g</div>
+                                    <div class="food-serving">
+                                      1 Servings
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="food">
+                                    <div class="food-name">
+                                      Baked Beans
+                                    </div>
+                                    <div class="food-serving">
+                                      100g
                                     </div>
                                   </div>
                                 </div>
@@ -514,21 +536,12 @@
                                 <div class="meals-meal">
                                   <h2>Meal 3</h2>
                                   
-                                  <div class="row">
-                                    <div class="small-6 medium-8 columns">
-                                      <div class="food-name">Mince Pie</div>
+                                  <div class="food">
+                                    <div class="food-name">
+                                      Mince Pie
                                     </div>
-                                    <div class="small-6 medium-4 columns">
-                                      <div class="food-serving">1 Servings</div>
-                                    </div>
-                                  </div>
-                                  
-                                  <div class="row">
-                                    <div class="small-6 medium-8 columns">
-                                      <div class="food-name">Brandy Cream</div>
-                                    </div>
-                                    <div class="small-6 medium-4 columns">
-                                      <div class="food-serving">100ml</div>
+                                    <div class="food-serving">
+                                      1 Servings
                                     </div>
                                   </div>
                                 </div>
@@ -537,14 +550,6 @@
                               
                             </div>
                           </div>
-
-                          <hr>
-
-                          <!--<div class="row">
-                            <div class="medium-6 columns right">
-                              <button class="right" data-calculate="4">Get Meals</button>
-                            </div>
-                          </div>-->
 
                         </div>
                       </div>

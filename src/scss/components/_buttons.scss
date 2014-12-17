@@ -1,7 +1,7 @@
-$button-padding: 15px !default;
+$button-padding: 10px 15px !default;
 $button-font-size: 18px !default;
-$button-font-color: white;
-$button-bg: $color3 !default;
+$button-font-color: black;
+$button-bg: $color1 !default;
 $button-border: none !default;
 
 $button-secondary-bg: $color2 !default;
@@ -12,6 +12,7 @@ $button-secondary-font-color: $color1;
   padding: $button-padding;
   border: $button-border;
   background: $button-bg;
+
   font-size: $button-font-size;
   color: $button-font-color;
   outline: none;

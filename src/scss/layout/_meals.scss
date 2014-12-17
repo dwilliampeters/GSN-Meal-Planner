@@ -5,7 +5,29 @@
 }
 
 .meals-meal {
+  margin: 20px 0;
+  
+  h2 {
+    font-size: 20px;
+  }
 }
 
-.meals-meal {
+.food {
+  @include clearfix;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px #ddd;
+  padding: 10px;
+  margin-bottom: 3px;
+  
+  .food-name {
+    width: 70%;
+    float: left;
+    font-weight: bold;
+  }
+  
+  .food-serving {
+    width: 30%;
+    float: left;
+  }
 }
+
