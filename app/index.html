@@ -38,7 +38,7 @@
 
               <header class="post-header">
                 <div>
-                  <h1>Build your meals, bro</h1>
+                  <h1>TDDE &amp; Meal Builder</h1>
                 </div>
               </header>
 
@@ -47,7 +47,7 @@
                 <p></p>
 
               </div>-->
-              
+
               <div class="steps">
                 <div class="steps-bar">
                   <nav>
@@ -64,23 +64,29 @@
                       <li class="steps-step step-4">
                         <a href="#">Step 4</a>
                       </li>
+                      <li class="steps-step step-5">
+                        <a href="#">Step 5</a>
+                      </li>
+                      <li class="steps-step step-6">
+                        <a href="#">Step 6</a>
+                      </li>
                     </ul>
                   </nav>
                 </div>
               </div>
-              
+
               <section class="calculator">
                 <div class="calc">
                   <form class="calc-form" method="post">
-                    
+
                     <div class="step-wrap">
                       <div class="step step-1 active">
-                        
+
                         <div class="step-mask"></div>
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 1: Calculate your TDDE</h3>
+                            <h3>Step 1: I am</h3>
                           </div>
                         </div>
 
@@ -100,6 +106,29 @@
                             </div>
 
                           </div>
+
+                          <hr>
+
+                          <div class="row">
+                            <div class="medium-6 columns right">
+                              <button class="button right" data-calculate="1">Next</button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="step step-2">
+
+                        <div class="step-mask"></div>
+
+                        <div class="step-header row">
+                          <div class="medium-9 columns">
+                            <h3>Step 2: Weight and height</h3>
+                          </div>
+                        </div>
+
+                        <div class="step-progress">
 
                           <div class="row">
                             <div class="small-12 medium-3 columns">
@@ -140,9 +169,9 @@
                                 <div class="small-12 columns">
                                   <label class="hide">Metric system</label>
                                   <input type="radio" id="imperial-height" name="system-height" value="imperial" data-calc="system-height" checked>
-                                  <label for="imperial-height">Imperial</label>
+                                  <label for="imperial-height">Inches</label>
                                   <input type="radio" id="metric-height" name="system-height" value="metric" data-calc="system-height">
-                                  <label for="metric-height">Metric</label>
+                                  <label for="metric-height">CMs</label>
                                 </div>
                               </div>
                             </div>
@@ -168,15 +197,91 @@
                                 <div class="small-12 columns">
                                   <label class="hide">Metric system</label>
                                   <input type="radio" id="imperial-weight" name="system-weight" value="imperial" data-calc="system-weight" checked>
-                                  <label for="imperial-weight">Imperial</label>
+                                  <label for="imperial-weight">Pounds</label>
                                   <input type="radio" id="metric-weight" name="system-weight" value="metric" data-calc="system-weight">
-                                  <label for="metric-weight">Metric</label>
+                                  <label for="metric-weight">Kilos</label>
                                 </div>
                               </div>
                             </div>
                           </div>
 
+                          <!--<hr>
+
+                          <div class="row">
+                            <div class="small-12 medium-8 columns">
+                              <label>Excersise Level</label>
+                              <select name="calc-activity" data-calc="activity">
+                                <option value="1.0">Basal Metabolic Rate</option>
+                                <option value="1.375" selected="selected">3 times per week</option>
+                                <option value="1.42">4 times per week</option>
+                                <option value="1.465">5 times per week</option>
+                                <option value="1.5">6 times per week</option>
+                                <option value="1.6375">7 times per week</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="small-12 medium-10 columns">
+                              <label></label>
+                              <div class="row">
+                                <div class="small-12 columns">
+                                  <input type="checkbox" id="high-intensity-cardio" name="activity-extra" value="0.09" data-calc="activity-extra">
+                                  <label for="high-intensity-cardio">High Intensity Cardio</label>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="small-12 columns">
+                                  <input type="checkbox" id="physical-job" name="activity-extra" value="0.2" data-calc="activity-extra">
+                                  <label for="physical-job">Physical Job</label>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="small-12 columns">
+                                  <input type="checkbox" id="twice-daily" name="activity-extra" value="0.09" data-calc="activity-extra">
+                                  <label for="twice-daily">Twice daily</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>-->
+
+                          <!--<hr>
+
+                          <div class="row">
+                            <div class="medium-3 columns">&nbsp;</div>
+                            <div class="medium-3 columns end">&nbsp;</div>
+                          </div>
+                          <div class="row" data-calc-level="bmr">
+                            <div class="medium-3 columns"><strong>Your BMR</strong></div>
+                            <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
+                          </div>
+                          <div class="row" data-calc-level="custom">
+                            <div class="medium-3 columns"><strong>Your TDDE</strong></div>
+                            <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
+                          </div>-->
+
                           <hr>
+
+                          <div class="row">
+                            <div class="medium-6 columns right">
+                              <button class="button right" data-calculate="2">Next</button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="step step-3 active">
+
+                        <div class="step-mask"></div>
+
+                        <div class="step-header row">
+                          <div class="medium-9 columns">
+                            <h3>Step 3: Your body fat</h3>
+                          </div>
+                        </div>
+
+                        <div class="step-progress">
 
                           <div class="row">
                             <div class="small-12 medium-6 columns">
@@ -191,77 +296,20 @@
                                 </div>
                               </div>
                             </div>
+                          </div>
 
-                            <div class="small-12 medium-6 columns">
-                              <div class="row">
-                                <div class="small-12 medium-8 columns">
-                                  <label>Excersise Level</label>
-                                  <select name="calc-activity" data-calc="activity">
-                                    <option value="1.0">Basal Metabolic Rate</option>
-                                    <option value="1.375" selected="selected">3 times per week</option>
-                                    <option value="1.42">4 times per week</option>
-                                    <option value="1.465">5 times per week</option>
-                                    <option value="1.5">6 times per week</option>
-                                    <option value="1.6375">7 times per week</option>
-                                  </select>
+                          <div class="row">
+                            <div class="small-6 medium-2 columns">
+                              <label>BF%</label>
+                            </div>
+                            <div class="small-6 medium-2 columns end">
+                              <div class="row collapse">
+                                <div class="small-9 columns">
+                                  <input class="input-bodyfat" type="text" value="20" readonly data-calc="bf">
                                 </div>
-                              </div>
-
-                              <div class="row">
-                                <div class="small-12 medium-10 columns">
-                                  <label></label>
-                                  <div class="row">
-                                    <div class="small-12 columns">
-                                      <input type="checkbox" id="high-intensity-cardio" name="activity-extra" value="0.09" data-calc="activity-extra">
-                                      <label for="high-intensity-cardio">High Intensity Cardio</label>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="small-12 columns">
-                                      <input type="checkbox" id="physical-job" name="activity-extra" value="0.2" data-calc="activity-extra">
-                                      <label for="physical-job">Physical Job</label>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="small-12 columns">
-                                      <input type="checkbox" id="twice-daily" name="activity-extra" value="0.09" data-calc="activity-extra">
-                                      <label for="twice-daily">Twice daily</label>
-                                    </div>
-                                  </div>
+                                <div class="small-3 columns">
+                                  <span class="postfix">%</span>
                                 </div>
-                              </div>
-
-                              <hr>
-
-                              <div class="row">
-                                <div class="small-8 medium-4 columns">
-                                  <label>BF%</label>
-                                </div>
-                                <div class="small-4 columns end">
-                                  <div class="row collapse">
-                                    <div class="small-9 columns">
-                                      <input class="input-bodyfat" type="text" value="20" readonly data-calc="bf">
-                                    </div>
-                                    <div class="small-3 columns">
-                                      <span class="postfix">%</span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <hr>
-
-                              <div class="row">
-                                <div class="medium-3 columns">&nbsp;</div>
-                                <div class="medium-3 columns end">&nbsp;</div>
-                              </div>
-                              <div class="row" data-calc-level="bmr">
-                                <div class="medium-3 columns"><strong>Your BMR</strong></div>
-                                <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
-                              </div>
-                              <div class="row" data-calc-level="custom">
-                                <div class="medium-3 columns"><strong>Your TDDE</strong></div>
-                                <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
                               </div>
                             </div>
                           </div>
@@ -270,20 +318,81 @@
 
                           <div class="row">
                             <div class="medium-6 columns right">
-                              <button class="button right" data-calculate="1">Next</button>
+                              <button class="button right" data-calculate="3">Next</button>
                             </div>
                           </div>
 
                         </div>
                       </div>
 
-                      <div class="step step-2">
-                        
+                      <div class="step step-4">
+
                         <div class="step-mask"></div>
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 2: Choose your goals</h3>
+                            <h3>Step 4: How much do you excersize?</h3>
+                          </div>
+                        </div>
+
+                        <div class="step-progress">
+
+                          <div class="row">
+                            <div class="small-12 medium-6 large-4 columns">
+                              <label>Excersise Level</label>
+                              <select name="calc-activity" data-calc="activity">
+                                <option value="1.0">Basal Metabolic Rate</option>
+                                <option value="1.375" selected="selected">3 times per week</option>
+                                <option value="1.42">4 times per week</option>
+                                <option value="1.465">5 times per week</option>
+                                <option value="1.5">6 times per week</option>
+                                <option value="1.6375">7 times per week</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="small-12 medium-10 columns">
+                              <label></label>
+                              <div class="row">
+                                <div class="small-12 columns">
+                                  <input type="checkbox" id="high-intensity-cardio" name="activity-extra" value="0.09" data-calc="activity-extra">
+                                  <label for="high-intensity-cardio">High Intensity Cardio</label>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="small-12 columns">
+                                  <input type="checkbox" id="physical-job" name="activity-extra" value="0.2" data-calc="activity-extra">
+                                  <label for="physical-job">Physical Job</label>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="small-12 columns">
+                                  <input type="checkbox" id="twice-daily" name="activity-extra" value="0.09" data-calc="activity-extra">
+                                  <label for="twice-daily">Twice daily</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <hr>
+
+                          <div class="row">
+                            <div class="medium-6 columns right">
+                              <button class="button right" data-calculate="4">Next</button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="step step-5">
+
+                        <div class="step-mask"></div>
+
+                        <div class="step-header row">
+                          <div class="medium-9 columns">
+                            <h3>Step 4: Choose your goals</h3>
                           </div>
                         </div>
 
@@ -348,20 +457,20 @@
 
                           <div class="row">
                             <div class="medium-6 columns right">
-                              <button class="button right" data-calculate="2">Next</button>
+                              <button class="button right" data-calculate="5">Next</button>
                             </div>
                           </div>
 
                         </div>
                       </div>
 
-                      <div class="step step-3">
-                        
+                      <div class="step step-6">
+
                         <div class="step-mask"></div>
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 3: Select your nutrition plan</h3>
+                            <h3>Step 5: Select your nutrition plan</h3>
                           </div>
                         </div>
 
@@ -424,20 +533,20 @@
 
                           <div class="row">
                             <div class="medium-6 columns right">
-                              <button class="button right" data-calculate="3">Next</button>
+                              <button class="button right" data-calculate="6">Next</button>
                             </div>
                           </div>
 
                         </div>
                       </div>
 
-                      <div class="step step-4">
-                        
+                      <div class="step step-7">
+
                         <div class="step-mask"></div>
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 4: View your results</h3>
+                            <h3>Step 6: View your results</h3>
                           </div>
                         </div>
 
@@ -445,7 +554,7 @@
 
                           <div class="row">
                             <div class="medium-4 medium-push-8 columns">
-                              
+
                               <h2>Nutritional targets</h2>
                               <div class="row">
                                 <div class="medium-10 columns">
@@ -468,30 +577,15 @@
                                 <div class="small-6 columns">Carbs</div>
                                 <div class="small-6 columns"><span data-calc-macro="carb">0</span> g</div>
                               </div>
-                              
-                              <!--<div class="row">
-                                <div class="medium-4 columns">&nbsp;</div>
-                                <div class="medium-2 columns">Calories</div>
-                                <div class="medium-2 columns">Protein</div>
-                                <div class="medium-2 columns">Fat</div>
-                                <div class="medium-2 columns">Carb</div>
-                              </div>
-                              <div class="row" data-calc-level="result">
-                                <div class="medium-4 columns"><strong><span data-calc-macro="level">Basal Metabolic Rate</span></strong></div>
-                                <div class="medium-2 columns"><span data-calc-macro="cals">0</span> cals</div>
-                                <div class="medium-2 columns"><span data-calc-macro="prot">0</span> g</div>
-                                <div class="medium-2 columns"><span data-calc-macro="fat">0</span> g</div>
-                                <div class="medium-2 columns"><span data-calc-macro="carb">0</span> g</div>
-                              </div>-->
-                              
+
                             </div>
                             <div class="medium-8 medium-pull-4 columns">
-                          
+
                               <div class="meals-list">
 
                                 <div class="meals-meal">
                                   <h2>Meal 1</h2>
-                                  
+
                                   <div class="food">
                                     <div class="food-name">
                                       Bacon Sandwhich
@@ -504,7 +598,7 @@
 
                                 <div class="meals-meal">
                                   <h2>Meal 2</h2>
-                                  
+
                                   <div class="food">
                                     <div class="food-name">
                                       Medium Egg
@@ -513,7 +607,7 @@
                                       3 Servings
                                     </div>
                                   </div>
-                                  
+
                                   <div class="food">
                                     <div class="food-name">
                                       Fried Bread
@@ -522,7 +616,7 @@
                                       1 Servings
                                     </div>
                                   </div>
-                                  
+
                                   <div class="food">
                                     <div class="food-name">
                                       Baked Beans
@@ -535,7 +629,7 @@
 
                                 <div class="meals-meal">
                                   <h2>Meal 3</h2>
-                                  
+
                                   <div class="food">
                                     <div class="food-name">
                                       Mince Pie
@@ -547,7 +641,7 @@
                                 </div>
 
                               </div>
-                              
+
                             </div>
                           </div>
 
@@ -589,7 +683,7 @@
                           <input type="text" value="4.330" data-calc-bmr="4">
                         </div>
                       </div>
-                      
+
                     </div>
 
                   </form>

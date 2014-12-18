@@ -1,6 +1,6 @@
 .steps {
   text-align: center;
-  
+
   .steps-bar {
     background: $body-bg;
     width: 100%;
@@ -11,13 +11,13 @@
       z-index: 3;
     }
   }
-  
+
   nav {
     @include centered-content;
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   nav > ul {
     @include clearfix;
     list-style: none;
@@ -28,18 +28,18 @@
 
 .steps-step {
   float: left;
-  width: 25%;
+  width: 16.6%;
   background: #333;
-  
+
   &.active {
     background: white;
-    
+
     a {
       color: black;
       font-weight: bold;
     }
   }
-  
+
   a {
     display: block;
     padding: 10px;
@@ -52,13 +52,13 @@
 }
 
 .step {
-  position: relative;  
+  position: relative;
   display: none;
-  
+
   &.complete {
     display: block;
   }
-  
+
   &.active {
     display: block;
   }
