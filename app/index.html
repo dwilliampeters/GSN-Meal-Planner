@@ -53,22 +53,25 @@
                   <nav>
                     <ul>
                       <li class="steps-step step-1 active">
-                        <a href="#">Step 1</a>
+                        <a href="#">1</a>
                       </li>
                       <li class="steps-step step-2">
-                        <a href="#">Step 2</a>
+                        <a href="#">2</a>
                       </li>
                       <li class="steps-step step-3">
-                        <a href="#">Step 3</a>
+                        <a href="#">3</a>
                       </li>
                       <li class="steps-step step-4">
-                        <a href="#">Step 4</a>
+                        <a href="#">4</a>
                       </li>
                       <li class="steps-step step-5">
-                        <a href="#">Step 5</a>
+                        <a href="#">5</a>
                       </li>
                       <li class="steps-step step-6">
-                        <a href="#">Step 6</a>
+                        <a href="#">6</a>
+                      </li>
+                      <li class="steps-step step-7">
+                        <a href="#">7</a>
                       </li>
                     </ul>
                   </nav>
@@ -86,14 +89,14 @@
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 1: I am</h3>
+                            <h3>Your sex and age</h3>
                           </div>
                         </div>
 
                         <div class="step-progress">
 
                           <div class="row">
-                            <div class="small-12 medium-6 columns">
+                            <div class="small-12 medium-4 columns">
                               <div class="row">
                                 <div class="small-12 columns">
                                   <label>Gender</label>
@@ -101,6 +104,21 @@
                                   <label for="male">Male</label>
                                   <input type="radio" id="female" name="gender" value="female" data-calc="gender">
                                   <label for="female">Female</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="small-12 medium-4 columns end">                              
+                              <div class="row">
+                                <div class="small-12 medium-12 columns">
+                                  <label>Age</label>
+                                  <div class="row collapse">
+                                    <div class="small-8 columns">
+                                      <input type="text" value="" data-calc="age">
+                                    </div>
+                                    <div class="small-4 columns">
+                                      <span class="postfix">years</span>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -124,30 +142,14 @@
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 2: Weight and height</h3>
+                            <h3>Your weight and height</h3>
                           </div>
                         </div>
 
                         <div class="step-progress">
 
                           <div class="row">
-                            <div class="small-12 medium-3 columns">
-                              <div class="row">
-                                <div class="small-6 medium-12 columns">
-                                  <label>Age</label>
-                                  <div class="row collapse">
-                                    <div class="small-8 columns">
-                                      <input type="text" value="" data-calc="age">
-                                    </div>
-                                    <div class="small-4 columns">
-                                      <span class="postfix">years</span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="small-6 medium-3 medium-push-3 columns system system-height selected">
+                            <div class="small-12 medium-4 columns system system-height selected">
                               <div class="row">
                                 <div class="small-12 columns">
                                   <label>Height</label>
@@ -175,8 +177,7 @@
                                 </div>
                               </div>
                             </div>
-
-                            <div class="small-6 medium-3 medium-push-3 columns end system system-weight selected">
+                            <div class="small-12 medium-4 columns end system system-weight selected">
                               <div class="row">
                                 <div class="small-12 columns">
                                   <label>Body Weight</label>
@@ -277,7 +278,7 @@
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 3: Your body fat</h3>
+                            <h3>Your body fat</h3>
                           </div>
                         </div>
 
@@ -331,7 +332,7 @@
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 4: How much do you excersize?</h3>
+                            <h3>How much do you exercise?</h3>
                           </div>
                         </div>
 
@@ -392,38 +393,38 @@
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 5: Choose your goals</h3>
+                            <h3>Choose your goals</h3>
                           </div>
                         </div>
 
                         <div class="step-progress">
 
                           <div class="row">
-                            <div class="medium-3 columns">
+                            <div class="medium-4 columns">
                               <h4>Lose fat</h4>
-                              <div class="goal-cals">
+                              <!--<div class="goal-cals">
                                 <span class="cals" data-calc-goal-calories="fat-loss">0</span> Calories/day
-                              </div>
+                              </div>-->
                               <div class="row">
                                 <div class="small-12 columns">
                                   <input type="radio" id="fatLoss-suggested" name="goal" value="15" data-calc="goal" data-calc-goal="fat-loss">
-                                  <label for="fatLoss-suggested">Suggested 15%</label>
+                                  <label for="fatLoss-suggested">Lose fat whilst maintaining as much muscle as possible</label>
                                 </div>
                                 <div class="small-12 columns">
                                   <input class="selected" type="radio" id="fatLoss-aggressive" name="goal" value="20" data-calc="goal" data-calc-goal="fat-loss">
-                                  <label for="fatLoss-aggressive">Aggressive 20%</label>
+                                  <label for="fatLoss-aggressive">Lose fat and willing to sacrifice muscle for quicker results (some cravings)</label>
                                 </div>
                                 <div class="small-12 columns">
                                   <input type="radio" id="fatLoss-reckless" name="goal" value="25" data-calc="goal" data-calc-goal="fat-loss">
-                                  <label for="fatLoss-reckless">Reckless 25%</label>
+                                  <label for="fatLoss-reckless">Lose fat and willing to sacrifice muscle for fastest results (higher cravings)</label>
                                 </div>
                               </div>
                             </div>
-                            <div class="medium-3 columns">
+                            <div class="medium-4 columns">
                               <h4>Maintain weight</h4>
-                              <div class="goal-cals">
+                              <!--<div class="goal-cals">
                                 <span class="cals" data-calc-goal-calories="maintain">0</span> Calories/day
-                              </div>
+                              </div>-->
                               <div class="row">
                                 <div class="small-12 columns">
                                   <input class="selected" type="radio" id="maintain-tdde" name="goal" value="15" data-calc="goal" data-calc-goal="maintain">
@@ -431,23 +432,23 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="medium-3 columns end">
+                            <div class="medium-4 columns end">
                               <h4>Gain muscle</h4>
-                              <div class="goal-cals">
+                              <!--<div class="goal-cals">
                                 <span class="cals" data-calc-goal-calories="bulking">0</span> Calories/day
-                              </div>
+                              </div>-->
                               <div class="row">
                                 <div class="small-12 columns">
                                   <input type="radio" id="bulk-cautious" name="goal" value="15" data-calc="goal" data-calc-goal="bulking">
-                                  <label for="bulk-cautious">Cautious 5%</label>
+                                  <label for="bulk-cautious">Gain muscle whilst keeping body fat as low as possible</label>
                                 </div>
                                 <div class="small-12 columns">
                                   <input class="selected" type="radio" id="bulk-textBook" name="goal" value="20" data-calc="goal" data-calc-goal="bulking">
-                                  <label for="bulk-textBook">Text Book 10%</label>
+                                  <label for="bulk-textBook">Gain muscle and willing to gain some body fat in the process</label>
                                 </div>
                                 <div class="small-12 columns">
                                   <input type="radio" id="bulk-aggressive" name="goal" value="25" data-calc="goal" data-calc-goal="bulking">
-                                  <label for="bulk-aggressive">Aggressive 15%</label>
+                                  <label for="bulk-aggressive">Gain as much muscle as possible and willing to gain more fat in the process</label>
                                 </div>
                               </div>
                             </div>
@@ -470,7 +471,7 @@
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 6: Select your nutrition plan</h3>
+                            <h3>What sport do you take part in?</h3>
                           </div>
                         </div>
 
@@ -478,14 +479,10 @@
 
                           <div class="row">
                             <div class="medium-5 large-4 columns">
-                              <label>Ratio</label>
+                              <label>I want to...</label>
                               <select data-calc="ratios">
-                                <option data-name="moderate" data-carbs="50" data-protein="25" data-fat="25">Textbook</option>
-                                <option data-name="moderate-ii" data-carbs="40" data-protein="40" data-fat="20">Body Builder</option>
-                                <option data-name="zone-diet" data-carbs="40" data-protein="30" data-fat="30">Zone Diet</option>
-                                <option data-name="low-fat" data-carbs="60" data-protein="25" data-fat="15">Low Fat</option>
-                                <option data-name="low-carb" data-carbs="25" data-protein="40" data-fat="35">Low Carb</option>
-                                <option data-name="very-low-carb" data-carbs="5" data-protein="30" data-fat="65">Ketogenic (Atkins)</option>
+                                <option data-name="moderate" data-carbs="50" data-protein="25" data-fat="25">Build muscle and maintain a low bodyfat - energy may be lower</option>
+                                <option data-name="moderate-ii" data-carbs="40" data-protein="40" data-fat="20">Take part in endurance / performance sports - (boxing, spinning, cycling)</option>
                               </select>
                             </div>
                             <div class="medium-6 columns">
@@ -546,7 +543,7 @@
 
                         <div class="step-header row">
                           <div class="medium-9 columns">
-                            <h3>Step 7: View your results</h3>
+                            <h3>Your Calories and recommended nutritional breakdown with meals</h3>
                           </div>
                         </div>
 
