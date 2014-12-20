@@ -37,6 +37,7 @@
       goalVal             = 0,
       $goalCals           = $('[data-calc-goal-calories]'),
       goalCals            = 0,
+      ratios              = $('select[data-calc="ratios"] option:selected'),
       // BMR
       BMR1                = parseFloat($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="1"]').val()),
       BMR2                = parseFloat($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="2"]').val()),
@@ -169,22 +170,24 @@
       $('.bf-female').addClass('active');
     }
     
-    if (calcId === 'ratios') {
-      var ratioName     =  $calcSelected.find(':selected').data('name');
-      var ratioProtein  =  $calcSelected.find(':selected').data('protein');
-      var ratioCarbs    =  $calcSelected.find(':selected').data('carbs');
-      var ratioFat      =  $calcSelected.find(':selected').data('fat');
-      console.log(ratioName, ratioProtein, ratioCarbs, ratioFat);
+    // Step 6:
+    updateMacros();
+    
+    function updateMacros() {
+      var ratioName     = ratios.data('name');
+      var ratioProtein  = ratios.data('protein');
+      var ratioCarbs    = ratios.data('carbs');
+      var ratioFat      = ratios.data('fat');
+      console.log(ratioName, ratioProtein, ratioFat, ratioCarbs);
+      $('[data-ratio="protein"]').val(ratioProtein);
       $('[data-ratio="fat"]').val(ratioFat);
       $('[data-ratio="carbs"]').val(ratioCarbs);
-      $('[data-ratio="protein"]').val(ratioProtein);
+      
+      macroResultCals     = (goalCalsSelected);
+      macroResultProt     = ((macroResultCals * ratioProtein / 100) / 4);
+      macroResultFat      = ((macroResultCals * ratioFat / 100) / 9);
+      macroResultCarb     = ((macroResultCals * ratioCarbs / 100) / 4);
     }
-
-    // Step 4:
-    macroResultCals     = (goalCalsSelected);
-    macroResultProt     = ((macroResultCals * ratioProtein / 100) / 4);
-    macroResultFat      = ((macroResultCals * ratioFat / 100) / 9);
-    macroResultCarb     = ((macroResultCals * ratioCarbs / 100) / 4);
 
     //
 
