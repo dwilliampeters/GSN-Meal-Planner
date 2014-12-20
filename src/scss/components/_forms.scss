@@ -59,3 +59,9 @@ input[type="radio"] + label {
     display: block;
   }
 }
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
