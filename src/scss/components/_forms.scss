@@ -65,3 +65,26 @@ fieldset {
   padding: 0;
   border: none;
 }
+
+.radio-opt  {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  margin: 1em 0;
+  
+  label {
+    margin: 0 !important;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  input {
+    position: absolute;
+    left: -9999px;
+    
+    &:checked + label {
+      background: $color1;
+    }
+  }
+}
