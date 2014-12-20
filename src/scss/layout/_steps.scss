@@ -29,22 +29,15 @@
 .steps-step {
   float: left;
   width: 14.28%;
+  padding: 10px;
   background: #333;
+  color: white;
 
   &.active {
     background: white;
-
-    a {
-      color: black;
-      font-weight: bold;
-    }
-  }
-
-  a {
-    display: block;
-    padding: 10px;
-    color: white;
-  }
+    color: black;
+    font-weight: bold;
+  }    
 }
 
 .step-wrap {
