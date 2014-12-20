@@ -22,7 +22,7 @@
       heightIn            = parseFloat($('.system.selected [data-calc="height-in"]').val()),
       heightCm            = parseFloat($('.system.selected [data-calc="height-cm"]').val()),
       height              = 0,
-      BF                  = parseFloat($('[data-calc="bf"]').val()),
+      BF                  = parseFloat($('bf-gender.active [data-calc="bf"]:checked').val()),
       formula             = parseFloat($('[data-calc="formula"]:checked').val()),
       activityWeek        = parseFloat($('select[data-calc="activity"] option:selected').val()),
       activityExtra       = [],
@@ -88,8 +88,9 @@
 
     if (formula === 0) {
       // Athletic
-      $('.input-bodyfat').attr('readonly', 'readonly');
-      $('.input-bodyfat').val('');
+      /*$('.input-bodyfat').attr('readonly', 'readonly');
+      $('.input-bodyfat').val('');*/
+      $('.bf-pick').removeClass('active');
 
       BF                  = 20;
       sumLBM              = (weight * (1 - BF / 100));
@@ -112,7 +113,8 @@
 
     if (formula === 1) {
       // Normal
-      $('.input-bodyfat').removeAttr('readonly');
+      /*('.input-bodyfat').removeAttr('readonly');*/
+      $('.bf-pick').addClass('active');
 
       sumLBM              = (weight * (1 - BF / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
@@ -132,7 +134,7 @@
       macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
     }
 
-    //console.log('calc: ' + calcId, calcVal, BF, sumLBM, sumRecCals, sumRecProt, sumRecProtPercent, sumRecFat);
+    console.log('calc: ' + calcId, calcVal, BF, sumLBM, sumRecCals, sumRecProt, sumRecProtPercent, sumRecFat);
 
     // Step 2: Goal
     function updateGoal($thisGoal, goal, goalCals, macroCustomCals) {
@@ -159,6 +161,14 @@
     });
 
     // Step 3:
+    if (gender === 'male') {
+      $('.bf-female').removeClass('active');
+      $('.bf-male').addClass('active');
+    } else {
+      $('.bf-male').removeClass('active');
+      $('.bf-female').addClass('active');
+    }
+    
     if (calcId === 'ratios') {
       var ratioName     =  $calcSelected.find(':selected').data('name');
       var ratioProtein  =  $calcSelected.find(':selected').data('protein');
@@ -215,8 +225,8 @@
     //updateVal($goalCals, Math.floor(goalCals));
 
     // Meal
-    var calcMeal = new mealUpdate();
-    calcMeal.setValue(macroCals, macroProt, macroFat, macroCarb);
+    /*var calcMeal = new mealUpdate();
+    calcMeal.setValue(macroCals, macroProt, macroFat, macroCarb);*/
 
   };
 

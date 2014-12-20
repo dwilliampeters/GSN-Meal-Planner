@@ -13,9 +13,10 @@
   }
 
   nav {
-    @include centered-content;
+    @include centered-content($calc-width);
     margin-left: auto;
     margin-right: auto;
+    background: white;
   }
 
   nav > ul {
@@ -30,11 +31,10 @@
   float: left;
   width: 14.28%;
   padding: 10px;
-  background: #333;
-  color: white;
+  font-size: 20px;
 
   &.active {
-    background: white;
+    background: $color1;
     color: black;
     font-weight: bold;
   }    

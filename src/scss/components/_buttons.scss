@@ -1,5 +1,5 @@
-$button-padding: 10px 15px !default;
-$button-font-size: 18px !default;
+$button-padding: 20px 25px !default;
+$button-font-size: 26px !default;
 $button-font-color: black;
 $button-bg: $color1 !default;
 $button-border: none !default;
@@ -16,15 +16,18 @@ $button-secondary-font-color: $color1;
   font-size: $button-font-size;
   color: $button-font-color;
   outline: none;
+  
   &.secondary {
     background: $button-secondary-bg;
     color: $button-secondary-font-color;
+    
     &.pointer-down {
       &:after {
         border-top-color: $button-secondary-bg;
       }
     }
   }
+  
   &.small-button {
     padding-top: $button-padding - 7px;
     padding-bottom: $button-padding - 7px;
@@ -40,7 +43,13 @@ $button-secondary-font-color: $color1;
       }
     }
   }
+  
+  &.expand {
+    width: 100%;
+  }
+  
   &.pointer-down {
+    
     &:after {
       content: '';
       width: 0;
@@ -54,7 +63,9 @@ $button-secondary-font-color: $color1;
       margin-left: -10px;
     }
   }
+  
   &.arrow-right {
+    
     &:after {
       content: '';
       width: 0;

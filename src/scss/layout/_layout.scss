@@ -4,11 +4,9 @@
   margin-right: auto;
 }
 
-@mixin centered-content {
+@mixin centered-content($arg) {
     @include clearfix;
-    @include column(990px);
-    /*padding-left: 20px;
-    padding-right: 20px;*/
+    @include column($arg);
 }
 
 .main {

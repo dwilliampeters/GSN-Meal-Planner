@@ -14,10 +14,8 @@
 
 .food {
   @include clearfix;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 5px #ddd;
-  padding: 10px;
-  margin-bottom: 3px;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
   
   .food-name {
     width: 70%;

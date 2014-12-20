@@ -10,3 +10,19 @@
   }
   
 }
+
+.bf-gender {
+  display: none;
+  
+  &.active {
+    display: block;
+  }
+}
+
+.bf-pick {
+  display: none;
+  
+  &.active {
+    display: block;
+  }
+}

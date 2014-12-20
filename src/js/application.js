@@ -60,7 +60,7 @@ $(function () {
     docViewTop  = $(window).scrollTop(),
     stepsPos    = $('.steps').offset().top;
 
-    console.log(docViewTop, stepsPos);
+    //console.log(docViewTop, stepsPos);
 
     if (docViewTop > stepsPos) {
       $('.steps-bar').addClass('fixed');
@@ -85,9 +85,9 @@ $(function () {
 
     calculate_step = parseFloat($(this).attr('data-calculate'));
 
-    console.log(calculate_step);
+    //console.log(calculate_step);
     calculate_step = (calculate_step + 1);
-    console.log(calculate_step);
+    //console.log(calculate_step);
 
     $('.steps-step').removeClass('active');
     $('.steps-step.step-' + calculate_step).addClass('active');
