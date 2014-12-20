@@ -151,18 +151,35 @@
                           </div>
 
                           <div class="row">
-                            <div class="small-12 medium-4 columns system system-height selected">
+                            <div class="small-10 medium-4 columns system system-height selected">
                               <div class="row">
                                 <div class="small-12 columns">
                                   <label>Height</label>
-                                  <div class="row collapse">
-                                    <div class="small-8 columns">
-                                      <input type="text" value="" data-calc="height">
+                                  <div class="row collapse imperial">
+                                    <div class="small-4 columns imperial">
+                                      <input class="height-feet" type="text" value="0" data-calc="height-ft">
                                     </div>
-                                    <div class="small-4 columns">
+                                    <div class="small-2 columns">
+                                      <span class="postfix">
+                                        <span class="imperial">ft</span>
+                                      </span>
+                                    </div>
+                                    <div class="small-4 columns imperial">
+                                      <input class="height-inches" type="text" value="0" data-calc="height-in">
+                                    </div>
+                                    <div class="small-2 columns">
                                       <span class="postfix">
                                         <span class="imperial">in</span>
-                                        <span class="metric hide">cm</span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <div class="row collapse metric hide">
+                                    <div class="small-4 columns metric">
+                                      <input type="text" value="0" data-calc="height-cm">
+                                    </div>
+                                    <div class="small-2 columns end">
+                                      <span class="postfix">
+                                        <span class="metric">cm</span>
                                       </span>
 
                                     </div>
@@ -179,15 +196,15 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="small-12 medium-4 columns end system system-weight selected">
+                            <div class="small-10 medium-4 columns end system system-weight selected">
                               <div class="row">
                                 <div class="small-12 columns">
                                   <label>Body Weight</label>
                                   <div class="row collapse">
-                                    <div class="small-8 columns">
+                                    <div class="small-4 columns">
                                       <input type="text" value="" data-calc="weight">
                                     </div>
-                                    <div class="small-4 columns">
+                                    <div class="small-2 columns end">
                                       <span class="postfix">
                                         <span class="imperial">lbs</span>
                                         <span class="metric hide">kg</span>
@@ -314,12 +331,10 @@
                               </div>
                             </div>
                           </div>
-
+                          
                           <div class="row">
-                            <div class="small-6 medium-2 columns">
+                            <div class="small-12 medium-4 columns">
                               <label>BF%</label>
-                            </div>
-                            <div class="small-6 medium-2 columns end">
                               <div class="row collapse">
                                 <div class="small-9 columns">
                                   <input class="input-bodyfat" type="text" value="20" readonly data-calc="bf">

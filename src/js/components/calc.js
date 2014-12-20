@@ -18,7 +18,10 @@
       gender              = $('[data-calc="gender"]:checked').val(),
       age                 = parseFloat($('[data-calc="age"]').val()),
       weight              = parseFloat($('.system.selected [data-calc="weight"]').val()),
-      height              = parseFloat($('.system.selected [data-calc="height"]').val()),
+      heightFt            = parseFloat($('.system.selected [data-calc="height-ft"]').val()),
+      heightIn            = parseFloat($('.system.selected [data-calc="height-in"]').val()),
+      heightCm            = parseFloat($('.system.selected [data-calc="height-cm"]').val()),
+      height              = 0,
       BF                  = parseFloat($('[data-calc="bf"]').val()),
       formula             = parseFloat($('[data-calc="formula"]:checked').val()),
       activityWeek        = parseFloat($('select[data-calc="activity"] option:selected').val()),
@@ -75,7 +78,9 @@
     activity = (activityWeek + activityExtraTotal)
     // Convert height and weight to our usable formula
     if ($('#imperial-height').is(':checked')) {
-      height = Math.floor(height * 2.54);
+      height = Math.floor(((heightFt * 12) + heightIn) * 2.54);
+    } else {
+      height = heightCm;
     }
     if ($('#imperial-weight').is(':checked')) {
       weight = Math.round(weight * 0.45359237);

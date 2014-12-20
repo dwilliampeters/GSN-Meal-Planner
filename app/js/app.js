@@ -18,7 +18,10 @@
       gender              = $('[data-calc="gender"]:checked').val(),
       age                 = parseFloat($('[data-calc="age"]').val()),
       weight              = parseFloat($('.system.selected [data-calc="weight"]').val()),
-      height              = parseFloat($('.system.selected [data-calc="height"]').val()),
+      heightFt            = parseFloat($('.system.selected [data-calc="height-ft"]').val()),
+      heightIn            = parseFloat($('.system.selected [data-calc="height-in"]').val()),
+      heightCm            = parseFloat($('.system.selected [data-calc="height-cm"]').val()),
+      height              = 0,
       BF                  = parseFloat($('[data-calc="bf"]').val()),
       formula             = parseFloat($('[data-calc="formula"]:checked').val()),
       activityWeek        = parseFloat($('select[data-calc="activity"] option:selected').val()),
@@ -75,7 +78,9 @@
     activity = (activityWeek + activityExtraTotal)
     // Convert height and weight to our usable formula
     if ($('#imperial-height').is(':checked')) {
-      height = Math.floor(height * 2.54);
+      height = Math.floor(((heightFt * 12) + heightIn) * 2.54);
+    } else {
+      height = heightCm;
     }
     if ($('#imperial-weight').is(':checked')) {
       weight = Math.round(weight * 0.45359237);
@@ -571,51 +576,58 @@ $(function () {
     calcResult = new calcUpdate();
     calcId = $(this).data('calc');
     calcVal = $(this).val();
+    
     var calcSelected = $(this);
+    
     if ($(this).data('calc') === 'goal') {
       $('[data-calc-goal="' + $(this).data('calc-goal') + '"]').removeClass('selected');
       $('[data-calc-goal="' + $(this).data('calc-goal') + '"]').prop('checked', false);
       $(this).addClass('selected');
       $(this).prop('checked', true);
     }
+    
     if ($(this).data('calc') === 'system-height') {
       var heightVal = $('.system-height input').val();
       if ($('#imperial-height').is(':checked')) {
-        $('.system-height .postfix .imperial').removeClass('hide');
-        $('.system-height .postfix .metric').addClass('hide');
+        $('.system-height .imperial').removeClass('hide');
+        $('.system-height .metric').addClass('hide');
         $('.system-height input').val(heightVal = Math.floor(heightVal / 2.5));
       }
       if ($('#metric-height').is(':checked')) {
-        $('.system-height .postfix .imperial').addClass('hide');
-        $('.system-height .postfix .metric').removeClass('hide');
+        $('.system-height .imperial').addClass('hide');
+        $('.system-height .metric').removeClass('hide');
         $('.system-height input').val(heightVal = Math.floor(heightVal * 2.54));
       }
     }
+    
     if ($(this).data('calc') === 'system-weight') {
       var weightVal = $('.system-weight input').val();
       if ($('#imperial-weight').is(':checked')) {
-        $('.system-weight .postfix .imperial').removeClass('hide');
-        $('.system-weight .postfix .metric').addClass('hide');
+        $('.system-weight .imperial').removeClass('hide');
+        $('.system-weight .metric').addClass('hide');
         $('.system-weight input').val(weightVal = Math.round(weightVal * 2.2));
       }
       if ($('#metric-weight').is(':checked')) {
-        $('.system-weight .postfix .imperial').addClass('hide');
-        $('.system-weight .postfix .metric').removeClass('hide');
+        $('.system-weight .imperial').addClass('hide');
+        $('.system-weight .metric').removeClass('hide');
         $('.system-weight input').val(weightVal = Math.round(weightVal * 0.45359237));
       }
     }
+    
     if ($(this).data('calc') === 'goal-primary') {
       var primaryGoalVal = $(this).val();
       console.log(primaryGoalVal);
       $('[data-goal]').removeClass('active');
       $('[data-goal="' + primaryGoalVal + '"]').addClass('active');
     }
+    
     /*if ($(this).data('calc') === 'system') {
       $('.system').removeClass('selected');
       $('.system.' + $(this).val()).addClass('selected');
       $('.system').addClass('hide');
       $('.system.' + $(this).val()).removeClass('hide');
     }*/
+    
     calcResult.setValue(calcId, calcVal, calcSelected);
   });
 
