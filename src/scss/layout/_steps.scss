@@ -75,6 +75,7 @@
   @include grid-row();
   
   .entry {
+    @include grid-column(12);
     @media #{$large-up} {
       @include grid-column(10);
     }
@@ -86,6 +87,7 @@
   margin-top: 1.5em;
   
   .entry {
+    @include grid-column(12);
     @media #{$large-up} {
       @include grid-column(10);
     }
