@@ -136,7 +136,7 @@
                         </div>
                       </div>
 
-                      <div class="step step-2">
+                      <div class="step step-2 active">
 
                         <div class="step-mask"></div>
 
@@ -272,7 +272,7 @@
                         </div>
                       </div>
 
-                      <div class="step step-3">
+                      <div class="step step-3 active">
 
                         <div class="step-mask"></div>
 
@@ -326,7 +326,7 @@
                         </div>
                       </div>
 
-                      <div class="step step-4">
+                      <div class="step step-4 active">
 
                         <div class="step-mask"></div>
 
@@ -387,7 +387,7 @@
                         </div>
                       </div>
 
-                      <div class="step step-5">
+                      <div class="step step-5 active">
 
                         <div class="step-mask"></div>
 
@@ -400,8 +400,29 @@
                         <div class="step-progress">
 
                           <div class="row">
-                            <div class="medium-4 columns">
-                              <h4>Lose fat</h4>
+                            <div class="small-12 columns">
+                              <label>My goal is to...</label>
+                              <div class="row">
+                                <div class="small-12 columns">
+                                  <input type="radio" id="goalLoseFat" name="goal" value="1" data-calc="goal-primary">
+                                  <label for="goalLoseFat">Lose fat</label>
+                                </div>
+                                <div class="small-12 columns">
+                                  <input type="radio" id="goalMaintainWeight" name="goal" value="2" data-calc="goal-primary">
+                                  <label for="goalMaintainWeight">Maintain weight</label>
+                                </div>
+                                <div class="small-12 columns">
+                                  <input type="radio" id="goalGainMuscle" name="goal" value="3" data-calc="goal-primary">
+                                  <label for="goalGainMuscle">Gain muscle</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="row">
+                            <div class="goal form-toggled small-12 columns" data-goal="1">
+                              <hr>
+                              <h4 class="hide">Lose fat</h4>
                               <!--<div class="goal-cals">
                                 <span class="cals" data-calc-goal-calories="fat-loss">0</span> Calories/day
                               </div>-->
@@ -420,20 +441,22 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="medium-4 columns">
-                              <h4>Maintain weight</h4>
+                            <div class="goal form-toggled small-12 columns" data-goal="2">
+                              <hr>
+                              <h4 class="hide">Maintain weight</h4>
                               <!--<div class="goal-cals">
                                 <span class="cals" data-calc-goal-calories="maintain">0</span> Calories/day
                               </div>-->
                               <div class="row">
                                 <div class="small-12 columns">
                                   <input class="selected" type="radio" id="maintain-tdde" name="goal" value="15" data-calc="goal" data-calc-goal="maintain">
-                                  <label for="maintain-tdde">Same as TDDE</label>
+                                  <label for="maintain-tdde">Maintain weight</label>
                                 </div>
                               </div>
                             </div>
-                            <div class="medium-4 columns end">
-                              <h4>Gain muscle</h4>
+                            <div class="goal form-toggled small-12 columns" data-goal="3">
+                              <hr>
+                              <h4 class="hide">Gain muscle</h4>
                               <!--<div class="goal-cals">
                                 <span class="cals" data-calc-goal-calories="bulking">0</span> Calories/day
                               </div>-->
@@ -465,7 +488,7 @@
                         </div>
                       </div>
 
-                      <div class="step step-6">
+                      <div class="step step-6 active">
 
                         <div class="step-mask"></div>
 
@@ -481,8 +504,8 @@
                             <div class="medium-5 large-4 columns">
                               <label>I want to...</label>
                               <select data-calc="ratios">
-                                <option data-name="moderate" data-carbs="50" data-protein="25" data-fat="25">Build muscle and maintain a low bodyfat - energy may be lower</option>
-                                <option data-name="moderate-ii" data-carbs="40" data-protein="40" data-fat="20">Take part in endurance / performance sports - (boxing, spinning, cycling)</option>
+                                <option data-name="bodybuilder" data-protein="40" data-fat="20" data-carbs="40">Build muscle and maintain a low bodyfat - energy may be lower</option>
+                                <option data-name="moderate" data-protein="25" data-fat="25" data-carbs="50">Take part in endurance / performance sports - (boxing, spinning, cycling)</option>
                               </select>
                             </div>
                             <div class="medium-6 columns">
@@ -537,7 +560,7 @@
                         </div>
                       </div>
 
-                      <div class="step step-7">
+                      <div class="step step-7 active">
 
                         <div class="step-mask"></div>
 

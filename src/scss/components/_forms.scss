@@ -49,3 +49,11 @@ input[type="radio"] + label {
   margin-bottom: 0;
   vertical-align: baseline;
 }
+
+.form-toggled {
+  display: none;
+  
+  &.active {
+    display: block;
+  }
+}

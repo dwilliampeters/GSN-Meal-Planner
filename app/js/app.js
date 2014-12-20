@@ -604,6 +604,12 @@ $(function () {
         $('.system-weight input').val(weightVal = Math.round(weightVal * 0.45359237));
       }
     }
+    if ($(this).data('calc') === 'goal-primary') {
+      var primaryGoalVal = $(this).val();
+      console.log(primaryGoalVal);
+      $('[data-goal]').removeClass('active');
+      $('[data-goal="' + primaryGoalVal + '"]').addClass('active');
+    }
     /*if ($(this).data('calc') === 'system') {
       $('.system').removeClass('selected');
       $('.system.' + $(this).val()).addClass('selected');
