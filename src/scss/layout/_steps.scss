@@ -68,4 +68,26 @@
 }
 
 .step-progress {
+  @include grid-row();
+}
+
+.step-intro {
+  @include grid-row();
+  
+  .entry {
+    @media #{$large-up} {
+      @include grid-column(10);
+    }
+  }
+}
+
+.step-outro {
+  @include grid-row();
+  margin-top: 1.5em;
+  
+  .entry {
+    @media #{$large-up} {
+      @include grid-column(10);
+    }
+  }
 }
