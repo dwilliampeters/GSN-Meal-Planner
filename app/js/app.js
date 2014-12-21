@@ -2116,6 +2116,8 @@ $(function () {
       required_complete = $(this)[0].checkValidity();
       console.log(required_complete);
       if (required_complete === false) {
+        $('.form-error').remove();
+        $('.next').before('<div class="form-error">Please complete all required fields and try again</div>');
         return false;
       }
     });
@@ -2123,7 +2125,8 @@ $(function () {
     console.log(required_complete);
     
     if (required_complete) {
-
+      $('.form-error').remove();
+      
       calculate_step = parseFloat($(this).attr('data-calculate'));
 
       calculate_step = (calculate_step + 1);
