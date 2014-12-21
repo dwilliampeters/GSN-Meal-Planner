@@ -83,7 +83,8 @@
               </div>
 
               <section class="calculator">
-                <form class="calc-form" method="post">
+                <div class="calc-form">
+                <form method="get" action="">
 
                   <!--<div class="step-wrap">-->
 
@@ -113,7 +114,7 @@
                               <div class="row">
                                 <div class="small-6 columns">
                                   <div class="radio-opt gender">
-                                    <input type="radio" id="female" name="gender" value="female" data-calc="gender">
+                                    <input type="radio" id="female" name="gender" value="female" data-calc="gender" required>
                                     <label for="female">Female <figure class="form-img"><img src="img/gender-female.png" alt=""></figure></label>
                                   </div>
                                 </div>
@@ -136,7 +137,7 @@
                               <label>Type your age</label>
                               <div class="row collapse">
                                 <div class="small-8 columns">
-                                  <input type="text" value="" data-calc="age">
+                                  <input type="number" id="age" value="" data-calc="age" required>
                                 </div>
                                 <div class="small-4 columns">
                                   <span class="postfix">years</span>
@@ -192,7 +193,7 @@
                               <label>Height</label>
                               <div class="row collapse imperial">
                                 <div class="small-4 columns imperial">
-                                  <input class="height-feet" type="text" value="0" data-calc="height-ft">
+                                  <input class="height-feet" type="text" value="" data-calc="height-ft" required>
                                 </div>
                                 <div class="small-2 columns">
                                   <span class="postfix">
@@ -200,7 +201,7 @@
                                   </span>
                                 </div>
                                 <div class="small-4 columns imperial">
-                                  <input class="height-inches" type="text" value="0" data-calc="height-in">
+                                  <input class="height-inches" type="text" value="" data-calc="height-in">
                                 </div>
                                 <div class="small-2 columns">
                                   <span class="postfix">
@@ -210,7 +211,7 @@
                               </div>
                               <div class="row collapse metric hide">
                                 <div class="small-4 columns metric">
-                                  <input type="text" value="0" data-calc="height-cm">
+                                  <input type="text" value="" data-calc="height-cm">
                                 </div>
                                 <div class="small-2 columns end">
                                   <span class="postfix">
@@ -237,7 +238,7 @@
                               <label>Body Weight</label>
                               <div class="row collapse">
                                 <div class="small-8 columns">
-                                  <input type="text" value="" data-calc="weight">
+                                  <input type="text" value="" data-calc="weight" required>
                                 </div>
                                 <div class="small-4 columns end">
                                   <span class="postfix">
@@ -513,7 +514,7 @@
                       <div class="row">
                         <div class="small-12 medium-6 columns">
                           <label>Excersise Level</label>
-                          <select name="calc-activity" data-calc="activity">
+                          <select name="calc-activity" data-calc="activity" required>
                             <option value="1.0">Basal Metabolic Rate</option>
                             <option value="1.375" selected="selected">3 times per week</option>
                             <option value="1.42">4 times per week</option>
@@ -590,7 +591,7 @@
                           <label>My goal is to...</label>
                           <div class="row">
                             <div class="small-12 columns">
-                              <input type="radio" id="goalLoseFat" name="goalPrimary" value="1" data-calc="goal-primary">
+                              <input type="radio" id="goalLoseFat" name="goalPrimary" value="1" data-calc="goal-primary" required>
                               <label for="goalLoseFat">Lose fat</label>
                             </div>
                             <div class="small-12 columns">
@@ -711,7 +712,7 @@
                       <div class="row">
                         <div class="medium-4 columns">
                           <label>I want to...</label>
-                          <select data-calc="ratios">
+                          <select data-calc="ratios" required>
                             <option data-name="bodybuilder" data-protein="40" data-fat="20" data-carbs="40" selected="selected">Build muscle and maintain a low bodyfat - energy may be lower</option>
                             <option data-name="moderate" data-protein="25" data-fat="25" data-carbs="50">Take part in endurance / performance sports - (boxing, spinning, cycling)</option>
                           </select>
@@ -945,6 +946,7 @@
                   <!--</div>-->
 
                 </form>
+                </div>
               </section>
 
             </article>

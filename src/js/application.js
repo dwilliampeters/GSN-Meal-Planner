@@ -35,21 +35,7 @@ $(function () {
 $(function () {
   "use strict";
 
-  /*// Step layout
-  var stepW     = 0,
-      stepFullW = 0;
-
-  function stepSize() {
-    stepW = ($('.calc-form').width());
-    stepFullW = (stepW * 4);
-
-    $('.step').width(stepW);
-    $('.step-wrap').width(stepFullW);
-  }
-
-  stepSize();
-
-  $('.step-wrap').css('margin-left', -970);*/
+  // Step layout
 
   var docViewTop  = 0,
       stepsPos    = 0;
@@ -73,32 +59,52 @@ $(function () {
     stepsBar();
     $('.steps').height($('.steps').height());
   })
-
-  function stepChange() {
-
-  }
+  
+  
+  // Steps changer
 
   var calculate_step = 0;
+  var required_complete = false,
+      all_required_complete = false;
 
   $('[data-calculate]').on('click', function(e) {
     e.preventDefault();
+    
+    required_complete = $('.step-' + $(this).attr('data-calculate') + ' :input')[0].checkValidity();
+    console.log($('.step-' + $(this).attr('data-calculate') + ' :input')[0].checkValidity());
+    
+    $('.step-' + $(this).attr('data-calculate') + ' :input').each(function(i) {
+      required_complete = $(this)[0].checkValidity();
+      console.log(required_complete);
+      if (required_complete === false) {
+        return false;
+      }
+    });
+    
+    console.log(required_complete);
+    
+    if (required_complete) {
 
-    calculate_step = parseFloat($(this).attr('data-calculate'));
+      calculate_step = parseFloat($(this).attr('data-calculate'));
 
-    calculate_step = (calculate_step + 1);
-    console.log(calculate_step);
+      calculate_step = (calculate_step + 1);
+      console.log(calculate_step);
 
-    $('.steps-step').removeClass('active');
-    $('.steps-step.step-' + calculate_step).addClass('active');
-    $('.steps-step.step-1').addClass('complete');
-    $('.steps-step.step-' + calculate_step).before().addClass('complete');
+      $('.steps-step').removeClass('active');
+      $('.steps-step.step-' + calculate_step).addClass('active');
+      $('.steps-step.step-1').addClass('complete');
+      $('.steps-step.step-' + calculate_step).before().addClass('complete');
 
-    $('.step').removeClass('active');
-    $('.step.step-' + calculate_step).addClass('active');
+      $('.step').removeClass('active');
+      $('.step.step-' + calculate_step).addClass('active');
 
-    $('html, body').animate({
-      scrollTop: $('.step.step-' + calculate_step).offset().top
-    }, 1000);
+      $('html, body').animate({
+        scrollTop: $('.step.step-' + calculate_step).offset().top
+      }, 1000);
+      
+    } else {
+      return false;
+    }
 
   });
 
