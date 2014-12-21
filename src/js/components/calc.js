@@ -39,7 +39,8 @@
       goalId,
       $goalCals           = $('[data-calc-goal-calories]'),
       goalCals            = 0,
-      ratios              = $('select[data-calc="ratios"] option:selected'),
+      //ratios              = $('select[data-calc="ratios"] option:selected'),
+      ratios              = $('[data-calc="ratios"]:checked'),
       // BMR
       BMR1                = parseFloat($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="1"]').val()),
       BMR2                = parseFloat($('[data-calc-bmr="' + gender + '"] [data-calc-bmr="2"]').val()),

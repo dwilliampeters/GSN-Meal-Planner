@@ -710,15 +710,29 @@
                       </div>
 
                       <div class="row">
-                        <div class="medium-4 columns">
+                        <div class="medium-10 columns">
                           <label>I want to...</label>
-                          <select data-calc="ratios" required>
+                            <div class="row">
+                              <div class="small-6 columns">
+                                <div class="radio-opt ratios">
+                                  <input type="radio" id="ratios-bodybuilder" name="ratios" value="bodybuilder" data-calc="ratios" data-name="bodybuilder" data-protein="40" data-fat="20" data-carbs="40" required>
+                                  <label for="ratios-bodybuilder">Build muscle and maintain a low bodyfat - energy may be lower</label>
+                                </div>
+                              </div>
+                              <div class="small-6 columns">
+                                <div class="radio-opt ratios">
+                                  <input type="radio" id="ratios-moderate" name="ratios" value="moderate" data-calc="ratios" data-name="moderate" data-protein="25" data-fat="25" data-carbs="50">
+                                  <label for="ratios-moderate">Take part in endurance / performance sports - (boxing, spinning, cycling</label>
+                                </div>
+                              </div>
+                            </div>
+                          <!--<select data-calc="ratios" required>
                             <option data-name="bodybuilder" data-protein="40" data-fat="20" data-carbs="40" selected="selected">Build muscle and maintain a low bodyfat - energy may be lower</option>
                             <option data-name="moderate" data-protein="25" data-fat="25" data-carbs="50">Take part in endurance / performance sports - (boxing, spinning, cycling)</option>
-                          </select>
+                          </select>-->
                         </div>
                         <div class="medium-8 columns">
-                          <div class="row">
+                          <div class="row hide">
                             <div class="small-4 columns">
                               <label>Protein</label>
                               <div class="row collapse">
