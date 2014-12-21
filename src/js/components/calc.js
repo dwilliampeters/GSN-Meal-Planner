@@ -22,7 +22,7 @@
       heightIn            = parseFloat($('.system.selected [data-calc="height-in"]').val()),
       heightCm            = parseFloat($('.system.selected [data-calc="height-cm"]').val()),
       height              = 0,
-      bf                  = parseFloat($('.bf-gender.active [data-calc="bf"]:checked').val()),
+      bf                  = parseFloat($('[data-calc="bf"]:checked').val()),
       bfFormula           = 0,
       formula             = parseFloat($('[data-calc="formula"]:checked').val()),
       activityWeek        = parseFloat($('select[data-calc="activity"] option:selected').val()),
@@ -96,11 +96,10 @@
       bfFormula = 35;
     }
     
-    console.log(bf);
+    console.log(bf, bfFormula);
     
     if (bf < bfFormula) {
       // Athletic
-      $('.bf-pick').removeClass('active');
 
       bf                  = 20;
       sumLBM              = (weight * (1 - bf / 100));
@@ -121,7 +120,6 @@
       macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
     } else {
       // Lean Mass
-      $('.bf-pick').addClass('active');
 
       sumLBM              = (weight * (1 - bf / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
