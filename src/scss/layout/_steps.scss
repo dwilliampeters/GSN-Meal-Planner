@@ -16,7 +16,7 @@
     @include centered-content($calc-width);
     margin-left: auto;
     margin-right: auto;
-    background: white;
+    background: #252525;
   }
 
   nav > ul {
@@ -30,14 +30,31 @@
 .steps-step {
   float: left;
   width: 14.28%;
-  padding: 10px;
   font-size: 20px;
+  overflow: hidden;
+  line-height: 1;
+  height: 50px;
+  position: relative;
+  background: #252525;
+  color: white;
 
+  > span {
+    font-size: 80px;
+    font-weight: bold;
+    position: absolute;
+    top: -13px;
+    left: 0;
+    display: block;
+    width: 100%;    
+  }
+  
   &.active {
     background: $color1;
-    color: black;
-    font-weight: bold;
-  }    
+  }
+  
+  &.complete {
+    background: $color1;
+  }
 }
 
 .step-wrap {

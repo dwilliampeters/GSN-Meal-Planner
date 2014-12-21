@@ -746,12 +746,13 @@ $(function () {
 
     calculate_step = parseFloat($(this).attr('data-calculate'));
 
-    //console.log(calculate_step);
     calculate_step = (calculate_step + 1);
-    //console.log(calculate_step);
+    console.log(calculate_step);
 
     $('.steps-step').removeClass('active');
     $('.steps-step.step-' + calculate_step).addClass('active');
+    $('.steps-step.step-1').addClass('complete');
+    $('.steps-step.step-' + calculate_step).before().addClass('complete');
 
     $('.step').removeClass('active');
     $('.step.step-' + calculate_step).addClass('active');
