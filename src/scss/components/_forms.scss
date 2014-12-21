@@ -7,6 +7,7 @@ $form-input-padding: 15px !default;
   margin-bottom: 0;
   padding-top: $form-input-padding;
   padding-bottom: $form-input-padding;
+  font-size: 20px;
 }
 
 @mixin prefix-postfix-base {
@@ -50,6 +51,7 @@ input[type="radio"] + label {
   margin-right: 5px;
   margin-bottom: 0;
   vertical-align: baseline;
+  font-size: 16px;
 }
 
 .form-toggled {
@@ -70,7 +72,7 @@ fieldset {
   position: relative;
   overflow: hidden;
   background: white;
-  margin: 1em 0;
+  margin: .5em 0;
   
   label {
     margin: 0 !important;
@@ -86,5 +88,9 @@ fieldset {
     &:checked + label {
       background: $color1;
     }
+  }
+  
+  figure {
+    margin: 0 auto;
   }
 }

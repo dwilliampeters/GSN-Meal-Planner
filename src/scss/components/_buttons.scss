@@ -16,6 +16,7 @@ $button-secondary-font-color: $color1;
   font-size: $button-font-size;
   color: $button-font-color;
   outline: none;
+  display: inline-block;
   
   &.secondary {
     background: $button-secondary-bg;

@@ -69,9 +69,14 @@
   
   .entry {
     @include grid-column(12);
+    
     @media #{$large-up} {
-      @include grid-column(10);
     }
+  
+    p {
+      font-size: 15px;
+    }
+  
   }
 }
 
@@ -81,8 +86,12 @@
   
   .entry {
     @include grid-column(12);
+    
     @media #{$large-up} {
-      @include grid-column(10);
+    }
+  
+    p {
+      font-size: 15px;
     }
   }
 }

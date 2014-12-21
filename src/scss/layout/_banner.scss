@@ -1,16 +1,20 @@
 .banner {
   padding-top: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   background: black;
+  text-align: center;
   > div {
     @include centered-content($site-width);
   }
 }
 
 .banner--title {
-  float: left;
-  padding-top: 5px;
+  margin: 0 auto;
   position: relative;
+  width: 50%;
+  @media #{$medium-up} {
+    width: 40%;
+  }
   a {
     overflow: hidden;
     display: block;

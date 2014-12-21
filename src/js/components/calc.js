@@ -22,7 +22,8 @@
       heightIn            = parseFloat($('.system.selected [data-calc="height-in"]').val()),
       heightCm            = parseFloat($('.system.selected [data-calc="height-cm"]').val()),
       height              = 0,
-      BF                  = parseFloat($('bf-gender.active [data-calc="bf"]:checked').val()),
+      bf                  = parseFloat($('.bf-gender.active [data-calc="bf"]:checked').val()),
+      bfFormula           = 0,
       formula             = parseFloat($('[data-calc="formula"]:checked').val()),
       activityWeek        = parseFloat($('select[data-calc="activity"] option:selected').val()),
       activityExtra       = [],
@@ -35,6 +36,7 @@
       goalSelected        = parseInt($('[data-calc-goal]:checked').val()),
       goalCalsSelected    = 0,
       goalVal             = 0,
+      goalId,
       $goalCals           = $('[data-calc-goal-calories]'),
       goalCals            = 0,
       ratios              = $('select[data-calc="ratios"] option:selected'),
@@ -86,22 +88,29 @@
     if ($('#imperial-weight').is(':checked')) {
       weight = Math.round(weight * 0.45359237);
     }
-
-    if (formula === 0) {
+    
+    if (gender === 'male') {
+      bfFormula = 25;
+    } else {
+      // Female
+      bfFormula = 35;
+    }
+    
+    console.log(bf);
+    
+    if (bf < bfFormula) {
       // Athletic
-      /*$('.input-bodyfat').attr('readonly', 'readonly');
-      $('.input-bodyfat').val('');*/
       $('.bf-pick').removeClass('active');
 
-      BF                  = 20;
-      sumLBM              = (weight * (1 - BF / 100));
+      bf                  = 20;
+      sumLBM              = (weight * (1 - bf / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
       sumRecProt          = (1.25 * sumLBM);
       sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals);
       sumRecFat           = 25;
 
       // Macros
-      macroBF             = parseFloat(BF) / 100;
+      macroBF             = parseFloat(bf) / 100;
       macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age));
       macroProt           = (macroCals * sumRecProtPercent / 4);
       macroFat            = (macroCals * (macroBF / 9));
@@ -110,21 +119,18 @@
       macroCustomProt     = (macroCustomCals * sumRecProtPercent / 4);
       macroCustomFat      = (macroCustomCals * (macroBF / 9));
       macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
-    }
-
-    if (formula === 1) {
-      // Normal
-      /*('.input-bodyfat').removeAttr('readonly');*/
+    } else {
+      // Lean Mass
       $('.bf-pick').addClass('active');
 
-      sumLBM              = (weight * (1 - BF / 100));
+      sumLBM              = (weight * (1 - bf / 100));
       sumRecCals          = Math.floor((12 * sumLBM));
       sumRecProt          = (1.25 * sumLBM);
       sumRecProtPercent   = ((sumRecProt * 4) / sumRecCals);
       sumRecFat           = 25;
 
       // Macros
-      macroBF             = parseFloat(BF) / 100;
+      macroBF             = parseFloat(bf) / 100;
       macroCals           = (BMR1 + (BMR2 * weight) + (BMR3 * height) - (BMR4 * age));
       macroProt           = (macroCals * sumRecProtPercent / 4);
       macroFat            = (macroCals * (macroBF / 9));
@@ -135,7 +141,7 @@
       macroCustomCarb     = (macroCustomCals * (1 - sumRecProtPercent - macroBF) / 9);
     }
 
-    console.log('calc: ' + calcId, calcVal, BF, sumLBM, sumRecCals, sumRecProt, sumRecProtPercent, sumRecFat);
+    console.log('calc: ' + calcId, calcVal, bf);
 
     // Step 2: Goal
     function updateGoal($thisGoal, goal, goalCals, macroCustomCals) {
@@ -154,8 +160,9 @@
 
     $($goal).each(function(index) {
       if ($(this).hasClass('selected')) {
-        goal = $(this).data('calc-goal');
+        goal    = $(this).data('calc-goal');
         goalVal = parseInt($(this).attr('value'));
+        goalId  = $(this).attr('id');
         var $thisGoal = $(this);
         updateGoal($thisGoal, goal, goalVal, macroCustomCals);
       }
@@ -178,7 +185,7 @@
       var ratioProtein  = ratios.data('protein');
       var ratioCarbs    = ratios.data('carbs');
       var ratioFat      = ratios.data('fat');
-      console.log(ratioName, ratioProtein, ratioFat, ratioCarbs);
+      //console.log(ratioName, ratioProtein, ratioFat, ratioCarbs);
       $('[data-ratio="protein"]').val(ratioProtein);
       $('[data-ratio="fat"]').val(ratioFat);
       $('[data-ratio="carbs"]').val(ratioCarbs);
@@ -227,9 +234,8 @@
     // Goal
     //updateVal($goalCals, Math.floor(goalCals));
 
-    // Meal
-    /*var calcMeal = new mealUpdate();
-    calcMeal.setValue(macroCals, macroProt, macroFat, macroCarb);*/
+    // Meals
+    $('[data-meal-link]').attr('href', 'http://madeby88.com/~dev/gsncalc/meals.php?gender=' + gender + '&bf=' + bf + '&goal=' + goalId + '&calories=' + Math.floor(macroResultCals) + '&protein=' + Math.floor(macroResultProt) + '&fat=' + Math.floor(macroResultFat) + '&carbs=' + Math.floor(macroResultCarb) + '');
 
   };
 
