@@ -1,0 +1,26 @@
+.nav-primary {
+  padding-top: 10px;
+
+  ul {
+    @include clearfix;
+    list-style: none;
+    margin: 0;
+    text-align: center;
+  }
+
+  li {
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  a {
+    padding: 10px;
+    display: block;
+
+    &:hover {
+      background-color: #24890d;
+      color: white;
+    }
+  }
+}
