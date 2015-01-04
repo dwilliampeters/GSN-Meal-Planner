@@ -234,7 +234,7 @@
     //updateVal($goalCals, Math.floor(goalCals));
 
     // Meals
-    $('[data-meal-link]').attr('href', 'http://madeby88.com/~dev/gsncalc/meals.php?gender=' + gender + '&bf=' + bf + '&goal=' + goalId + '&calories=' + Math.floor(macroResultCals) + '&protein=' + Math.floor(macroResultProt) + '&fat=' + Math.floor(macroResultFat) + '&carbs=' + Math.floor(macroResultCarb) + '');
+    $('[data-meal-link]').attr('href', 'http://gsntransformationcentre.co.uk/meal-planner/?gender=' + gender + '&age=' + age + '&weight=' + weight + '&height=' + height + '&activityWeek=' + activityWeek + '&goal=' + goalSelected + '&bf=' + bf + '&goal=' + goalId + '&calories=' + Math.floor(macroResultCals) + '&protein=' + Math.floor(macroResultProt) + '&fat=' + Math.floor(macroResultFat) + '&carbs=' + Math.floor(macroResultCarb) + '');
 
   };
 
