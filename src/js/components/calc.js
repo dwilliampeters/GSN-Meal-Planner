@@ -234,7 +234,10 @@
     //updateVal($goalCals, Math.floor(goalCals));
 
     // Meals
-    $('[data-meal-link]').attr('href', 'http://gsntransformationcentre.co.uk/meal-planner/?gender=' + gender + '&age=' + age + '&weight=' + weight + '&height=' + height + '&activityWeek=' + activityWeek + '&goal=' + goalSelected + '&bf=' + bf + '&goal=' + goalId + '&calories=' + Math.floor(macroResultCals) + '&protein=' + Math.floor(macroResultProt) + '&fat=' + Math.floor(macroResultFat) + '&carbs=' + Math.floor(macroResultCarb) + '');
+    if ($('#imperial-height').is(':checked')) { var heightSystem = '_in'; } else { var heightSystem = '_cm'; }
+    if ($('#imperial-weight').is(':checked')) { var weightSystem = '_lbs'; } else { var weightSystem = '_kg'; }
+    
+    $('[data-meal-link]').attr('href', 'http://gsntransformationcentre.co.uk/meal-planner/?gender=' + gender + '&age=' + age + '&weight' + weightSystem + '=' + weight + '&height' + heightSystem + '=' + height + '&activityWeek=' + activityWeek + '&goal=' + goalSelected + '&bf=' + bf + '&goal=' + goalId + '&ratio=' + ratios.val() + '&calories=' + Math.floor(macroResultCals) + '&protein=' + Math.floor(macroResultProt) + '&fat=' + Math.floor(macroResultFat) + '&carbs=' + Math.floor(macroResultCarb) + '');
 
   };
 

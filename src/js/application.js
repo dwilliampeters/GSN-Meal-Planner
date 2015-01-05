@@ -34,6 +34,11 @@ $(function () {
 // Steps
 $(function () {
   "use strict";
+  
+  // Advanced toggle
+  $('.advanced-toggle').on('click', function(e) {
+    $('.calculator').toggleClass('calc-advanced');
+  });
 
   // Step layout
 

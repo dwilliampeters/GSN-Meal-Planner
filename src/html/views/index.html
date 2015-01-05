@@ -34,7 +34,7 @@
             </article>
 
             <article>
-
+              
               <div class="steps">
                 <div class="steps-bar">
                   <nav>
@@ -193,10 +193,10 @@
                                 </div>
                               </div>
                               <div class="row collapse metric hide">
-                                <div class="small-4 columns metric">
+                                <div class="small-8 columns metric">
                                   <input type="number" value="" data-calc="height-cm">
                                 </div>
-                                <div class="small-2 columns end">
+                                <div class="small-4 columns end">
                                   <span class="postfix">
                                     <span class="metric">cm</span>
                                   </span>
@@ -284,20 +284,22 @@
                         </div>
                       </div>-->
 
-                      <!--<hr>
+                      <div class="calc-advanced-view">
+                        <hr>
 
-                      <div class="row">
-                        <div class="medium-3 columns">&nbsp;</div>
-                        <div class="medium-3 columns end">&nbsp;</div>
+                        <div class="row">
+                          <div class="medium-3 columns">&nbsp;</div>
+                          <div class="medium-3 columns end">&nbsp;</div>
+                        </div>
+                        <div class="row" data-calc-level="bmr">
+                          <div class="medium-3 columns"><strong>Your BMR</strong></div>
+                          <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
+                        </div>
+                        <div class="row" data-calc-level="custom">
+                          <div class="medium-3 columns"><strong>Your TDDE</strong></div>
+                          <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
+                        </div>
                       </div>
-                      <div class="row" data-calc-level="bmr">
-                        <div class="medium-3 columns"><strong>Your BMR</strong></div>
-                        <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
-                      </div>
-                      <div class="row" data-calc-level="custom">
-                        <div class="medium-3 columns"><strong>Your TDDE</strong></div>
-                        <div class="medium-3 columns end"><span data-calc-macro="cals">0</span> cals</div>
-                      </div>-->
 
                       <div class="step-outro">
                         <div class="entry">
@@ -335,21 +337,6 @@
 
                         </div>
                       </div>
-
-                      <!--<div class="row">
-                        <div class="small-12 medium-6 columns">
-                          <div class="row">
-                            <div class="small-12 columns">
-                              <input type="radio" id="forumla-athletes" name="formula" value="0" data-calc="formula" checked>
-                              <label for="forumla-athletes">Athletes Formula (best for lean people)</label>
-                            </div>
-                            <div class="small-12 columns">
-                              <input type="radio" id="formula-leanMass" name="formula" value="1" data-calc="formula">
-                              <label for="formula-leanMass">Lean Mass Formula (best if overweight)</label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>-->
 
                       <div class="bf-pick">
                         <div class="bf-gender bf-male row active">
@@ -442,20 +429,6 @@
                           </div>
                         </div>
                       </div>
-
-                      <!--<div class="row">
-                        <div class="small-12 medium-4 columns">
-                          <label>BF%</label>
-                          <div class="row collapse">
-                            <div class="small-9 columns">
-                              <input class="input-bodyfat" type="text" value="20" readonly data-calc="bf">
-                            </div>
-                            <div class="small-3 columns">
-                              <span class="postfix">%</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>-->
 
                       <div class="step-outro">
                         <div class="entry">
@@ -589,9 +562,9 @@
                         </div>
                         <div class="goal form-toggled small-12 medium-8 columns" data-goal="1">
                           <h4 class="hide">Lose fat</h4>
-                          <!--<div class="goal-cals">
+                          <div class="goal-cals calc-advanced-view">
                             <span class="cals" data-calc-goal-calories="fat-loss">0</span> Calories/day
-                          </div>-->
+                          </div>
                           <div class="row">
                             <div class="small-12 columns">
                               <div class="radio-opt">
@@ -615,9 +588,9 @@
                         </div>
                         <div class="goal form-toggled small-12 medium-8 columns" data-goal="2">
                           <h4 class="hide">Maintain weight</h4>
-                          <!--<div class="goal-cals">
+                          <div class="goal-cals calc-advanced-view">
                             <span class="cals" data-calc-goal-calories="maintain">0</span> Calories/day
-                          </div>-->
+                          </div>
                           <div class="row">
                             <div class="small-12 columns">
                               <div class="radio-opt">
@@ -629,9 +602,9 @@
                         </div>
                         <div class="goal form-toggled small-12 medium-8 columns" data-goal="3">
                           <h4 class="hide">Gain muscle</h4>
-                          <!--<div class="goal-cals">
+                          <div class="goal-cals calc-advanced-view">
                             <span class="cals" data-calc-goal-calories="bulking">0</span> Calories/day
-                          </div>-->
+                          </div>
                           <div class="row">
                             <div class="small-12 columns">
                               <div class="radio-opt">
@@ -709,13 +682,9 @@
                                 </div>
                               </div>
                             </div>
-                          <!--<select data-calc="ratios" required>
-                            <option data-name="bodybuilder" data-protein="40" data-fat="20" data-carbs="40" selected="selected">Build muscle and maintain a low bodyfat - energy may be lower</option>
-                            <option data-name="moderate" data-protein="25" data-fat="25" data-carbs="50">Take part in endurance / performance sports - (boxing, spinning, cycling)</option>
-                          </select>-->
                         </div>
-                        <div class="medium-8 columns">
-                          <div class="row hide">
+                        <div class="small-12 columns">
+                          <div class="row calc-advanced-view">
                             <div class="small-4 columns">
                               <label>Protein</label>
                               <div class="row collapse">
@@ -827,70 +796,6 @@
                         <div class="medium-8 medium-centered columns text-center">
                           <a class="button" data-meal-link href="/meal-planner/" target="_blank">Create Your Personalised Meal Plan</a>
                         </div>
-                        <!--<div class="medium-8 medium-pull-4 columns">
-
-                          <div class="meals-list">
-
-                            <div class="meals-meal">
-                              <h2>Meal 1</h2>
-
-                              <div class="food">
-                                <div class="food-name">
-                                  Bacon Sandwhich
-                                </div>
-                                <div class="food-serving">
-                                  2 Servings
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="meals-meal">
-                              <h2>Meal 2</h2>
-
-                              <div class="food">
-                                <div class="food-name">
-                                  Medium Egg
-                                </div>
-                                <div class="food-serving">
-                                  3 Servings
-                                </div>
-                              </div>
-
-                              <div class="food">
-                                <div class="food-name">
-                                  Fried Bread
-                                </div>
-                                <div class="food-serving">
-                                  1 Servings
-                                </div>
-                              </div>
-
-                              <div class="food">
-                                <div class="food-name">
-                                  Baked Beans
-                                </div>
-                                <div class="food-serving">
-                                  100g
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="meals-meal">
-                              <h2>Meal 3</h2>
-
-                              <div class="food">
-                                <div class="food-name">
-                                  Mince Pie
-                                </div>
-                                <div class="food-serving">
-                                  1 Servings
-                                </div>
-                              </div>
-                            </div>
-
-                          </div>
-
-                        </div>-->
                       </div>
 
                       <hr>
@@ -953,6 +858,8 @@
                 </form>
                 </div>
               </section>
+              
+              <div class="advanced-toggle">Advanced</div>
 
             </article>
 

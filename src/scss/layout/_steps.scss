@@ -61,6 +61,25 @@
   transition: all 1s;
 }
 
+.calc-advanced {
+
+  .step {
+    display: block;
+  }
+  
+  .button.next {
+    display: none;
+  }
+  
+  .calc-advanced-view {
+    display: block;
+  }
+}
+
+.calc-advanced-view {
+  display: none;
+}
+
 .step {
   position: relative;
   display: none;
