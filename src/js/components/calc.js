@@ -31,8 +31,9 @@
       activity            = 0,
       activityDesc        = $('select[data-calc="activity"] option:selected').text(),
       // Step 2
-      goal,
-      $goal               = $('[data-calc-goal]'),
+      //goal                = $('[data-calc="goal-primary"]'),
+      goal                = 0,
+      $goal               = $('[data-calc-goal]:checked'),
       goalSelected        = parseInt($('[data-calc-goal]:checked').val()),
       goalCalsSelected    = 0,
       goalVal             = 0,
@@ -68,7 +69,7 @@
       macroResultCarb     = 0;
 
     // Step 1:
-
+    console.log(goalSelected);
     // Activity
     activityExtra = $('[data-calc="activity-extra"]:checked').map(function(){
       return $(this).val();
@@ -142,22 +143,24 @@
 
     console.log('calc: ' + calcId, calcVal, bf);
 
-    // Step 2: Goal
-    function updateGoal($thisGoal, goal, goalCals, macroCustomCals) {
-      if (goal === 'fat-loss') {
-        goalCals = (macroCustomCals - (macroCustomCals * goalVal / 100));
-      } else if (goal === 'maintain') {
-        goalCals = (macroCustomCals);
-      } else {
-        goalCals = (macroCustomCals + (macroCustomCals * goalVal / 100));
-      }
-      $('[data-calc-goal-calories="' + goal + '"]').html(Math.floor(goalCals));
-      if ($thisGoal.is(':checked')) {
-        goalCalsSelected = goalCals;
-      }
+    // Step 2: Goal  
+    goal = $goal.data('calc-goal');
+    goalVal = parseInt($goal.attr('value'));
+    console.log(goal, goalVal);
+    if (goal === 'fat-loss') {
+      goalCals = (macroCustomCals - (macroCustomCals * goalVal / 100));
+    } else if (goal === 'maintain') {
+      goalCals = (macroCustomCals);
+    } else {
+      goalCals = (macroCustomCals + (macroCustomCals * goalVal / 100));
     }
-
-    $($goal).each(function(index) {
+    $('[data-calc-goal-calories="' + goal + '"]').html(Math.floor(goalCals));
+    goalCalsSelected = goalCals;
+    /*if ($thisGoal.is(':checked')) {
+      goalCalsSelected = goalCals;
+    }*/
+    
+    /*$($goal).each(function(index) {
       if ($(this).hasClass('selected')) {
         goal    = $(this).data('calc-goal');
         goalVal = parseInt($(this).attr('value'));
@@ -165,7 +168,7 @@
         var $thisGoal = $(this);
         updateGoal($thisGoal, goal, goalVal, macroCustomCals);
       }
-    });
+    });*/
 
     // Step 3:
     if (gender === 'male') {
@@ -234,10 +237,10 @@
     //updateVal($goalCals, Math.floor(goalCals));
 
     // Meals
-    if ($('#imperial-height').is(':checked')) { var heightSystem = '_in'; } else { var heightSystem = '_cm'; }
-    if ($('#imperial-weight').is(':checked')) { var weightSystem = '_lbs'; } else { var weightSystem = '_kg'; }
+    /*if ($('#imperial-height').is(':checked')) { var heightSystem = '_in'; } else { var heightSystem = '_cm'; }
+    if ($('#imperial-weight').is(':checked')) { var weightSystem = '_lbs'; } else { var weightSystem = '_kg'; }*/
     
-    $('[data-meal-link]').attr('href', 'http://gsntransformationcentre.co.uk/meal-planner/?gender=' + gender + '&age=' + age + '&weight' + weightSystem + '=' + weight + '&height' + heightSystem + '=' + height + '&activityWeek=' + activityWeek + '&goal=' + goalSelected + '&bf=' + bf + '&goal=' + goalId + '&ratio=' + ratios.val() + '&calories=' + Math.floor(macroResultCals) + '&protein=' + Math.floor(macroResultProt) + '&fat=' + Math.floor(macroResultFat) + '&carbs=' + Math.floor(macroResultCarb) + '');
+    $('[data-meal-link]').attr('href', 'http://gsntransformationcentre.co.uk/meal-planner/?gender=' + gender + '&age=' + age + '&weight_kg=' + weight + '&height_cm=' + height + '&activityWeek=' + activityWeek + '&goal_' + goal + '=' + goalVal + '&bf=' + bf + '&ratio=' + ratios.val() + '&calories=' + Math.floor(macroResultCals) + '&protein=' + Math.floor(macroResultProt) + '&fat=' + Math.floor(macroResultFat) + '&carbs=' + Math.floor(macroResultCarb) + '');
 
   };
 
