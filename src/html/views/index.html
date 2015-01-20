@@ -190,9 +190,9 @@
                           <div class="row">
                             <div class="small-8 small-centered columns text-center">
                               <label class="hide">Metric system</label>
-                              <input type="radio" id="imperial-height" name="system-height" value="imperial" data-calc="system-height" checked>
+                              <input type="radio" id="imperial-height" name="system-height" value="imperial" data-calc="system-height" tabindex="-1" checked>
                               <label for="imperial-height">Inches</label>
-                              <input type="radio" id="metric-height" name="system-height" value="metric" data-calc="system-height">
+                              <input type="radio" id="metric-height" name="system-height" value="metric" data-calc="system-height" tabindex="-1">
                               <label for="metric-height">CMs</label>
                             </div>
                           </div>
@@ -217,9 +217,9 @@
                           <div class="row">
                             <div class="small-8 small-centered columns text-center">
                               <label class="hide">Metric system</label>
-                              <input type="radio" id="imperial-weight" name="system-weight" value="imperial" data-calc="system-weight" checked>
+                              <input type="radio" id="imperial-weight" name="system-weight" value="imperial" data-calc="system-weight" tabindex="-1" checked>
                               <label for="imperial-weight">Pounds</label>
-                              <input type="radio" id="metric-weight" name="system-weight" value="metric" data-calc="system-weight">
+                              <input type="radio" id="metric-weight" name="system-weight" value="metric" data-calc="system-weight" tabindex="-1">
                               <label for="metric-weight">Kilos</label>
                             </div>
                           </div>
@@ -387,9 +387,9 @@
 
                       <div class="row">
                         <div class="small-12 medium-6 columns">
-                          <label>Excersise Level</label>
+                          <label>How much do you exercise?</label>
                           <select name="calc-activity" data-calc="activity" required>
-                            <option value="1.0">Basal Metabolic Rate</option>
+                            <option value="1.0">I exercise between zero and 2 times per week</option>
                             <option value="1.375" selected="selected">3 times per week</option>
                             <option value="1.42">4 times per week</option>
                             <option value="1.465">5 times per week</option>
@@ -398,10 +398,12 @@
                           </select>
                         </div>
                       </div>
+                      
+                      <hr>
 
                       <div class="row">
                         <div class="small-12 medium-10 columns">
-                          <label></label>
+                          <label>Do any of the below apply to you?</label>
                           <div class="row">
                             <div class="small-12 columns">
                               <div class="radio-opt">
@@ -428,8 +430,8 @@
                           </div>
                           <div class="row">
                             <div class="small-12 columns">
-                              <p>*tick any that apply<br>
-                                ** Please bare in mind ticking these boxes will increase your daily calorie requirements and could reduce weight loss.</p>
+                              <p>*Select any that apply<br>
+                                ** Please bare in mind selecting these boxes will increase your daily calorie requirements and could reduce weight loss.</p>
                             </div>
                           </div>
                         </div>
@@ -495,7 +497,7 @@
                             <div class="small-12 columns">
                               <div class="radio-opt">
                                 <input type="radio" id="fatLoss-reckless" name="goal" value="25" data-calc="goal" data-calc-goal="fat-loss">
-                                <label for="fatLoss-reckless">Lost fat and willing to lose a little muscle</label>
+                                <label for="fatLoss-reckless">Lose fat and willing to lose a little muscle</label>
                               </div>
                             </div>
                           </div>
