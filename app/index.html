@@ -224,9 +224,9 @@
                           <div class="row">
                             <div class="small-8 small-centered columns text-center">
                               <label class="hide">Metric system</label>
-                              <input type="radio" id="imperial-height" name="system-height" value="imperial" data-calc="system-height" checked>
+                              <input type="radio" id="imperial-height" name="system-height" value="imperial" data-calc="system-height" tabindex="-1" checked>
                               <label for="imperial-height">Inches</label>
-                              <input type="radio" id="metric-height" name="system-height" value="metric" data-calc="system-height">
+                              <input type="radio" id="metric-height" name="system-height" value="metric" data-calc="system-height" tabindex="-1">
                               <label for="metric-height">CMs</label>
                             </div>
                           </div>
@@ -251,9 +251,9 @@
                           <div class="row">
                             <div class="small-8 small-centered columns text-center">
                               <label class="hide">Metric system</label>
-                              <input type="radio" id="imperial-weight" name="system-weight" value="imperial" data-calc="system-weight" checked>
+                              <input type="radio" id="imperial-weight" name="system-weight" value="imperial" data-calc="system-weight" tabindex="-1" checked>
                               <label for="imperial-weight">Pounds</label>
-                              <input type="radio" id="metric-weight" name="system-weight" value="metric" data-calc="system-weight">
+                              <input type="radio" id="metric-weight" name="system-weight" value="metric" data-calc="system-weight" tabindex="-1">
                               <label for="metric-weight">Kilos</label>
                             </div>
                           </div>
@@ -421,9 +421,9 @@
 
                       <div class="row">
                         <div class="small-12 medium-6 columns">
-                          <label>Excersise Level</label>
+                          <label>How much do you exercise?</label>
                           <select name="calc-activity" data-calc="activity" required>
-                            <option value="1.0">Basal Metabolic Rate</option>
+                            <option value="1.0">I exercise between zero and 2 times per week</option>
                             <option value="1.375" selected="selected">3 times per week</option>
                             <option value="1.42">4 times per week</option>
                             <option value="1.465">5 times per week</option>
@@ -432,26 +432,40 @@
                           </select>
                         </div>
                       </div>
+                      
+                      <hr>
 
                       <div class="row">
                         <div class="small-12 medium-10 columns">
-                          <label></label>
+                          <label>Do any of the below apply to you?</label>
                           <div class="row">
                             <div class="small-12 columns">
-                              <input type="checkbox" id="high-intensity-cardio" name="activity-extra" value="0.09" data-calc="activity-extra">
-                              <label for="high-intensity-cardio">High Intensity Cardio</label>
+                              <div class="radio-opt">
+                                <input type="checkbox" id="high-intensity-cardio" name="activity-extra" value="0.09" data-calc="activity-extra">
+                                <label for="high-intensity-cardio">I perform high Intensity Cardio - When exercising do you sweat continuously and maintain a very high heart rate?</label>
+                              </div>
                             </div>
                           </div>
                           <div class="row">
                             <div class="small-12 columns">
-                              <input type="checkbox" id="physical-job" name="activity-extra" value="0.2" data-calc="activity-extra">
-                              <label for="physical-job">Physical Job</label>
+                              <div class="radio-opt">
+                                <input type="checkbox" id="physical-job" name="activity-extra" value="0.2" data-calc="activity-extra">
+                                <label for="physical-job">I have a highly pysical job - For instance labouring, brick laying, post man, tree surgeon</label>
+                              </div>
                             </div>
                           </div>
                           <div class="row">
                             <div class="small-12 columns">
-                              <input type="checkbox" id="twice-daily" name="activity-extra" value="0.09" data-calc="activity-extra">
-                              <label for="twice-daily">Twice daily</label>
+                              <div class="radio-opt">
+                                <input type="checkbox" id="twice-daily" name="activity-extra" value="0.09" data-calc="activity-extra">
+                                <label for="twice-daily">I exercise twice daily for more than 45 minute</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="small-12 columns">
+                              <p>*Select any that apply<br>
+                                ** Please bare in mind selecting these boxes will increase your daily calorie requirements and could reduce weight loss.</p>
                             </div>
                           </div>
                         </div>
@@ -511,13 +525,13 @@
                             <div class="small-12 columns">
                               <div class="radio-opt">
                                 <input class="selected" type="radio" id="fatLoss-aggressive" name="goal" value="20" data-calc="goal" data-calc-goal="fat-loss">
-                                <label for="fatLoss-aggressive">Lose fat and willing to sacrifice muscle for quicker results (some cravings)</label>
+                                <label for="fatLoss-aggressive">Standard  - recommended for week one</label>
                               </div>
                             </div>
                             <div class="small-12 columns">
                               <div class="radio-opt">
                                 <input type="radio" id="fatLoss-reckless" name="goal" value="25" data-calc="goal" data-calc-goal="fat-loss">
-                                <label for="fatLoss-reckless">Lose fat and willing to sacrifice muscle for fastest results (higher cravings)</label>
+                                <label for="fatLoss-reckless">Lose fat and willing to lose a little muscle</label>
                               </div>
                             </div>
                           </div>
@@ -545,19 +559,19 @@
                             <div class="small-12 columns">
                               <div class="radio-opt">
                                 <input type="radio" id="bulk-cautious" name="goal" value="15" data-calc="goal" data-calc-goal="bulking">
-                                <label for="bulk-cautious">Gain muscle whilst keeping body fat as low as possible</label>
+                                <label for="bulk-cautious">Gain muscle whilst keeping body fat as low as possible - slow</label>
                               </div>
                             </div>
                             <div class="small-12 columns">
                               <div class="radio-opt">
                                 <input class="selected" type="radio" id="bulk-textBook" name="goal" value="20" data-calc="goal" data-calc-goal="bulking">
-                                <label for="bulk-textBook">Gain muscle and willing to gain some body fat in the process</label>
+                                <label for="bulk-textBook">Standard - recommended for week one</label>
                               </div>
                             </div>
                             <div class="small-12 columns">
                               <div class="radio-opt">
                                 <input type="radio" id="bulk-aggressive" name="goal" value="25" data-calc="goal" data-calc-goal="bulking">
-                                <label for="bulk-aggressive">Gain as much muscle as possible and willing to gain more fat in the process</label>
+                                <label for="bulk-aggressive">Gain as much muscle as possible, higher fat gain likelihood - fast</label>
                               </div>
                             </div>
                           </div>
@@ -603,12 +617,12 @@
                                   <label for="ratios-bodybuilder">Build muscle and maintain a low bodyfat - energy may be lower</label>
                                 </div>
                               </div>
-                              <div class="small-6 columns">
+                              <!--<div class="small-6 columns">
                                 <div class="radio-opt ratios">
                                   <input type="radio" id="ratios-moderate" name="ratios" value="moderate" data-calc="ratios" data-name="moderate" data-protein="35" data-fat="15" data-carbs="50">
                                   <label for="ratios-moderate">Take part in endurance / performance sports - (boxing, spinning, cycling</label>
                                 </div>
-                              </div>
+                              </div>-->
                             </div>
                         </div>
                         <div class="small-12 columns">
